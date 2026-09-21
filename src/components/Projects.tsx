@@ -54,8 +54,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
               {/* Card Body */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-10">
                 
-                {/* Mockup Image Frame (7 Cols) */}
-                <div className={`lg:col-span-7 ${isReversed ? 'lg:order-2' : ''}`}>
+                {/* Mockup Image Frame + Direct Code Button (7 Cols) */}
+                <div className={`lg:col-span-7 flex flex-col justify-between space-y-4 ${isReversed ? 'lg:order-2' : ''}`}>
                   <div className="relative border-4 border-black bg-black shadow-neo-sm overflow-hidden group/img aspect-video">
                     <img
                       src={project.previewImage}
@@ -68,6 +68,17 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                       FEATURED
                     </div>
                   </div>
+
+                  {/* Nút Xem Code đặt ngay dưới ảnh để lấp đầy khoảng trống */}
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3.5 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo-sm neo-btn flex items-center justify-center gap-2 hover:bg-[#ff5252] transition-colors"
+                  >
+                    <span>XEM SOURCE CODE GITHUB</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
 
                 {/* Case Study Details (5 Cols) */}
@@ -113,20 +124,6 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                       </div>
                     </div>
                   </div>
-
-                  {/* Actions Bar */}
-                  <div className="mt-8 pt-6 border-t-4 border-black flex flex-wrap items-center gap-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs uppercase tracking-wider shadow-neo-sm neo-btn flex items-center gap-2 hover:bg-[#ff5252]"
-                    >
-                      <span>XEM MÃ NGUỒN GITHUB &amp; TÀI LIỆU API</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-
                 </div>
 
               </div>

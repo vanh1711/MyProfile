@@ -53,7 +53,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
   };
 
   return (
-    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="about" className="pt-10 sm:pt-14 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       
       {/* Hidden File Input for Direct Local Image Upload */}
       <input

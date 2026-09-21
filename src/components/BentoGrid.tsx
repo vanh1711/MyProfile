@@ -19,7 +19,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
       {/* Section Header */}
       <div className="mb-16">
         <div className="inline-block px-3 py-1 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs uppercase tracking-widest mb-4 shadow-neo-sm">
-          02 // NĂNG LỰC &amp; CÔNG NGHỆ
+          03 // NĂNG LỰC &amp; CÔNG NGHỆ
         </div>
         <h2 className="font-heading font-black text-4xl sm:text-6xl text-black tracking-tight uppercase">
           KỸ NĂNG <span className="bg-[#FFD93D] border-4 border-black px-3 inline-block transform -rotate-1 shadow-neo-sm">CHUYÊN MÔN</span>

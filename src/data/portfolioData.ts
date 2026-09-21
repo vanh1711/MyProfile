@@ -23,25 +23,19 @@ export const DEFAULT_PROJECTS: Project[] = [
     "subtitle": "Hệ thống RESTful API quản lý bán hàng & xử lý đơn hàng",
     "category": "JAVA BACKEND & REST API",
     "tags": [
-      "Blade Templates",
-      "JavaScript (ES6+)",
-      "Tailwind CSS",
-      "Chart.js",
-      "PHP 8.2+",
-      "Laravel 11",
+      "Java 17",
+      "Spring Boot 3",
+      "Spring Data JPA",
       "MySQL",
-      "GHN Express Logistics API & Webhooks",
-      "MoMo Payment Gateway API (IPN)",
-      "Google Gemini AI API",
-      "Git",
-      "GitHub",
-      "Laragon",
-      "Postman."
+      "Redis Caching",
+      "JWT Security",
+      "RESTful API",
+      "Postman"
     ],
     "problem": "Hệ thống thương mại điện tử cần xử lý đồng thời hàng nghìn truy vấn sản phẩm, quản lý phân quyền người dùng bảo mật (Role-based: Admin / User / Staff), và đảm bảo tính toàn vẹn dữ liệu cho quy trình giỏ hàng, thanh toán và trừ kho hàng.",
     "solution": "Xây dựng kiến trúc phân tầng 3 lớp (Controller - Service - Repository) chuẩn RESTful API, áp dụng JWT & Spring Security để xác thực không lưu trạng thái (Stateless Auth), tích hợp Redis Caching giảm 60% tải truy vấn cơ sở dữ liệu, và viết Transactional Service đảm bảo tính toàn vẹn ACID.",
     "metrics": "RESTFUL STANDARD // 99.9% RELIABILITY",
-    "demoUrl": "https://github.com/vanh1711",
+    "demoUrl": "https://github.com/vanh1711/E-Commerce",
     "previewImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
     "accentColor": "#FFD93D"
   },
@@ -63,31 +57,9 @@ export const DEFAULT_PROJECTS: Project[] = [
     "problem": "Nền tảng nghe nhạc trực tuyến cần API phân trang bài hát cực nhanh dưới 150ms, đồng bộ hóa playlist cá nhân của từng tài khoản và hỗ trợ kết nối streaming dữ liệu audio không ngắt quãng.",
     "solution": "Thiết kế cơ sở dữ liệu quan hệ chuẩn 3NF trên PostgreSQL, triển khai cơ chế đánh Index hiệu quả cho các câu truy vấn tìm kiếm bài hát theo nghệ sĩ/thể loại, đóng gói toàn bộ dịch vụ backend bằng Docker Container giúp triển khai đồng nhất.",
     "metrics": "<150MS API LATENCY // DOCKER READY",
-    "demoUrl": "https://github.com/vanh1711",
+    "demoUrl": "https://github.com/vanh1711/MusicWeb",
     "previewImage": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
     "accentColor": "#FF6B6B"
-  },
-  {
-    "id": "du-an-3",
-    "title": "CAMPUS LIBRARY & COURSE MANAGEMENT",
-    "subtitle": "Hệ thống quản trị thư viện và đăng ký tín chỉ sinh viên",
-    "category": "ENTERPRISE APPLICATION",
-    "tags": [
-      "Java Core",
-      "Spring Boot",
-      "MySQL",
-      "Lombok",
-      "OOP Principles",
-      "Design Patterns",
-      "JUnit 5",
-      "Mockito"
-    ],
-    "problem": "Quy trình quản lý mượn trả tài liệu, điểm danh và xếp lớp học phần dễ xảy ra xung đột lịch học và thiếu cơ chế kiểm tra tính hợp lệ dữ liệu chặt chẽ.",
-    "solution": "Vận dụng thuần thục các nguyên lý OOP và Design Patterns (Singleton, Factory, Builder, Repository), triển khai validation toàn diện (Hibernate Validator) và viết bộ Unit Test với JUnit 5 & Mockito đạt độ bao phủ kiểm thử >80%.",
-    "metrics": ">80% UNIT TEST COVERAGE // ZERO CONFLICT",
-    "demoUrl": "https://github.com/vanh1711",
-    "previewImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80",
-    "accentColor": "#C4B5FD"
   }
 ];
 
@@ -170,7 +142,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v2';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v3';
 
 export function getStoredFullData(): FullPortfolioData {
   try {

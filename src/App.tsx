@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
 import { AboutMe } from './components/AboutMe';
 import { BentoGrid } from './components/BentoGrid';
 import { Projects } from './components/Projects';
@@ -84,7 +83,6 @@ export const App: React.FC = () => {
       {/* Main Sections & Footer Wrapper (Offset by lg:pl-72 for left sidebar) */}
       <div className="lg:pl-72 flex flex-col min-h-screen">
         <main className="relative z-10 pt-16 lg:pt-0 flex-1">
-          <Hero profile={fullData.personalInfo} />
           <AboutMe
             profile={fullData.personalInfo}
             onUpdateProfile={handleUpdateProfile}

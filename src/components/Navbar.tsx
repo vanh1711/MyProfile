@@ -30,7 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
         {/* Top Header & Brand */}
         <div className="space-y-4">
           <a
-            href="#"
+            href="#about"
             className="block p-3.5 border-4 border-black bg-[#FFD93D] shadow-neo-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group"
           >
             <div className="flex items-center justify-between">
@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
       <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#FFFDF5] border-b-4 border-black shadow-neo-sm">
         <div className="h-16 px-4 flex items-center justify-between">
           <a
-            href="#"
+            href="#about"
             className="p-1.5 border-3 border-black bg-[#FFD93D] shadow-neo-sm font-black text-base uppercase text-black"
           >
             {profile.name}
