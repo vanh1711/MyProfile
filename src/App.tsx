@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { AboutMe } from './components/AboutMe';
 import { BentoGrid } from './components/BentoGrid';
 import { Projects } from './components/Projects';
 import { Timeline } from './components/Timeline';
@@ -8,8 +9,8 @@ import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
 import { ProfileEditorModal } from './components/ProfileEditorModal';
-import { getStoredFullData } from './data/portfolioData';
-import type { ToastMessage, FullPortfolioData } from './types/portfolio';
+import { getStoredFullData, saveStoredFullData } from './data/portfolioData';
+import type { ToastMessage, FullPortfolioData, PersonalInfo } from './types/portfolio';
 import { Edit3 } from 'lucide-react';
 
 export const App: React.FC = () => {
@@ -29,6 +30,15 @@ export const App: React.FC = () => {
     setFullData(updatedData);
   };
 
+  const handleUpdateProfile = (updatedProfile: PersonalInfo) => {
+    const updatedFullData: FullPortfolioData = {
+      ...fullData,
+      personalInfo: updatedProfile,
+    };
+    setFullData(updatedFullData);
+    saveStoredFullData(updatedFullData);
+  };
+
   return (
     <div className="relative min-h-screen bg-[#FFFDF5] text-black overflow-x-clip selection:bg-[#FFD93D] selection:text-black">
       {/* Sticky Navigation */}
@@ -40,6 +50,11 @@ export const App: React.FC = () => {
       {/* Main Sections (pt-20 accounts for fixed 80px Navbar) */}
       <main className="relative z-10 pt-20">
         <Hero profile={fullData.personalInfo} />
+        <AboutMe
+          profile={fullData.personalInfo}
+          onUpdateProfile={handleUpdateProfile}
+          onOpenEditor={() => setIsEditorOpen(true)}
+        />
         <Projects projects={fullData.projects} />
         <BentoGrid skills={fullData.skills} />
         <Timeline timeline={fullData.timeline} />

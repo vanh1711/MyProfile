@@ -11,6 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const NAV_ITEMS = [
+    { label: 'GIỚI THIỆU', href: '#about' },
     { label: 'DỰ ÁN', href: '#projects' },
     { label: 'KỸ NĂNG', href: '#skills' },
     { label: 'KINH NGHIỆM', href: '#timeline' },

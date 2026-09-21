@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, BookOpen, Sparkles } from 'lucide-react';
-import { FigmaIcon } from './icons/BrandIcons';
+import { ExternalLink, Sparkles } from 'lucide-react';
 import type { Project } from '../types/portfolio';
 import { DEFAULT_PROJECTS } from '../data/portfolioData';
 
@@ -16,7 +15,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
       {/* Section Header */}
       <div className="mb-20">
         <div className="inline-block px-3 py-1 border-4 border-black bg-[#FFD93D] text-black font-black text-xs uppercase tracking-widest mb-4 shadow-neo-sm">
-          01 // SẢN PHẨM TIÊU BIỂU
+          02 // SẢN PHẨM TIÊU BIỂU
         </div>
         <h2 className="font-heading font-black text-4xl sm:text-6xl text-black tracking-tight uppercase">
           DỰ ÁN <span className="bg-[#FF6B6B] text-white border-4 border-black px-3 inline-block transform rotate-1 shadow-neo-sm">NỔI BẬT</span>
@@ -115,34 +114,16 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                     </div>
                   </div>
 
-                  {/* Actions Bar */}
+                  {/* Actions Bar (Only Demo Link) */}
                   <div className="mt-8 pt-6 border-t-4 border-black flex flex-wrap items-center gap-3">
                     <a
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs uppercase tracking-wider shadow-neo-sm neo-btn flex items-center gap-1.5"
+                      className="px-6 py-3 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs uppercase tracking-wider shadow-neo-sm neo-btn flex items-center gap-2 hover:bg-[#ff5252]"
                     >
-                      <span>XEM DEMO</span>
+                      <span>TRẢI NGHIỆM DEMO THỰC TẾ</span>
                       <ExternalLink className="w-4 h-4" />
-                    </a>
-
-                    <a
-                      href={project.figmaUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2.5 border-4 border-black bg-[#FFD93D] text-black font-black text-xs uppercase tracking-wider shadow-neo-sm neo-btn flex items-center gap-1.5"
-                    >
-                      <FigmaIcon className="w-4 h-4" />
-                      <span>BẢN VẼ FIGMA</span>
-                    </a>
-
-                    <a
-                      href={project.caseStudyUrl}
-                      className="ml-auto inline-flex items-center gap-1 font-black text-xs uppercase text-black hover:underline"
-                    >
-                      <BookOpen className="w-4 h-4" />
-                      <span>Case Study ↗</span>
                     </a>
                   </div>
 

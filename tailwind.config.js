@@ -19,8 +19,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', 'sans-serif'],
-        heading: ['"Space Grotesk"', 'sans-serif'],
+        sans: ['"Space Grotesk"', '"Be Vietnam Pro"', '"Outfit"', 'sans-serif'],
+        heading: ['"Space Grotesk"', '"Be Vietnam Pro"', '"Outfit"', 'sans-serif'],
         mono: ['"Space Grotesk"', 'monospace'],
       },
       boxShadow: {

@@ -34,8 +34,17 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
         {/* Floating Sticker Badges */}
         <div className="flex flex-wrap justify-center items-center gap-3 mb-8">
           <motion.div
-            initial={{ rotate: -4, scale: 0.9 }}
+            initial={{ rotate: -3, scale: 0.95 }}
             animate={{ rotate: -2, scale: 1 }}
+            className="px-4 py-1.5 border-4 border-black bg-[#FFD93D] text-black font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo-sm flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full bg-black animate-ping" />
+            <span>XIN CHÀO! TÔI LÀ {profile.name}</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ rotate: 3, scale: 0.95 }}
+            animate={{ rotate: 2, scale: 1 }}
             className="px-4 py-1.5 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs uppercase tracking-wider shadow-neo-sm flex items-center gap-1.5"
           >
             <Zap className="w-4 h-4 fill-white" />
@@ -43,9 +52,9 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           </motion.div>
 
           <motion.div
-            initial={{ rotate: 4, scale: 0.9 }}
-            animate={{ rotate: 1, scale: 1 }}
-            className="px-4 py-1.5 border-4 border-black bg-[#FFD93D] text-black font-black text-xs uppercase tracking-wider shadow-neo-sm flex items-center gap-1.5"
+            initial={{ rotate: -2, scale: 0.95 }}
+            animate={{ rotate: 0, scale: 1 }}
+            className="px-4 py-1.5 border-4 border-black bg-[#C4B5FD] text-black font-black text-xs uppercase tracking-wider shadow-neo-sm flex items-center gap-1.5"
           >
             <Star className="w-4 h-4 fill-black" />
             <span>{profile.location}</span>
@@ -54,6 +63,10 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
         {/* Massive Space Grotesk Headline */}
         <div className="space-y-3 mb-10">
+          <div className="text-black font-black text-lg sm:text-2xl uppercase tracking-widest mb-2">
+            PORTFOLIO // THIẾT KẾ &amp; LẬP TRÌNH
+          </div>
+
           <h1 className="font-heading font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter leading-none text-black">
             CREATIVE
           </h1>

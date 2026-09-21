@@ -268,7 +268,54 @@ export function saveStoredFullData(data: FullPortfolioData): void {
           {activeTab === 'personal' && (
             <div className="space-y-4">
               <div className="p-3.5 border-3 border-black bg-[#C4B5FD]/30 text-xs font-bold leading-relaxed">
-                💡 Thay đổi tên, chức danh và thông điệp của bạn. Dữ liệu sẽ xuất hiện ngay tại Logo, Hero và Footer.
+                💡 Thay đổi tên, ảnh đại diện, chức danh và thông điệp của bạn. Dữ liệu sẽ xuất hiện ngay tại Logo, Hero, Giới Thiệu Bản Thân và Footer.
+              </div>
+
+              {/* Avatar Upload & URL */}
+              <div className="p-4 border-4 border-black bg-white shadow-neo-sm space-y-3">
+                <label className="block text-xs font-black uppercase">Ảnh đại diện (Avatar):</label>
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <div className="w-20 h-20 border-3 border-black bg-black overflow-hidden shrink-0 shadow-neo-sm">
+                    <img
+                      src={formData.personalInfo.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'}
+                      alt={formData.personalInfo.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 w-full space-y-2">
+                    <input
+                      type="text"
+                      value={formData.personalInfo.avatarUrl || ''}
+                      onChange={(e) => handlePersonalChange('avatarUrl', e.target.value)}
+                      placeholder="Dán link ảnh (URL) hoặc tải từ máy tính bên dưới"
+                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                    />
+                    <div className="flex items-center gap-2">
+                      <label className="px-3 py-1.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase cursor-pointer hover:bg-[#ffe26e] shadow-neo-sm">
+                        📁 Tải ảnh từ máy tính
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              const reader = new FileReader();
+                              reader.onload = (evt) => {
+                                const base64 = evt.target?.result as string;
+                                if (base64) {
+                                  handlePersonalChange('avatarUrl', base64);
+                                }
+                              };
+                              reader.readAsDataURL(file);
+                            }
+                          }}
+                        />
+                      </label>
+                      <span className="text-[11px] font-bold text-black/60">Tự động lưu vào trình duyệt</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div>
@@ -292,11 +339,21 @@ export function saveStoredFullData(data: FullPortfolioData): void {
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase mb-1">Câu định vị (Tagline):</label>
+                <label className="block text-xs font-black uppercase mb-1">Câu định vị ngắn (Tagline):</label>
                 <textarea
                   rows={2}
                   value={formData.personalInfo.tagline}
                   onChange={(e) => handlePersonalChange('tagline', e.target.value)}
+                  className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm resize-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-black uppercase mb-1">Tiểu sử chi tiết (Bio - Hiển thị trong phần Giới Thiệu):</label>
+                <textarea
+                  rows={3}
+                  value={formData.personalInfo.bio || ''}
+                  onChange={(e) => handlePersonalChange('bio', e.target.value)}
                   className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm resize-none"
                 />
               </div>
@@ -491,7 +548,7 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs font-black uppercase mb-1">Chỉ số nổi bật (Metrics):</label>
                       <input
@@ -502,20 +559,11 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Link Demo:</label>
+                      <label className="block text-xs font-black uppercase mb-1">Link Demo Trải Nghiệm:</label>
                       <input
                         type="text"
                         value={proj.demoUrl}
                         onChange={(e) => handleProjectChange(idx, 'demoUrl', e.target.value)}
-                        className="w-full p-2 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-black uppercase mb-1">Link Figma:</label>
-                      <input
-                        type="text"
-                        value={proj.figmaUrl}
-                        onChange={(e) => handleProjectChange(idx, 'figmaUrl', e.target.value)}
                         className="w-full p-2 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
                       />
                     </div>

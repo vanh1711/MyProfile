@@ -13,6 +13,7 @@ export const DEFAULT_PERSONAL_INFO: PersonalInfo = {
   systemStatus: 'SẴN SÀNG NHẬN DỰ ÁN MỚI (AVAILABLE FOR HIRE)',
   location: 'Việt Nam // Nhận việc Toàn cầu (Remote)',
   email: 'vanh17112005@gmail.com',
+  avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
   resumeUrl: '#cv',
   githubUrl: 'https://github.com/vanh1711',
   linkedinUrl: 'https://linkedin.com',

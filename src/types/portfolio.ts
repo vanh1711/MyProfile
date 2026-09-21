@@ -6,6 +6,7 @@ export interface PersonalInfo {
   systemStatus: string;
   location: string;
   email: string;
+  avatarUrl?: string;
   resumeUrl: string;
   githubUrl: string;
   linkedinUrl: string;
@@ -23,8 +24,8 @@ export interface Project {
   solution: string;
   metrics: string;
   demoUrl: string;
-  figmaUrl: string;
-  caseStudyUrl: string;
+  figmaUrl?: string;
+  caseStudyUrl?: string;
   previewImage: string;
   accentColor: string;
 }
