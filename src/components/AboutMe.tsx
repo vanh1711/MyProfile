@@ -95,10 +95,10 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
             <div className="flex items-center justify-between pb-4 border-b-4 border-black">
               <div className="flex items-center gap-2 font-black text-xs text-black">
                 <User className="w-4 h-4 text-black" />
-                <span className="uppercase">PROFILE_ID // 01</span>
+                <span className="uppercase">HỒ SƠ ỨNG VIÊN</span>
               </div>
               <span className="px-2.5 py-0.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase shadow-neo-sm">
-                BACKEND ENGINEER
+                BACKEND DEVELOPER
               </span>
             </div>
 
