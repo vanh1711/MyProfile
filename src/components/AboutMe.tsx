@@ -74,7 +74,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
           GIỚI THIỆU <span className="bg-[#FFD93D] border-4 border-black px-3 inline-block transform -rotate-1 shadow-neo-sm">BẢN THÂN</span>
         </h2>
         <p className="mt-4 font-bold text-base sm:text-lg text-black/80 max-w-2xl">
-          Sự kết hợp giữa tư duy thiết kế trải nghiệm người dùng sâu sắc và năng lực lập trình Frontend hiện đại.
+          Đam mê xây dựng hệ thống Java Backend tin cậy, tối ưu hóa cơ sở dữ liệu và triển khai RESTful APIs chuẩn mực.
         </p>
       </div>
 

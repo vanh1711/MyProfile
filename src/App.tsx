@@ -81,34 +81,36 @@ export const App: React.FC = () => {
         isAdmin={isAdmin}
       />
 
-      {/* Main Sections (pt-20 accounts for fixed 80px Navbar) */}
-      <main className="relative z-10 pt-20">
-        <Hero profile={fullData.personalInfo} />
-        <AboutMe
+      {/* Main Sections & Footer Wrapper (Offset by lg:pl-72 for left sidebar) */}
+      <div className="lg:pl-72 flex flex-col min-h-screen">
+        <main className="relative z-10 pt-16 lg:pt-0 flex-1">
+          <Hero profile={fullData.personalInfo} />
+          <AboutMe
+            profile={fullData.personalInfo}
+            onUpdateProfile={handleUpdateProfile}
+            onOpenEditor={() => setIsEditorOpen(true)}
+            isAdmin={isAdmin}
+          />
+          <Projects projects={fullData.projects} />
+          <BentoGrid skills={fullData.skills} />
+          <Timeline timeline={fullData.timeline} />
+          <ContactForm onShowToast={handleShowToast} />
+        </main>
+
+        {/* Footer */}
+        <Footer
           profile={fullData.personalInfo}
-          onUpdateProfile={handleUpdateProfile}
           onOpenEditor={() => setIsEditorOpen(true)}
           isAdmin={isAdmin}
         />
-        <Projects projects={fullData.projects} />
-        <BentoGrid skills={fullData.skills} />
-        <Timeline timeline={fullData.timeline} />
-        <ContactForm onShowToast={handleShowToast} />
-      </main>
-
-      {/* Footer */}
-      <Footer
-        profile={fullData.personalInfo}
-        onOpenEditor={() => setIsEditorOpen(true)}
-        isAdmin={isAdmin}
-      />
+      </div>
 
       {/* Floating Fast Action: Edit Profile Button (Chỉ hiển thị khi là Admin) */}
       {isAdmin && (
         <button
           type="button"
           onClick={() => setIsEditorOpen(true)}
-          className="fixed bottom-6 left-6 z-40 px-4 py-3 border-4 border-black bg-[#FFD93D] text-black font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo neo-btn flex items-center gap-2 hover:bg-[#ffe26e]"
+          className="fixed bottom-6 right-6 z-40 px-4 py-3 border-4 border-black bg-[#FFD93D] text-black font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo neo-btn flex items-center gap-2 hover:bg-[#ffe26e]"
           title="Bấm vào để tùy chỉnh họ tên, dự án, kỹ năng và kinh nghiệm của bạn"
         >
           <Edit3 className="w-4 h-4" />
