@@ -6,9 +6,10 @@ import type { PersonalInfo } from '../types/portfolio';
 interface FooterProps {
   profile: PersonalInfo;
   onOpenEditor: () => void;
+  isAdmin?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ profile, onOpenEditor }) => {
+export const Footer: React.FC<FooterProps> = ({ profile, onOpenEditor, isAdmin = false }) => {
   return (
     <footer className="border-t-6 border-black bg-[#FFD93D] py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-12">
@@ -75,13 +76,15 @@ export const Footer: React.FC<FooterProps> = ({ profile, onOpenEditor }) => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={onOpenEditor}
-              className="px-3 py-1.5 border-2 border-black bg-white hover:bg-[#C4B5FD] flex items-center gap-1.5 shadow-neo-sm transition-all"
-            >
-              <Edit3 className="w-3.5 h-3.5" />
-              <span>SỬA THÔNG TIN</span>
-            </button>
+            {isAdmin && (
+              <button
+                onClick={onOpenEditor}
+                className="px-3 py-1.5 border-2 border-black bg-white hover:bg-[#C4B5FD] flex items-center gap-1.5 shadow-neo-sm transition-all"
+              >
+                <Edit3 className="w-3.5 h-3.5" />
+                <span>SỬA THÔNG TIN</span>
+              </button>
+            )}
 
             <div className="flex items-center gap-1">
               <span>THIẾT KẾ VỚI</span>

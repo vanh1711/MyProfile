@@ -18,6 +18,39 @@ export const App: React.FC = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [toast, setToast] = useState<ToastMessage | null>(null);
 
+  // Admin Mode: Bật khi chạy localhost HOẶC có tham số ?admin=true trên URL HOẶC bấm Ctrl+Shift+E
+  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const urlParams = new URLSearchParams(window.location.search);
+    return (
+      urlParams.get('admin') === 'true' ||
+      urlParams.get('edit') === 'true' ||
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1'
+    );
+  });
+
+  // Phím tắt bí mật (Ctrl + Shift + E) để mở/tắt chế độ Quản trị
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.shiftKey && (e.key === 'E' || e.key === 'e')) {
+        e.preventDefault();
+        setIsAdmin((prev) => {
+          const next = !prev;
+          setToast({
+            id: `toast-${Date.now()}`,
+            title: next ? 'CHẾ ĐỘ QUẢN TRỊ' : 'CHẾ ĐỘ KHÁCH XEM',
+            message: next ? '🔓 Đã mở Chế độ Quản trị (Admin Mode)!' : '🔒 Đã ẩn các nút chỉnh sửa (Guest View)!',
+            type: 'info',
+          });
+          return next;
+        });
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleShowToast = (newToast: ToastMessage) => {
     setToast(newToast);
   };
@@ -45,6 +78,7 @@ export const App: React.FC = () => {
       <Navbar
         profile={fullData.personalInfo}
         onOpenEditor={() => setIsEditorOpen(true)}
+        isAdmin={isAdmin}
       />
 
       {/* Main Sections (pt-20 accounts for fixed 80px Navbar) */}
@@ -54,6 +88,7 @@ export const App: React.FC = () => {
           profile={fullData.personalInfo}
           onUpdateProfile={handleUpdateProfile}
           onOpenEditor={() => setIsEditorOpen(true)}
+          isAdmin={isAdmin}
         />
         <Projects projects={fullData.projects} />
         <BentoGrid skills={fullData.skills} />
@@ -65,19 +100,22 @@ export const App: React.FC = () => {
       <Footer
         profile={fullData.personalInfo}
         onOpenEditor={() => setIsEditorOpen(true)}
+        isAdmin={isAdmin}
       />
 
-      {/* Floating Fast Action: Edit Profile Button */}
-      <button
-        type="button"
-        onClick={() => setIsEditorOpen(true)}
-        className="fixed bottom-6 left-6 z-40 px-4 py-3 border-4 border-black bg-[#FFD93D] text-black font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo neo-btn flex items-center gap-2 hover:bg-[#ffe26e]"
-        title="Bấm vào để tùy chỉnh họ tên, dự án, kỹ năng và kinh nghiệm của bạn"
-      >
-        <Edit3 className="w-4 h-4" />
-        <span className="hidden sm:inline">TÙY CHỈNH NỘI DUNG</span>
-        <span className="sm:hidden">SỬA</span>
-      </button>
+      {/* Floating Fast Action: Edit Profile Button (Chỉ hiển thị khi là Admin) */}
+      {isAdmin && (
+        <button
+          type="button"
+          onClick={() => setIsEditorOpen(true)}
+          className="fixed bottom-6 left-6 z-40 px-4 py-3 border-4 border-black bg-[#FFD93D] text-black font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo neo-btn flex items-center gap-2 hover:bg-[#ffe26e]"
+          title="Bấm vào để tùy chỉnh họ tên, dự án, kỹ năng và kinh nghiệm của bạn"
+        >
+          <Edit3 className="w-4 h-4" />
+          <span className="hidden sm:inline">TÙY CHỈNH NỘI DUNG (ADMIN)</span>
+          <span className="sm:hidden">SỬA</span>
+        </button>
+      )}
 
       {/* Toast Notification */}
       <Toast toast={toast} onClose={handleCloseToast} />

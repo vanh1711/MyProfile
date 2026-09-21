@@ -5,9 +5,10 @@ import type { PersonalInfo } from '../types/portfolio';
 interface NavbarProps {
   profile: PersonalInfo;
   onOpenEditor: () => void;
+  isAdmin?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor }) => {
+export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin = false }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const NAV_ITEMS = [
@@ -48,15 +49,17 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor }) => {
 
         {/* Action Controls */}
         <div className="hidden lg:flex items-center gap-4">
-          {/* Nút Sửa Thông Tin Cá Nhân */}
-          <button
-            type="button"
-            onClick={onOpenEditor}
-            className="px-3.5 py-2 border-4 border-black bg-[#C4B5FD] text-black font-black text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-neo-sm neo-btn hover:bg-[#b5a1fc]"
-          >
-            <Edit3 className="w-4 h-4" />
-            <span>SỬA THÔNG TIN</span>
-          </button>
+          {/* Nút Sửa Thông Tin Cá Nhân (Chỉ hiện khi là Admin / Localhost) */}
+          {isAdmin && (
+            <button
+              type="button"
+              onClick={onOpenEditor}
+              className="px-3.5 py-2 border-4 border-black bg-[#C4B5FD] text-black font-black text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-neo-sm neo-btn hover:bg-[#b5a1fc]"
+            >
+              <Edit3 className="w-4 h-4" />
+              <span>SỬA THÔNG TIN</span>
+            </button>
+          )}
 
           {/* Nút Tải CV */}
           <a
@@ -73,13 +76,15 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor }) => {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={onOpenEditor}
-            className="p-2 border-3 border-black bg-[#C4B5FD] text-black font-black text-xs"
-            title="Sửa thông tin"
-          >
-            <Edit3 className="w-5 h-5" />
-          </button>
+          {isAdmin && (
+            <button
+              onClick={onOpenEditor}
+              className="p-2 border-3 border-black bg-[#C4B5FD] text-black font-black text-xs"
+              title="Sửa thông tin"
+            >
+              <Edit3 className="w-5 h-5" />
+            </button>
+          )}
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -108,15 +113,17 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor }) => {
           </div>
 
           <div className="pt-4 border-t-4 border-black flex flex-col gap-3">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenEditor();
-              }}
-              className="w-full py-3 border-4 border-black bg-[#C4B5FD] text-black font-black text-sm uppercase shadow-neo-sm"
-            >
-              ✏️ SỬA THÔNG TIN CỦA BẠN
-            </button>
+            {isAdmin && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenEditor();
+                }}
+                className="w-full py-3 border-4 border-black bg-[#C4B5FD] text-black font-black text-sm uppercase shadow-neo-sm"
+              >
+                ✏️ SỬA THÔNG TIN CỦA BẠN
+              </button>
+            )}
             <a
               href={profile.resumeUrl}
               className="w-full py-3 border-4 border-black bg-[#FF6B6B] text-white font-black text-sm uppercase text-center shadow-neo-sm"

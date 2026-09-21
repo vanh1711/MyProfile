@@ -21,9 +21,10 @@ interface AboutMeProps {
   profile: PersonalInfo;
   onUpdateProfile?: (updated: PersonalInfo) => void;
   onOpenEditor?: () => void;
+  isAdmin?: boolean;
 }
 
-export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) => {
+export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAdmin = false }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const defaultAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
@@ -109,28 +110,31 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) =>
                 className="w-full h-full object-cover object-center group-hover/avatar:scale-105 transition-transform duration-500"
               />
 
-              {/* Upload Button Overlay on Hover */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover/avatar:opacity-100 transition-opacity bg-black/60 p-4 text-center">
-                <button
-                  type="button"
-                  onClick={triggerUpload}
-                  className="px-4 py-2.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase flex items-center gap-2 shadow-neo-sm neo-btn"
-                >
-                  <Camera className="w-4 h-4" />
-                  <span>TẢI ẢNH TỪ MÁY TÍNH</span>
-                </button>
-                <span className="font-bold text-[10px] text-white mt-1.5">Hỗ trợ JPG, PNG, WEBP</span>
-              </div>
+              {/* Upload Button Overlay on Hover (Chỉ hiển thị khi là Admin) */}
+              {isAdmin && (
+                <>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover/avatar:opacity-100 transition-opacity bg-black/60 p-4 text-center">
+                    <button
+                      type="button"
+                      onClick={triggerUpload}
+                      className="px-4 py-2.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase flex items-center gap-2 shadow-neo-sm neo-btn"
+                    >
+                      <Camera className="w-4 h-4" />
+                      <span>TẢI ẢNH TỪ MÁY TÍNH</span>
+                    </button>
+                    <span className="font-bold text-[10px] text-white mt-1.5">Hỗ trợ JPG, PNG, WEBP</span>
+                  </div>
 
-              {/* Direct Corner Upload Icon */}
-              <button
-                type="button"
-                onClick={triggerUpload}
-                className="absolute top-3 right-3 p-2 border-2 border-black bg-[#FFD93D] text-black shadow-neo-sm neo-btn group-hover/avatar:hidden"
-                title="Bấm vào để đổi ảnh chân dung của bạn"
-              >
-                <Upload className="w-4 h-4" />
-              </button>
+                  <button
+                    type="button"
+                    onClick={triggerUpload}
+                    className="absolute top-3 right-3 p-2 border-2 border-black bg-[#FFD93D] text-black shadow-neo-sm neo-btn group-hover/avatar:hidden"
+                    title="Bấm vào để đổi ảnh chân dung của bạn"
+                  >
+                    <Upload className="w-4 h-4" />
+                  </button>
+                </>
+              )}
             </div>
 
             {/* 2. Name & Title Placed BELOW the Photo Box */}
