@@ -1,17 +1,17 @@
 import type { PersonalInfo, Project, SkillCategory, TimelineItem, FullPortfolioData } from '../types/portfolio';
 
 /* =========================================================================
-   THÔNG TIN PORTFOLIO CHÍNH THỨC CỦA ĐOÀN VIỆT ANH
+   THÔNG TIN PORTFOLIO CHÍNH THỨC CỦA ĐOÀN VIỆT ANH - JAVA BACKEND INTERN
    ========================================================================= */
 
 // 1. THÔNG TIN CÁ NHÂN CƠ BẢN
 export const DEFAULT_PERSONAL_INFO: PersonalInfo = {
   name: 'Đoàn Việt Anh',
-  title: 'UI/UX DESIGNER & FRONTEND DEVELOPER',
-  tagline: 'Thiết kế sản phẩm số độc bản, trải nghiệm người dùng tối ưu và lập trình giao diện hiệu năng cao với React & Tailwind.',
-  bio: 'Tôi là một nhà thiết kế UI/UX kiêm lập trình viên Frontend đam mê tạo ra các giao diện giàu tính thẩm mỹ, phá cách nhưng luôn đề cao tính thực dụng và khả năng tiếp cận.',
-  systemStatus: 'SẴN SÀNG NHẬN DỰ ÁN MỚI (AVAILABLE FOR HIRE)',
-  location: 'Việt Nam // Nhận việc Toàn cầu (Remote)',
+  title: 'JAVA BACKEND INTERN / SOFTWARE DEVELOPER',
+  tagline: 'Sinh viên CNTT đam mê phát triển hệ thống Backend với Java & Spring Boot. Tập trung vào tư duy OOP vững chắc, xây dựng RESTful API chuẩn mực và tối ưu cơ sở dữ liệu quan hệ.',
+  bio: 'Tôi là một lập trình viên Java Backend định hướng phát triển phần mềm chuyên nghiệp. Với nền tảng vững chắc về Java Core, cấu trúc dữ liệu & giải thuật, hệ sinh thái Spring Framework (Spring Boot, Spring Data JPA, Spring Security) và cơ sở dữ liệu MySQL/PostgreSQL, tôi luôn nỗ lực xây dựng các dịch vụ Backend ổn định, an toàn và có khả năng mở rộng tốt.',
+  systemStatus: 'TÌM KIẾM CƠ HỘI JAVA BACKEND INTERN / FRESHER',
+  location: 'Hà Nội // Sẵn sàng làm việc On-site / Hybrid / Remote',
   email: 'vanh17112005@gmail.com',
   avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
   resumeUrl: '#cv',
@@ -21,109 +21,121 @@ export const DEFAULT_PERSONAL_INFO: PersonalInfo = {
   figmaUrl: 'https://figma.com',
 };
 
-// 2. DANH SÁCH DỰ ÁN NỔI BẬT
+// 2. DANH SÁCH DỰ ÁN NỔI BẬT (JAVA BACKEND & API)
 export const DEFAULT_PROJECTS: Project[] = [
   {
     id: 'du-an-1',
-    title: 'MUSICWEB',
-    subtitle: 'Nền tảng nghe nhạc chất lượng cao',
-    category: 'WEB APPLICATION',
+    title: 'E-COMMERCE BACKEND API SYSTEM',
+    subtitle: 'Hệ thống RESTful API quản lý bán hàng & xử lý đơn hàng',
+    category: 'JAVA BACKEND & REST API',
     tags: [
-      'React',
-      'Vite',
-      'TypeScript',
-      'Tailwind CSS',
-      'Web Audio API',
-      'HTML5 Canvas',
-      'Node.js',
-      'Express.js',
-      'Zing MP3 API',
+      'Java 17',
+      'Spring Boot 3',
+      'Spring Data JPA',
+      'Hibernate',
+      'MySQL',
+      'JWT Authentication',
+      'Spring Security',
+      'Redis Cache',
+      'Swagger / OpenAPI',
     ],
-    problem: 'Trải nghiệm nghe nhạc thường xuyên bị ngắt quãng khi chuyển trang (58% người dùng phàn nàn), giao diện tìm kiếm bài hát chậm chạp và cụm điều khiển phát nhạc quá rườm rà, khó thao tác bằng một tay trên di động.',
-    solution: 'Thiết kế trình phát nhạc toàn cục cố định (Persistent Player) không ngắt mạch nghe, tối ưu tìm kiếm tức thì dưới 0.3s kết hợp hiệu ứng sóng âm và lời bài hát đồng bộ, giúp tăng 65% thời lượng nghe nhạc trung bình.',
-    metrics: '+48% CONVERSION // 98/100 SPEED',
-    demoUrl: 'https://example.com/demo1',
-    figmaUrl: 'https://figma.com/@project1',
-    caseStudyUrl: '#case-study-1',
-    previewImage: 'https://cdn.dribbble.com/userupload/12341456/file/original-3157947c93b921f781482d2821f74aee.png',
+    problem: 'Hệ thống thương mại điện tử cần xử lý đồng thời hàng nghìn truy vấn sản phẩm, quản lý phân quyền người dùng bảo mật (Role-based: Admin / User / Staff), và đảm bảo tính toàn vẹn dữ liệu cho quy trình giỏ hàng, thanh toán và trừ kho hàng.',
+    solution: 'Xây dựng kiến trúc phân tầng 3 lớp (Controller - Service - Repository) chuẩn RESTful API, áp dụng JWT & Spring Security để xác thực không lưu trạng thái (Stateless Auth), tích hợp Redis Caching giảm 60% tải truy vấn cơ sở dữ liệu, và viết Transactional Service đảm bảo tính toàn vẹn ACID.',
+    metrics: 'RESTFUL STANDARD // 99.9% RELIABILITY',
+    demoUrl: 'https://github.com/vanh1711',
+    previewImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#FFD93D',
   },
   {
     id: 'du-an-2',
-    title: 'FINTECH ANALYTICS DASHBOARD',
-    subtitle: 'Hệ thống quản trị tài chính & đầu tư thông minh',
-    category: 'SAAS & DASHBOARD',
-    tags: ['Design Systems', 'TypeScript', 'Charts', 'UX Research'],
-    problem: 'Người dùng doanh nghiệp bị quá tải thông tin trước hàng trăm chỉ số biểu đồ phức tạp và không có hệ thống phân cấp trực quan.',
-    solution: 'Xây dựng Design System đồng bộ với hơn 80 components tùy biến, áp dụng cấu trúc Bento Grid để phân cấp thông tin rõ ràng, giảm 40% thời gian tra cứu.',
-    metrics: '-40% THỜI GIAN TRA CỨU // WCAG AA',
-    demoUrl: 'https://example.com/demo2',
-    figmaUrl: 'https://figma.com/@project2',
-    caseStudyUrl: '#case-study-2',
-    previewImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    title: 'MUSICSTREAM CORE BACKEND SERVICE',
+    subtitle: 'Dịch vụ lưu trữ, quản lý playlist & phát nhạc trực tuyến',
+    category: 'WEB SERVICE & REST API',
+    tags: [
+      'Java',
+      'Spring Boot',
+      'PostgreSQL',
+      'REST API',
+      'Docker',
+      'Zing MP3 API',
+      'Maven',
+      'React (Frontend Client)',
+    ],
+    problem: 'Nền tảng nghe nhạc trực tuyến cần API phân trang bài hát cực nhanh dưới 150ms, đồng bộ hóa playlist cá nhân của từng tài khoản và hỗ trợ kết nối streaming dữ liệu audio không ngắt quãng.',
+    solution: 'Thiết kế cơ sở dữ liệu quan hệ chuẩn 3NF trên PostgreSQL, triển khai cơ chế đánh Index hiệu quả cho các câu truy vấn tìm kiếm bài hát theo nghệ sĩ/thể loại, đóng gói toàn bộ dịch vụ backend bằng Docker Container giúp triển khai đồng nhất.',
+    metrics: '<150MS API LATENCY // DOCKER READY',
+    demoUrl: 'https://github.com/vanh1711',
+    previewImage: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#FF6B6B',
   },
   {
     id: 'du-an-3',
-    title: 'MOBILE HEALTH & WELLNESS',
-    subtitle: 'Ứng dụng chăm sóc sức khỏe & theo dõi thói quen',
-    category: 'MOBILE APP UX',
-    tags: ['Mobile UX', 'Design Tokens', 'Prototyping', 'User Testing'],
-    problem: 'Khách hàng thường bỏ cuộc sau 7 ngày đầu do quy trình ghi chép hoạt động hàng ngày tẻ nhạt và thiếu động lực gắn kết.',
-    solution: 'Ứng dụng cơ chế Gamification với huy hiệu Pop-Art sinh động, thao tác 1-chạm (One-tap logging) và thông báo khích lệ đúng thời điểm.',
-    metrics: '+65% RETENTION SAU 30 NGÀY',
-    demoUrl: 'https://example.com/demo3',
-    figmaUrl: 'https://figma.com/@project3',
-    caseStudyUrl: '#case-study-3',
-    previewImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
+    title: 'CAMPUS LIBRARY & COURSE MANAGEMENT',
+    subtitle: 'Hệ thống quản trị thư viện và đăng ký tín chỉ sinh viên',
+    category: 'ENTERPRISE APPLICATION',
+    tags: [
+      'Java Core',
+      'Spring Boot',
+      'MySQL',
+      'Lombok',
+      'OOP Principles',
+      'Design Patterns',
+      'JUnit 5',
+      'Mockito',
+    ],
+    problem: 'Quy trình quản lý mượn trả tài liệu, điểm danh và xếp lớp học phần dễ xảy ra xung đột lịch học và thiếu cơ chế kiểm tra tính hợp lệ dữ liệu chặt chẽ.',
+    solution: 'Vận dụng thuần thục các nguyên lý OOP và Design Patterns (Singleton, Factory, Builder, Repository), triển khai validation toàn diện (Hibernate Validator) và viết bộ Unit Test với JUnit 5 & Mockito đạt độ bao phủ kiểm thử >80%.',
+    metrics: '>80% UNIT TEST COVERAGE // ZERO CONFLICT',
+    demoUrl: 'https://github.com/vanh1711',
+    previewImage: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#C4B5FD',
   },
 ];
 
-// 3. KỸ NĂNG & CÔNG CỤ CHUYÊN MÔN
+// 3. KỸ NĂNG & CÔNG CỤ CHUYÊN MÔN (JAVA BACKEND FOCUS)
 export const DEFAULT_SKILL_CATEGORIES: SkillCategory[] = [
   {
-    id: 'ui-ux',
-    title: 'UI/UX & THIẾT KẾ SẢN PHẨM',
-    tag: '01 // DESIGN',
-    description: 'Chuyên sâu về nghiên cứu người dùng, thiết kế Design System, kiến trúc thông tin và tạo mẫu tương tác cao cấp (High-fidelity Prototyping).',
+    id: 'java-core',
+    title: 'JAVA CORE & TƯ DUY OOP',
+    tag: '01 // CORE LANGUAGE',
+    description: 'Nắm vững nền tảng ngôn ngữ Java, tư duy lập trình hướng đối tượng (OOP: Encapsulation, Inheritance, Polymorphism, Abstraction), cấu trúc dữ liệu, Collections Framework và Java 8+ Features.',
     skills: [
-      'Figma Masters',
-      'Design Tokens',
-      'User Research',
-      'Wireframing',
-      'Heuristic Evaluation',
-      'Design System Architecture',
+      'Java 8 / 11 / 17',
+      'OOP Principles & SOLID',
+      'Collections Framework',
+      'Stream API & Lambda',
+      'Multithreading Basics',
+      'Exception Handling',
     ],
     bgColor: '#FFD93D',
   },
   {
-    id: 'frontend',
-    title: 'LẬP TRÌNH FRONTEND',
-    tag: '02 // ENGINEERING',
-    description: 'Biến mọi bản thiết kế thành trang web thực tế chuẩn xác từng pixel, mượt mà 60fps và tối ưu SEO.',
+    id: 'spring-framework',
+    title: 'SPRING FRAMEWORK & REST API',
+    tag: '02 // BACKEND ECOSYSTEM',
+    description: 'Xây dựng dịch vụ Backend và RESTful API chuẩn mực theo mô hình kiến trúc phân tầng, quản lý xác thực phân quyền và tích hợp ORM/JPA.',
     skills: [
-      'React & Vite',
-      'Next.js',
-      'Tailwind CSS',
-      'Framer Motion',
-      'TypeScript',
-      'Responsive Layouts',
+      'Spring Boot 3',
+      'Spring Data JPA / Hibernate',
+      'Spring Security & JWT',
+      'RESTful API Best Practices',
+      'Maven & Dependency Mgmt',
+      'Swagger / OpenAPI',
     ],
     bgColor: '#FF6B6B',
   },
   {
-    id: 'workflow',
-    title: 'QUY TRÌNH & CHUẨN MỰC',
-    tag: '03 // STANDARDS',
-    description: 'Cam kết chất lượng mã nguồn sạch, tối ưu hóa Core Web Vitals, tương thích đa trình duyệt và chuẩn trợ năng WCAG.',
+    id: 'database-tools',
+    title: 'DATABASE & CÔNG CỤ PHÁT TRIỂN',
+    tag: '03 // DATABASE & DEVOPS',
+    description: 'Thiết kế cơ sở dữ liệu quan hệ, tối ưu truy vấn SQL, quản lý phiên bản với Git/GitHub, viết Unit Test và đóng gói triển khai Docker.',
     skills: [
-      'Lighthouse 100/100',
-      'Git & GitHub',
-      'Clean Code',
-      'Web Performance',
-      'Micro-interactions',
-      'Cross-browser Testing',
+      'MySQL & PostgreSQL',
+      'SQL Queries & Indexing',
+      'Redis Caching Basics',
+      'Git & GitHub Workflow',
+      'JUnit 5 & Mockito Testing',
+      'Docker Containerization',
     ],
     bgColor: '#C4B5FD',
   },
@@ -134,16 +146,16 @@ export const DEFAULT_TIMELINE: TimelineItem[] = [
   {
     id: 'exp-1',
     period: '2023 — NAY',
-    role: 'JUNIOR UI/UX & CREATIVE FRONTEND',
-    company: 'STUDIO ĐỘC LẬP / FREELANCE',
-    location: 'TP. HÀ NỘI / Remote',
-    description: 'Thiết kế và phát triển website, web app cho các khách hàng công nghệ và thương hiệu khởi nghiệp.',
+    role: 'JAVA BACKEND DEVELOPER (DỰ ÁN CÁ NHÂN & ĐỒ ÁN)',
+    company: 'CHUYÊN NGÀNH CÔNG NGHỆ THÔNG TIN',
+    location: 'TP. HÀ NỘI',
+    description: 'Tập trung nghiên cứu chuyên sâu về lập trình hệ thống Backend Java, phát triển các dịch vụ RESTful API thực tế và rèn luyện tư duy giải thuật.',
     achievements: [
-      'Hoàn thành 2 dự án từ ý tưởng sơ khai đến sản phẩm thực tế đưa vào hoạt động.',
-      'Thiết lập hệ thống Design System tái sử dụng giúp rút ngắn 50% thời gian phát triển giao diện.',
-      'Đạt 100% sự hài lòng từ khách hàng về mặt thẩm mỹ và độ tương thích thiết bị.',
+      'Xây dựng hoàn chỉnh 3 hệ thống Backend với Spring Boot 3, Spring Data JPA, JWT Authentication và MySQL/PostgreSQL.',
+      'Áp dụng thành thạo mô hình phân tầng Controller-Service-Repository, tuân thủ nguyên lý Clean Code và thiết kế RESTful chuẩn REST.',
+      'Viết tài liệu API trực quan với Swagger/OpenAPI và kiểm thử API tự động với Postman và JUnit 5.',
     ],
-    techStack: ['Figma', 'React', 'Tailwind CSS', 'Framer Motion'],
+    techStack: ['Java 17', 'Spring Boot', 'MySQL', 'Spring Data JPA', 'Docker', 'Git'],
   },
 ];
 
@@ -156,7 +168,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
 };
 
 // 5. HELPER FUNCTIONS LƯU VÀ ĐỌC TỪ LOCALSTORAGE
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v2';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v3_java';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
@@ -183,3 +195,4 @@ export function saveStoredFullData(data: FullPortfolioData): void {
     console.warn('Cannot save data to localStorage:', err);
   }
 }
+

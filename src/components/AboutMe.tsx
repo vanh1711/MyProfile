@@ -7,7 +7,6 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  Palette,
   Code2,
   Target,
   ArrowUpRight,
@@ -98,7 +97,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) =>
                 <span className="uppercase">PROFILE_ID // 01</span>
               </div>
               <span className="px-2.5 py-0.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase shadow-neo-sm">
-                CREATIVE ENGINEER
+                BACKEND ENGINEER
               </span>
             </div>
 
@@ -238,13 +237,13 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) =>
             
             <div className="flex items-center gap-2 text-black font-black text-xs uppercase tracking-wider pb-3 border-b-2 border-black">
               <Sparkles className="w-4 h-4 text-[#FF6B6B]" />
-              <span>CÂU CHUYỆN &amp; TẦM NHÌN PHÁT TRIỂN</span>
+              <span>MỤC TIÊU NGHỀ NGHIỆP &amp; TƯ DUY KỸ THUẬT</span>
             </div>
 
             <h3 className="font-heading font-black text-2xl sm:text-3xl text-black tracking-tight leading-snug uppercase">
-              "TÔI KHÔNG CHỈ THIẾT KẾ GIAO DIỆN, <br />
+              "XÂY DỰNG HỆ THỐNG BACKEND VỮNG CHẮC, <br />
               <span className="bg-[#FFD93D] border-2 border-black px-2 inline-block transform rotate-1 mt-1">
-                TÔI XÂY DỰNG TRẢI NGHIỆM ĐỘC BẢN"
+                RESTful API CHUẨN MỰC &amp; HIỆU NĂNG CAO"
               </span>
             </h3>
 
@@ -253,28 +252,28 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) =>
             </p>
 
             <p className="font-bold text-sm text-black/75 leading-relaxed">
-              Với xuất phát điểm là một người đam mê nghệ thuật thị giác và công nghệ lập trình, tôi luôn hướng tới sự cân bằng hoàn hảo giữa <strong className="text-black font-black">tính thẩm mỹ vượt trội</strong> và <strong className="text-black font-black">hiệu năng kỹ thuật mượt mà 60FPS</strong>. Mọi dòng code và từng chuyển động micro-interaction đều phục vụ mục tiêu tối thượng: mang lại cảm xúc ấn tượng và tối ưu hóa chuyển đổi cho sản phẩm.
+              Với tinh thần cầu thị, chủ động tìm tòi và đam mê sâu sắc với kỹ thuật lập trình hệ thống, tôi đặt mục tiêu trở thành một <strong className="text-black font-black">Java Software Engineer</strong> có chuyên môn cao. Tôi luôn chú trọng việc viết mã nguồn sạch (Clean Code), áp dụng đúng các quy chuẩn kiến trúc phần mềm và không ngừng nâng cao kỹ năng qua các dự án thực tế.
             </p>
 
             {/* 3 Core Superpowers */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
               <div className="p-3.5 border-3 border-black bg-[#FFFDF5] space-y-1.5 shadow-neo-sm">
-                <div className="p-2 w-fit border-2 border-black bg-[#FF6B6B] text-white">
-                  <Palette className="w-4 h-4" />
+                <div className="p-2 w-fit border-2 border-black bg-[#FFD93D] text-black">
+                  <Code2 className="w-4 h-4" />
                 </div>
-                <div className="font-black text-xs text-black uppercase">UI/UX DESIGN</div>
+                <div className="font-black text-xs text-black uppercase">JAVA CORE &amp; OOP</div>
                 <div className="font-bold text-[11px] text-black/70 leading-relaxed">
-                  Design Tokens, Figma Mastery, Prototyping.
+                  Java 17, Collections, Concurrency, Stream API.
                 </div>
               </div>
 
               <div className="p-3.5 border-3 border-black bg-[#FFFDF5] space-y-1.5 shadow-neo-sm">
-                <div className="p-2 w-fit border-2 border-black bg-[#FFD93D] text-black">
-                  <Code2 className="w-4 h-4" />
+                <div className="p-2 w-fit border-2 border-black bg-[#FF6B6B] text-white">
+                  <Zap className="w-4 h-4" />
                 </div>
-                <div className="font-black text-xs text-black uppercase">CREATIVE FRONTEND</div>
+                <div className="font-black text-xs text-black uppercase">SPRING BOOT 3</div>
                 <div className="font-bold text-[11px] text-black/70 leading-relaxed">
-                  React 19, TypeScript, Tailwind, 60fps Motion.
+                  RESTful APIs, Spring Data JPA, JWT Security.
                 </div>
               </div>
 
@@ -282,9 +281,9 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) =>
                 <div className="p-2 w-fit border-2 border-black bg-[#4ADE80] text-black">
                   <Target className="w-4 h-4" />
                 </div>
-                <div className="font-black text-xs text-black uppercase">HIỆU NĂNG TỐI ĐA</div>
+                <div className="font-black text-xs text-black uppercase">DATABASE &amp; TESTING</div>
                 <div className="font-bold text-[11px] text-black/70 leading-relaxed">
-                  Web Audio API, Lighthouse 100/100, WCAG AA.
+                  MySQL, PostgreSQL, Docker, JUnit 5 &amp; Mockito.
                 </div>
               </div>
             </div>
@@ -295,22 +294,22 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) =>
           <div className="border-4 border-black bg-white shadow-neo-sm p-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
             
             <div className="flex items-center gap-3">
-              <div className="p-2 border-2 border-black bg-[#FF6B6B] text-white font-black text-xs">
-                <Zap className="w-4 h-4" />
+              <div className="p-2 border-2 border-black bg-[#FFD93D] text-black font-black text-xs">
+                <Code2 className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-heading font-black text-lg text-black">100%</div>
-                <div className="font-bold text-[10px] text-black/70 uppercase">TYPE-SAFE TS</div>
+                <div className="font-heading font-black text-lg text-black">OOP &amp; SOLID</div>
+                <div className="font-bold text-[10px] text-black/70 uppercase">CLEAN CODE</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="p-2 border-2 border-black bg-[#FFD93D] text-black font-black text-xs">
+              <div className="p-2 border-2 border-black bg-[#FF6B6B] text-white font-black text-xs">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-heading font-black text-lg text-black">PIXEL</div>
-                <div className="font-bold text-[10px] text-black/70 uppercase">PERFECT MATCH</div>
+                <div className="font-heading font-black text-lg text-black">RESTful API</div>
+                <div className="font-bold text-[10px] text-black/70 uppercase">BEST PRACTICES</div>
               </div>
             </div>
 
@@ -319,8 +318,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile }) =>
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-heading font-black text-lg text-black">0% TEMPLATE</div>
-                <div className="font-bold text-[10px] text-black/70 uppercase">CUSTOM CRAFTED</div>
+                <div className="font-heading font-black text-lg text-black">FAST LEARNER</div>
+                <div className="font-bold text-[10px] text-black/70 uppercase">READY FOR INTERN</div>
               </div>
             </div>
 

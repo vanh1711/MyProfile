@@ -15,13 +15,13 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
       {/* Section Header */}
       <div className="mb-20">
         <div className="inline-block px-3 py-1 border-4 border-black bg-[#FFD93D] text-black font-black text-xs uppercase tracking-widest mb-4 shadow-neo-sm">
-          02 // SẢN PHẨM TIÊU BIỂU
+          02 // DỰ ÁN &amp; HỆ THỐNG BACKEND
         </div>
         <h2 className="font-heading font-black text-4xl sm:text-6xl text-black tracking-tight uppercase">
-          DỰ ÁN <span className="bg-[#FF6B6B] text-white border-4 border-black px-3 inline-block transform rotate-1 shadow-neo-sm">NỔI BẬT</span>
+          DỰ ÁN <span className="bg-[#FF6B6B] text-white border-4 border-black px-3 inline-block transform rotate-1 shadow-neo-sm">TIÊU BIỂU</span>
         </h2>
         <p className="mt-4 font-bold text-base sm:text-lg text-black/80 max-w-2xl">
-          Các dự án thực chiến giải quyết bài toán trải nghiệm người dùng phức tạp và tối ưu hóa tỷ lệ chuyển đổi.
+          Các dự án Backend thực chiến áp dụng Java 17, Spring Boot, thiết kế RESTful API chuẩn mực và tối ưu cơ sở dữ liệu.
         </p>
       </div>
 
@@ -96,7 +96,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                     <div className="mt-6 space-y-4 text-xs sm:text-sm font-bold">
                       <div className="p-3.5 border-l-4 border-[#FF6B6B] border-y-2 border-r-2 border-black bg-[#FF6B6B]/10">
                         <span className="text-[#FF6B6B] font-black block mb-1 uppercase">
-                          [ VẤN ĐỀ UX CẦN GIẢI QUYẾT ]
+                          [ BÀI TOÁN KỸ THUẬT &amp; NGHIỆP VỤ ]
                         </span>
                         <p className="text-black/85 leading-relaxed">
                           {project.problem}
@@ -105,7 +105,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
 
                       <div className="p-3.5 border-l-4 border-[#4ADE80] border-y-2 border-r-2 border-black bg-[#4ADE80]/15">
                         <span className="text-black font-black block mb-1 uppercase">
-                          [ GIẢI PHÁP THỰC THI ]
+                          [ GIẢI PHÁP KIẾN TRÚC &amp; BACKEND ]
                         </span>
                         <p className="text-black/85 leading-relaxed">
                           {project.solution}
@@ -114,7 +114,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                     </div>
                   </div>
 
-                  {/* Actions Bar (Only Demo Link) */}
+                  {/* Actions Bar */}
                   <div className="mt-8 pt-6 border-t-4 border-black flex flex-wrap items-center gap-3">
                     <a
                       href={project.demoUrl}
@@ -122,7 +122,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                       rel="noopener noreferrer"
                       className="px-6 py-3 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs uppercase tracking-wider shadow-neo-sm neo-btn flex items-center gap-2 hover:bg-[#ff5252]"
                     >
-                      <span>TRẢI NGHIỆM DEMO THỰC TẾ</span>
+                      <span>XEM MÃ NGUỒN GITHUB &amp; TÀI LIỆU API</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
