@@ -65,17 +65,19 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
         aria-hidden="true"
       />
 
-      {/* Section Header */}
-      <div className="mb-20">
-        <div className="inline-block px-3 py-1 border-4 border-black bg-[#C4B5FD] text-black font-black text-xs uppercase tracking-widest mb-4 shadow-neo-sm">
-          01 // CHÂN DUNG &amp; BẢN SẮC
+      {/* Compact Top Header Bar */}
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-3 pb-4 border-b-4 border-black">
+        <div className="flex items-center gap-3">
+          <span className="px-3 py-1 border-3 border-black bg-[#FFD93D] font-black text-xs uppercase shadow-neo-sm">
+            01 // GIỚI THIỆU BẢN THÂN
+          </span>
+          <h2 className="font-heading font-black text-base sm:text-lg text-black uppercase tracking-tight">
+            JAVA BACKEND DEVELOPER PORTFOLIO
+          </h2>
         </div>
-        <h2 className="font-heading font-black text-4xl sm:text-6xl text-black tracking-tight uppercase">
-          GIỚI THIỆU <span className="bg-[#FFD93D] border-4 border-black px-3 inline-block transform -rotate-1 shadow-neo-sm">BẢN THÂN</span>
-        </h2>
-        <p className="mt-4 font-bold text-base sm:text-lg text-black/80 max-w-2xl">
-          Đam mê xây dựng hệ thống Java Backend tin cậy, tối ưu hóa cơ sở dữ liệu và triển khai RESTful APIs chuẩn mực.
-        </p>
+        <span className="text-xs font-bold text-black/70 uppercase hidden sm:inline">
+          {profile.name} // RESUME
+        </span>
       </div>
 
       {/* Main Feature Layout Grid */}
