@@ -21,38 +21,38 @@ export const Toast: React.FC<ToastProps> = ({ toast, onClose }) => {
     <AnimatePresence>
       {toast && (
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.95 }}
-          transition={{ duration: 0.2 }}
+          exit={{ opacity: 0, y: 20, scale: 0.98 }}
+          transition={{ duration: 0.15 }}
           className="fixed bottom-6 right-6 z-50 max-w-md w-full px-4"
         >
-          <div className="relative border-4 border-black bg-[#FFD93D] shadow-neo-lg p-5 text-black">
+          <div className="relative border border-[#404040] bg-[#111111] p-5 text-white">
             
             {/* Top Bar */}
-            <div className="flex items-center justify-between border-b-3 border-black pb-2 mb-3">
-              <span className="font-black text-xs uppercase tracking-widest bg-black text-white px-2 py-0.5">
-                THÔNG BÁO HỆ THỐNG
+            <div className="flex items-center justify-between border-b border-[#262626] pb-2 mb-3">
+              <span className="font-mono text-[10px] uppercase tracking-widest bg-white text-black px-2 py-0.5 font-bold">
+                SYSTEM NOTIFICATION
               </span>
               <button
                 onClick={onClose}
-                className="p-1 border-2 border-black bg-white hover:bg-[#FF6B6B] hover:text-white transition-colors"
+                className="p-1 border border-[#333333] bg-[#161616] text-[#A3A3A3] hover:text-white hover:border-white transition-colors"
                 aria-label="Đóng thông báo"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
               </button>
             </div>
 
             {/* Content */}
             <div className="flex items-start gap-3">
-              <div className="p-1.5 border-2 border-black bg-[#4ADE80] text-black shrink-0">
-                <CheckCircle2 className="w-5 h-5" />
+              <div className="p-1 border border-[#333333] bg-[#161616] text-white shrink-0">
+                <CheckCircle2 className="w-4 h-4" strokeWidth={1.75} />
               </div>
               <div>
-                <h4 className="font-heading font-black text-base text-black uppercase">
+                <h4 className="font-heading font-black text-sm text-white uppercase tracking-tight">
                   {toast.title}
                 </h4>
-                <p className="font-bold text-xs text-black/85 mt-1 leading-relaxed">
+                <p className="text-xs text-[#A3A3A3] mt-1 leading-relaxed">
                   {toast.message}
                 </p>
               </div>
@@ -63,7 +63,7 @@ export const Toast: React.FC<ToastProps> = ({ toast, onClose }) => {
               initial={{ width: '100%' }}
               animate={{ width: '0%' }}
               transition={{ duration: 5, ease: 'linear' }}
-              className="absolute bottom-0 left-0 h-[4px] bg-black"
+              className="absolute bottom-0 left-0 h-[2px] bg-white"
             />
           </div>
         </motion.div>

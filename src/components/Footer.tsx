@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Edit3 } from 'lucide-react';
+import { Edit3 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, DribbbleIcon, FigmaIcon } from './icons/BrandIcons';
 import type { PersonalInfo } from '../types/portfolio';
 
@@ -11,85 +11,84 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ profile, onOpenEditor, isAdmin = false }) => {
   return (
-    <footer className="border-t-6 border-black bg-[#FFD93D] py-16 px-4 sm:px-6 lg:px-8">
+    <footer className="border-t border-[#222222] bg-[#0A0A0A] py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Top Tier: Brand & Socials */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b-4 border-black">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#222222]">
           
           {/* Brand & Status */}
           <div>
-            <div className="inline-block p-2 border-4 border-black bg-white font-black text-2xl uppercase tracking-tight shadow-neo-sm">
+            <div className="inline-block p-2 border border-[#2E2E2E] bg-[#111111] font-heading font-black text-xl uppercase tracking-tight text-white">
               {profile.name}
             </div>
-            <div className="mt-2 font-bold text-xs uppercase tracking-wider text-black flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#4ADE80] border border-black rounded-full" />
+            <div className="mt-2 font-mono text-xs uppercase tracking-wider text-[#888888] flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-none" />
               <span>{profile.systemStatus}</span>
             </div>
           </div>
 
           {/* Social Box Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2">
             <a
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border-4 border-black bg-white hover:bg-[#FF6B6B] hover:text-white shadow-neo-sm neo-btn transition-colors"
+              className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
               title="GitHub"
             >
-              <GithubIcon className="w-5 h-5" />
+              <GithubIcon className="w-4 h-4" />
             </a>
             <a
               href={profile.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border-4 border-black bg-white hover:bg-[#38BDF8] hover:text-white shadow-neo-sm neo-btn transition-colors"
+              className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
               title="LinkedIn"
             >
-              <LinkedinIcon className="w-5 h-5" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
               href={profile.dribbbleUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border-4 border-black bg-white hover:bg-[#FF6B6B] hover:text-white shadow-neo-sm neo-btn transition-colors"
+              className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
               title="Dribbble"
             >
-              <DribbbleIcon className="w-5 h-5" />
+              <DribbbleIcon className="w-4 h-4" />
             </a>
             <a
               href={profile.figmaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border-4 border-black bg-white hover:bg-[#C4B5FD] hover:text-black shadow-neo-sm neo-btn transition-colors"
+              className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
               title="Figma"
             >
-              <FigmaIcon className="w-5 h-5" />
+              <FigmaIcon className="w-4 h-4" />
             </a>
           </div>
         </div>
 
         {/* Bottom Tier: Copyright & Quick Editor Link */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-bold text-xs uppercase text-black">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs uppercase text-[#737373]">
           <div>
-            &copy; {new Date().getFullYear()} {profile.name}. TẤT CẢ QUYỀN ĐƯỢC BẢO LƯU.
+            &copy; {new Date().getFullYear()} {profile.name}. ALL RIGHTS RESERVED.
           </div>
 
           <div className="flex items-center gap-4">
             {isAdmin && (
               <button
                 onClick={onOpenEditor}
-                className="px-3 py-1.5 border-2 border-black bg-white hover:bg-[#C4B5FD] flex items-center gap-1.5 shadow-neo-sm transition-all"
+                className="px-3 py-1.5 border border-[#333333] bg-[#141414] hover:border-white text-[#888888] hover:text-white flex items-center gap-1.5 transition-all"
               >
                 <Edit3 className="w-3.5 h-3.5" />
-                <span>SỬA THÔNG TIN</span>
+                <span>[SỬA HỒ SƠ]</span>
               </button>
             )}
 
-            <div className="flex items-center gap-1">
-              <span>THIẾT KẾ VỚI</span>
-              <Heart className="w-4 h-4 fill-[#FF6B6B] text-[#FF6B6B]" />
-              <span>CHUẨN NEO-BRUTALISM</span>
+            <div className="flex items-center gap-1 text-[#666666]">
+              <span>CURATED FOR</span>
+              <span className="text-[#A3A3A3] font-bold">JAVA BACKEND ENGINEERING</span>
             </div>
           </div>
         </div>

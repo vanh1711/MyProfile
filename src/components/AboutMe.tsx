@@ -65,18 +65,18 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
         aria-hidden="true"
       />
 
-      {/* Compact Top Header Bar */}
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-3 pb-4 border-b-4 border-black">
+      {/* Top Section Rule */}
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#242424]">
         <div className="flex items-center gap-3">
-          <span className="px-3 py-1 border-3 border-black bg-[#FFD93D] font-black text-xs uppercase shadow-neo-sm">
-            01 // GIỚI THIỆU BẢN THÂN
+          <span className="px-2.5 py-1 border border-[#333333] bg-[#141414] font-mono text-[11px] uppercase tracking-widest text-[#E5E5E5]">
+            // 01 ARCHIVE: IDENTITY
           </span>
-          <h2 className="font-heading font-black text-base sm:text-lg text-black uppercase tracking-tight">
-            JAVA BACKEND DEVELOPER PORTFOLIO
+          <h2 className="font-heading font-black text-sm sm:text-base text-white uppercase tracking-wider">
+            HỒ SƠ JAVA BACKEND DEVELOPER
           </h2>
         </div>
-        <span className="text-xs font-bold text-black/70 uppercase hidden sm:inline">
-          {profile.name} // RESUME
+        <span className="text-[11px] font-mono text-[#737373] uppercase hidden sm:inline tracking-widest">
+          {profile.name} // PORTFOLIO 2026
         </span>
       </div>
 
@@ -85,94 +85,94 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
         
         {/* Left Column: Visual Profile & Identity Card (5 Cols) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5 }}
-          className="lg:col-span-5 border-4 border-black bg-white shadow-neo neo-card p-6 sm:p-8 flex flex-col justify-between"
+          transition={{ duration: 0.3 }}
+          className="lg:col-span-5 border border-[#242424] bg-[#111111] mono-card p-6 sm:p-8 flex flex-col justify-between"
         >
           <div className="space-y-6">
             
             {/* Top Identity Header */}
-            <div className="flex items-center justify-between pb-4 border-b-4 border-black">
-              <div className="flex items-center gap-2 font-black text-xs text-black">
-                <User className="w-4 h-4 text-black" />
-                <span className="uppercase">HỒ SƠ ỨNG VIÊN</span>
+            <div className="flex items-center justify-between pb-4 border-b border-[#222222]">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#A3A3A3]">
+                <User className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+                <span className="uppercase tracking-wider">HỒ SƠ ỨNG VIÊN</span>
               </div>
-              <span className="px-2.5 py-0.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase shadow-neo-sm">
+              <span className="px-2 py-0.5 border border-[#333333] bg-[#161616] text-[#E5E5E5] font-mono text-[10px] uppercase tracking-widest">
                 BACKEND DEVELOPER
               </span>
             </div>
 
-            {/* 1. Full Photo Avatar Box (Takes full box width & height) */}
-            <div className="relative border-4 border-black bg-black shadow-neo-sm overflow-hidden aspect-[4/3] group/avatar">
+            {/* 1. Full Photo Avatar Box */}
+            <div className="relative border border-[#2E2E2E] bg-[#050505] overflow-hidden aspect-[4/3] group/avatar">
               <img
                 src={currentAvatar}
                 alt={profile.name}
-                className="w-full h-full object-cover object-center group-hover/avatar:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-center grayscale contrast-125 group-hover/avatar:grayscale-0 group-hover/avatar:scale-105 transition-all duration-300"
               />
 
               {/* Upload Button Overlay on Hover (Chỉ hiển thị khi là Admin) */}
               {isAdmin && (
                 <>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover/avatar:opacity-100 transition-opacity bg-black/60 p-4 text-center">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover/avatar:opacity-100 transition-opacity bg-black/75 p-4 text-center">
                     <button
                       type="button"
                       onClick={triggerUpload}
-                      className="px-4 py-2.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase flex items-center gap-2 shadow-neo-sm neo-btn"
+                      className="px-4 py-2 border border-white bg-white text-black font-mono font-bold text-xs uppercase flex items-center gap-2 hover:bg-transparent hover:text-white transition-all"
                     >
-                      <Camera className="w-4 h-4" />
-                      <span>TẢI ẢNH TỪ MÁY TÍNH</span>
+                      <Camera className="w-3.5 h-3.5" />
+                      <span>TẢI ẢNH TỪ MÁY</span>
                     </button>
-                    <span className="font-bold text-[10px] text-white mt-1.5">Hỗ trợ JPG, PNG, WEBP</span>
+                    <span className="font-mono text-[10px] text-[#A3A3A3] mt-1.5">JPG, PNG, WEBP</span>
                   </div>
 
                   <button
                     type="button"
                     onClick={triggerUpload}
-                    className="absolute top-3 right-3 p-2 border-2 border-black bg-[#FFD93D] text-black shadow-neo-sm neo-btn group-hover/avatar:hidden"
+                    className="absolute top-3 right-3 p-2 border border-white bg-black text-white hover:bg-white hover:text-black group-hover/avatar:hidden transition-colors"
                     title="Bấm vào để đổi ảnh chân dung của bạn"
                   >
-                    <Upload className="w-4 h-4" />
+                    <Upload className="w-3.5 h-3.5" />
                   </button>
                 </>
               )}
             </div>
 
             {/* 2. Name & Title Placed BELOW the Photo Box */}
-            <div className="text-center space-y-2 pt-1 border-b-4 border-black pb-6">
-              <h3 className="font-heading font-black text-2xl sm:text-3xl text-black tracking-tight uppercase">
+            <div className="text-center space-y-2 pt-1 border-b border-[#222222] pb-6">
+              <h3 className="font-heading font-black text-2xl sm:text-3xl text-white tracking-tight uppercase">
                 {profile.name}
               </h3>
-              <div className="font-black text-xs text-[#FF6B6B] uppercase tracking-wider">
+              <div className="font-serif italic text-xs text-[#A3A3A3] tracking-widest uppercase">
                 {profile.title}
               </div>
 
               {/* Status Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 border-2 border-black bg-[#4ADE80] text-black font-black text-xs uppercase shadow-neo-sm mt-1">
-                <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
-                <span className="truncate max-w-[240px]">{profile.systemStatus}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#2E2E2E] bg-[#0D0D0D] text-[#CCCCCC] font-mono text-[11px] uppercase mt-1">
+                <span className="w-1.5 h-1.5 bg-[#4ADE80] animate-pulse" />
+                <span className="truncate max-w-[240px] tracking-wide">{profile.systemStatus}</span>
               </div>
             </div>
 
             {/* 3. Info Metrics Table */}
-            <div className="space-y-3 font-bold text-xs">
-              <div className="flex items-center justify-between p-3 border-3 border-black bg-[#FFFDF5]">
-                <span className="text-black/70 flex items-center gap-2 font-black">
-                  <MapPin className="w-4 h-4 text-[#FF6B6B]" />
+            <div className="space-y-2 font-mono text-xs">
+              <div className="flex items-center justify-between p-3 border border-[#202020] bg-[#0D0D0D]">
+                <span className="text-[#888888] flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
                   Khu vực:
                 </span>
-                <span className="text-black font-black text-right truncate max-w-[180px]">
+                <span className="text-[#E5E5E5] font-bold text-right truncate max-w-[180px]">
                   {profile.location}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-3 border-3 border-black bg-[#FFFDF5]">
-                <span className="text-black/70 flex items-center gap-2 font-black">
-                  <Mail className="w-4 h-4 text-[#FFD93D]" />
+              <div className="flex items-center justify-between p-3 border border-[#202020] bg-[#0D0D0D]">
+                <span className="text-[#888888] flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
                   Email:
                 </span>
-                <span className="text-black font-black text-right truncate max-w-[180px]">
+                <span className="text-[#E5E5E5] font-bold text-right truncate max-w-[180px]">
                   {profile.email}
                 </span>
               </div>
@@ -181,15 +181,15 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
           </div>
 
           {/* Socials & Fast CV Action */}
-          <div className="pt-6 border-t-4 border-black mt-6 space-y-4">
+          <div className="pt-6 border-t border-[#222222] mt-6 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="font-black text-xs text-black/70 uppercase">MẠNG XÃ HỘI:</span>
+              <span className="font-mono text-xs text-[#888888] uppercase tracking-wider">MẠNG XÃ HỘI:</span>
               <div className="flex items-center gap-2">
                 <a
                   href={profile.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 border-2 border-black bg-white hover:bg-[#FFD93D] shadow-neo-sm neo-btn transition-colors"
+                  className="p-2 border border-[#2A2A2A] bg-[#141414] hover:border-white text-[#A3A3A3] hover:text-white transition-colors"
                   title="GitHub"
                 >
                   <GithubIcon className="w-4 h-4" />
@@ -198,7 +198,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                   href={profile.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 border-2 border-black bg-white hover:bg-[#38BDF8] shadow-neo-sm neo-btn transition-colors"
+                  className="p-2 border border-[#2A2A2A] bg-[#141414] hover:border-white text-[#A3A3A3] hover:text-white transition-colors"
                   title="LinkedIn"
                 >
                   <LinkedinIcon className="w-4 h-4" />
@@ -207,7 +207,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                   href={profile.figmaUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 border-2 border-black bg-white hover:bg-[#C4B5FD] shadow-neo-sm neo-btn transition-colors"
+                  className="p-2 border border-[#2A2A2A] bg-[#141414] hover:border-white text-[#A3A3A3] hover:text-white transition-colors"
                   title="Figma"
                 >
                   <FigmaIcon className="w-4 h-4" />
@@ -219,11 +219,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-neo-sm neo-btn hover:bg-[#ff5252]"
+              className="w-full py-3.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all"
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-4 h-4" strokeWidth={1.75} />
               <span>XEM / TẢI CV CHUYÊN NGHIỆP</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4" strokeWidth={1.75} />
             </a>
           </div>
 
@@ -231,64 +231,64 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
 
         {/* Right Column: Bio Narrative & Core Superpowers (7 Cols) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           className="lg:col-span-7 flex flex-col justify-between space-y-6"
         >
           
           {/* Main Story Narrative Card */}
-          <div className="border-4 border-black bg-white shadow-neo neo-card p-6 sm:p-8 space-y-6">
+          <div className="border border-[#242424] bg-[#111111] mono-card p-6 sm:p-8 space-y-6">
             
-            <div className="flex items-center gap-2 text-black font-black text-xs uppercase tracking-wider pb-3 border-b-2 border-black">
-              <Sparkles className="w-4 h-4 text-[#FF6B6B]" />
-              <span>MỤC TIÊU NGHỀ NGHIỆP &amp; TƯ DUY KỸ THUẬT</span>
+            <div className="flex items-center gap-2 text-[#888888] font-mono text-xs uppercase tracking-widest pb-3 border-b border-[#222222]">
+              <Sparkles className="w-3.5 h-3.5 text-white" />
+              <span>// MỤC TIÊU NGHỀ NGHIỆP &amp; TƯ DUY HỆ THỐNG</span>
             </div>
 
-            <h3 className="font-heading font-black text-2xl sm:text-3xl text-black tracking-tight leading-snug uppercase">
+            <h3 className="font-heading font-black text-2xl sm:text-3xl text-white tracking-tight leading-snug uppercase">
               "XÂY DỰNG HỆ THỐNG BACKEND VỮNG CHẮC, <br />
-              <span className="bg-[#FFD93D] border-2 border-black px-2 inline-block transform rotate-1 mt-1">
+              <span className="font-serif italic font-normal text-white underline decoration-[#555555] underline-offset-4">
                 RESTful API CHUẨN MỰC &amp; HIỆU NĂNG CAO"
               </span>
             </h3>
 
-            <p className="font-bold text-sm sm:text-base text-black/85 leading-relaxed">
+            <p className="text-sm sm:text-base text-[#D4D4D4] leading-relaxed font-normal">
               {profile.bio}
             </p>
 
-            <p className="font-bold text-sm text-black/75 leading-relaxed">
-              Với tinh thần cầu thị, chủ động tìm tòi và đam mê sâu sắc với kỹ thuật lập trình hệ thống, tôi đặt mục tiêu trở thành một <strong className="text-black font-black">Java Software Engineer</strong> có chuyên môn cao. Tôi luôn chú trọng việc viết mã nguồn sạch (Clean Code), áp dụng đúng các quy chuẩn kiến trúc phần mềm và không ngừng nâng cao kỹ năng qua các dự án thực tế.
+            <p className="text-sm text-[#A3A3A3] leading-relaxed">
+              Với tinh thần cầu thị, chủ động tìm tòi và đam mê sâu sắc với kỹ thuật lập trình hệ thống, tôi đặt mục tiêu trở thành một <strong className="text-white font-bold">Java Software Engineer</strong> có chuyên môn cao. Tôi luôn chú trọng việc viết mã nguồn sạch (Clean Code), áp dụng đúng các quy chuẩn kiến trúc phần mềm và không ngừng nâng cao kỹ năng qua các dự án thực tế.
             </p>
 
             {/* 3 Core Superpowers */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 border-3 border-black bg-[#FFFDF5] space-y-1.5 shadow-neo-sm">
-                <div className="p-2 w-fit border-2 border-black bg-[#FFD93D] text-black">
-                  <Code2 className="w-4 h-4" />
+              <div className="p-4 border border-[#222222] bg-[#0E0E0E] space-y-2">
+                <div className="p-1.5 w-fit border border-[#333333] bg-[#161616] text-white">
+                  <Code2 className="w-4 h-4" strokeWidth={1.5} />
                 </div>
-                <div className="font-black text-xs text-black uppercase">JAVA CORE &amp; OOP</div>
-                <div className="font-bold text-[11px] text-black/70 leading-relaxed">
+                <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">JAVA CORE &amp; OOP</div>
+                <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
                   Java 17, Collections, Concurrency, Stream API.
                 </div>
               </div>
 
-              <div className="p-3.5 border-3 border-black bg-[#FFFDF5] space-y-1.5 shadow-neo-sm">
-                <div className="p-2 w-fit border-2 border-black bg-[#FF6B6B] text-white">
-                  <Zap className="w-4 h-4" />
+              <div className="p-4 border border-[#222222] bg-[#0E0E0E] space-y-2">
+                <div className="p-1.5 w-fit border border-[#333333] bg-[#161616] text-white">
+                  <Zap className="w-4 h-4" strokeWidth={1.5} />
                 </div>
-                <div className="font-black text-xs text-black uppercase">SPRING BOOT 3</div>
-                <div className="font-bold text-[11px] text-black/70 leading-relaxed">
+                <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">SPRING BOOT 3</div>
+                <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
                   RESTful APIs, Spring Data JPA, JWT Security.
                 </div>
               </div>
 
-              <div className="p-3.5 border-3 border-black bg-[#FFFDF5] space-y-1.5 shadow-neo-sm">
-                <div className="p-2 w-fit border-2 border-black bg-[#4ADE80] text-black">
-                  <Target className="w-4 h-4" />
+              <div className="p-4 border border-[#222222] bg-[#0E0E0E] space-y-2">
+                <div className="p-1.5 w-fit border border-[#333333] bg-[#161616] text-white">
+                  <Target className="w-4 h-4" strokeWidth={1.5} />
                 </div>
-                <div className="font-black text-xs text-black uppercase">DATABASE &amp; TESTING</div>
-                <div className="font-bold text-[11px] text-black/70 leading-relaxed">
+                <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">DATABASE &amp; TEST</div>
+                <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
                   MySQL, PostgreSQL, Docker, JUnit 5 &amp; Mockito.
                 </div>
               </div>
@@ -297,35 +297,35 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
           </div>
 
           {/* Value Commitments Bar */}
-          <div className="border-4 border-black bg-white shadow-neo-sm p-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="border border-[#242424] bg-[#111111] mono-card p-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
             
             <div className="flex items-center gap-3">
-              <div className="p-2 border-2 border-black bg-[#FFD93D] text-black font-black text-xs">
-                <Code2 className="w-4 h-4" />
+              <div className="p-2 border border-[#333333] bg-[#161616] text-white">
+                <Code2 className="w-4 h-4" strokeWidth={1.5} />
               </div>
               <div>
-                <div className="font-heading font-black text-lg text-black">OOP &amp; SOLID</div>
-                <div className="font-bold text-[10px] text-black/70 uppercase">CLEAN CODE</div>
+                <div className="font-heading font-black text-base text-white">OOP &amp; SOLID</div>
+                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">CLEAN CODE</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="p-2 border-2 border-black bg-[#FF6B6B] text-white font-black text-xs">
-                <CheckCircle2 className="w-4 h-4" />
+              <div className="p-2 border border-[#333333] bg-[#161616] text-white">
+                <CheckCircle2 className="w-4 h-4" strokeWidth={1.5} />
               </div>
               <div>
-                <div className="font-heading font-black text-lg text-black">RESTful API</div>
-                <div className="font-bold text-[10px] text-black/70 uppercase">BEST PRACTICES</div>
+                <div className="font-heading font-black text-base text-white">RESTful API</div>
+                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">BEST PRACTICES</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="p-2 border-2 border-black bg-[#C4B5FD] text-black font-black text-xs">
-                <Sparkles className="w-4 h-4" />
+              <div className="p-2 border border-[#333333] bg-[#161616] text-white">
+                <Sparkles className="w-4 h-4" strokeWidth={1.5} />
               </div>
               <div>
-                <div className="font-heading font-black text-lg text-black">FAST LEARNER</div>
-                <div className="font-bold text-[10px] text-black/70 uppercase">READY FOR INTERN</div>
+                <div className="font-heading font-black text-base text-white">FAST LEARNER</div>
+                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">READY FOR INTERN</div>
               </div>
             </div>
 

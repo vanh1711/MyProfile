@@ -77,114 +77,109 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onShowToast }) => {
     <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       
       {/* Section Header */}
-      <div className="text-center mb-16">
-        <div className="inline-block px-3 py-1 border-4 border-black bg-[#4ADE80] text-black font-black text-xs uppercase tracking-widest mb-4 shadow-neo-sm">
-          04 // KẾT NỐI TRỰC TIẾP
+      <div className="text-center mb-16 pb-4 border-b border-[#242424]">
+        <div className="inline-block px-2.5 py-1 border border-[#333333] bg-[#141414] text-[#E5E5E5] font-mono text-[11px] uppercase tracking-widest mb-3">
+          // 05 ARCHIVE: GET IN TOUCH
         </div>
-        <h2 className="font-heading font-black text-4xl sm:text-6xl text-black tracking-tight uppercase">
-          LIÊN HỆ <span className="bg-[#FF6B6B] text-white border-4 border-black px-3 inline-block transform -rotate-1 shadow-neo-sm">HỢP TÁC</span>
+        <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          LIÊN HỆ <span className="font-serif italic font-normal text-[#A3A3A3]">HỢP TÁC</span>
         </h2>
-        <p className="mt-4 font-bold text-base sm:text-lg text-black/80 max-w-xl mx-auto">
-          Tôi luôn hào hứng lắng nghe các ý tưởng mới, dự án thiết kế thú vị hoặc cơ hội nghề nghiệp.
+        <p className="mt-3 font-normal text-sm sm:text-base text-[#A3A3A3] max-w-xl mx-auto">
+          Tôi luôn sẵn sàng đón nhận cơ hội thực tập, trao đổi kỹ thuật hoặc thảo luận về dự án phát triển hệ thống Java Backend.
         </p>
       </div>
 
       {/* Form Card Container */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="border-4 border-black bg-[#FFD93D] p-6 sm:p-10 shadow-neo-lg"
+        transition={{ duration: 0.3 }}
+        className="border border-[#262626] bg-[#111111] p-6 sm:p-10 mono-card"
       >
-        {/* Inner Card */}
-        <div className="border-4 border-black bg-white p-6 sm:p-8 shadow-neo-sm">
-          
-          <div className="flex items-center justify-between pb-4 border-b-4 border-black mb-6">
-            <h3 className="font-heading font-black text-xl text-black uppercase">
-              HỘP THƯ LIÊN LẠC
-            </h3>
-            <span className="p-1 border-2 border-black bg-[#C4B5FD] text-xs font-black">
-              PHẢN HỒI NHANH 24H
-            </span>
+        <div className="flex items-center justify-between pb-4 border-b border-[#222222] mb-8">
+          <h3 className="font-mono font-bold text-xs uppercase tracking-wider text-white">
+            // HỘP THƯ LIÊN LẠC TRỰC TUYẾN
+          </h3>
+          <span className="border border-[#333333] bg-[#161616] text-[#A3A3A3] text-[10px] font-mono px-2 py-0.5">
+            RESPONSE &lt; 24H
+          </span>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {error && (
+            <div className="p-3.5 border border-[#555555] bg-[#161616] text-white font-mono text-xs flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0 text-white" />
+              <span>{error}</span>
+            </div>
+          )}
+
+          {/* Tên */}
+          <div>
+            <label className="flex items-center gap-2 text-xs font-mono uppercase mb-2 text-[#A3A3A3]">
+              <User className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+              <span>Họ và Tên của bạn:</span>
+            </label>
+            <input
+              type="text"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              placeholder="VD: Nguyễn Văn A"
+              className="w-full p-3.5 border border-[#2E2E2E] bg-[#0A0A0A] font-sans text-sm text-white placeholder:italic placeholder:text-[#555555] focus:border-white focus:outline-none transition-colors"
+            />
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {error && (
-              <div className="p-3 border-3 border-black bg-[#FF6B6B] text-white font-black text-xs flex items-center gap-2 shadow-neo-sm">
-                <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{error}</span>
-              </div>
-            )}
+          {/* Email */}
+          <div>
+            <label className="flex items-center gap-2 text-xs font-mono uppercase mb-2 text-[#A3A3A3]">
+              <Mail className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+              <span>Địa chỉ Email liên hệ:</span>
+            </label>
+            <input
+              type="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              placeholder="VD: email@domain.com"
+              className="w-full p-3.5 border border-[#2E2E2E] bg-[#0A0A0A] font-sans text-sm text-white placeholder:italic placeholder:text-[#555555] focus:border-white focus:outline-none transition-colors"
+            />
+          </div>
 
-            {/* Tên */}
-            <div>
-              <label className="flex items-center gap-2 text-xs font-black uppercase mb-1.5 text-black">
-                <User className="w-4 h-4" />
-                <span>Họ và Tên của bạn:</span>
-              </label>
-              <input
-                type="text"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="VD: Nguyễn Văn A"
-                className="w-full p-3.5 border-4 border-black bg-white font-bold text-base focus:bg-[#FFD93D] focus:shadow-neo-sm focus:outline-none"
-              />
-            </div>
+          {/* Lời nhắn */}
+          <div>
+            <label className="flex items-center gap-2 text-xs font-mono uppercase mb-2 text-[#A3A3A3]">
+              <MessageSquare className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+              <span>Nội dung lời nhắn / Đề xuất phỏng vấn:</span>
+            </label>
+            <textarea
+              rows={4}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              placeholder="Chia sẻ ngắn gọn về cơ hội thực tập, yêu cầu dự án hoặc câu hỏi của bạn..."
+              className="w-full p-3.5 border border-[#2E2E2E] bg-[#0A0A0A] font-sans text-sm text-white placeholder:italic placeholder:text-[#555555] focus:border-white focus:outline-none resize-none transition-colors"
+            />
+          </div>
 
-            {/* Email */}
-            <div>
-              <label className="flex items-center gap-2 text-xs font-black uppercase mb-1.5 text-black">
-                <Mail className="w-4 h-4" />
-                <span>Địa chỉ Email liên hệ:</span>
-              </label>
-              <input
-                type="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="VD: email@cuaban.com"
-                className="w-full p-3.5 border-4 border-black bg-white font-bold text-base focus:bg-[#FFD93D] focus:shadow-neo-sm focus:outline-none"
-              />
-            </div>
-
-            {/* Lời nhắn */}
-            <div>
-              <label className="flex items-center gap-2 text-xs font-black uppercase mb-1.5 text-black">
-                <MessageSquare className="w-4 h-4" />
-                <span>Nội dung lời nhắn / Mô tả dự án:</span>
-              </label>
-              <textarea
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Chia sẻ ngắn gọn về mục tiêu dự án, thời gian dự kiến hoặc câu hỏi của bạn..."
-                className="w-full p-3.5 border-4 border-black bg-white font-bold text-base focus:bg-[#FFD93D] focus:shadow-neo-sm focus:outline-none resize-none"
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="pt-2">
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-4 border-4 border-black bg-[#FF6B6B] text-white font-black text-base uppercase tracking-wider shadow-neo neo-btn flex items-center justify-center gap-2 disabled:opacity-50"
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>ĐANG GỬI TIN NHẮN...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>GỬI TIN NHẮN NGAY</span>
-                    <Send className="w-5 h-5" />
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
-
-        </div>
+          {/* Submit Button */}
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 border border-white bg-white text-black font-mono font-bold text-xs sm:text-sm uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all disabled:opacity-50"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>ĐANG GỬI TIN NHẮN...</span>
+                </>
+              ) : (
+                <>
+                  <span>GỬI TIN NHẮN NGAY</span>
+                  <Send className="w-4 h-4" />
+                </>
+              )}
+            </button>
+          </div>
+        </form>
       </motion.div>
     </section>
   );

@@ -72,7 +72,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#FFFDF5] text-black overflow-x-clip selection:bg-[#FFD93D] selection:text-black">
+    <div className="relative min-h-screen bg-[#080808] text-[#FFFFFF] font-sans overflow-x-clip selection:bg-[#FFFFFF] selection:text-[#000000] bg-arch-grid">
       {/* Sticky Navigation */}
       <Navbar
         profile={fullData.personalInfo}
@@ -108,11 +108,11 @@ export const App: React.FC = () => {
         <button
           type="button"
           onClick={() => setIsEditorOpen(true)}
-          className="fixed bottom-6 right-6 z-40 px-4 py-3 border-4 border-black bg-[#FFD93D] text-black font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo neo-btn flex items-center gap-2 hover:bg-[#ffe26e]"
+          className="fixed bottom-6 right-6 z-40 px-4 py-2.5 border border-[#404040] bg-[#141414] text-white font-mono text-xs uppercase tracking-wider mono-btn flex items-center gap-2 hover:bg-white hover:text-black transition-all"
           title="Bấm vào để tùy chỉnh họ tên, dự án, kỹ năng và kinh nghiệm của bạn"
         >
-          <Edit3 className="w-4 h-4" />
-          <span className="hidden sm:inline">TÙY CHỈNH NỘI DUNG (ADMIN)</span>
+          <Edit3 className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">[ADMIN: SỬA HỒ SƠ]</span>
           <span className="sm:hidden">SỬA</span>
         </button>
       )}

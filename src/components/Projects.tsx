@@ -13,14 +13,14 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
     <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       
       {/* Section Header */}
-      <div className="mb-20">
-        <div className="inline-block px-3 py-1 border-4 border-black bg-[#FFD93D] text-black font-black text-xs uppercase tracking-widest mb-4 shadow-neo-sm">
-          02 // DỰ ÁN &amp; HỆ THỐNG BACKEND
+      <div className="mb-16 pb-4 border-b border-[#242424]">
+        <div className="inline-block px-2.5 py-1 border border-[#333333] bg-[#141414] text-[#E5E5E5] font-mono text-[11px] uppercase tracking-widest mb-3">
+          // 02 ARCHIVE: SELECTED WORKS
         </div>
-        <h2 className="font-heading font-black text-4xl sm:text-6xl text-black tracking-tight uppercase">
-          DỰ ÁN <span className="bg-[#FF6B6B] text-white border-4 border-black px-3 inline-block transform rotate-1 shadow-neo-sm">TIÊU BIỂU</span>
+        <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          DỰ ÁN <span className="font-serif italic font-normal text-[#A3A3A3]">TIÊU BIỂU</span>
         </h2>
-        <p className="mt-4 font-bold text-base sm:text-lg text-black/80 max-w-2xl">
+        <p className="mt-3 font-normal text-sm sm:text-base text-[#A3A3A3] max-w-2xl">
           Các dự án Backend thực chiến áp dụng Java 17, Spring Boot, thiết kế RESTful API chuẩn mực và tối ưu cơ sở dữ liệu.
         </p>
       </div>
@@ -33,20 +33,20 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
           return (
             <motion.article
               key={project.id}
-              initial={{ opacity: 0, y: 35 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="border-4 border-black bg-white shadow-neo-lg neo-card overflow-hidden"
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              className="border border-[#242424] bg-[#111111] mono-card overflow-hidden"
             >
               {/* Top Banner Bar */}
-              <div className="px-6 py-3.5 bg-[#FFD93D] border-b-4 border-black flex flex-wrap items-center justify-between gap-3 font-black text-xs uppercase">
+              <div className="px-6 py-3 bg-[#141414] border-b border-[#242424] flex flex-wrap items-center justify-between gap-3 font-mono text-xs uppercase">
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 bg-black text-white">PROJ_0{index + 1}</span>
-                  <span className="text-black tracking-wider">{project.category}</span>
+                  <span className="px-2 py-0.5 border border-[#333333] bg-black text-white text-[10px]">PROJ_0{index + 1}</span>
+                  <span className="text-[#888888] tracking-wider">// {project.category}</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-white border-2 border-black px-2.5 py-0.5 shadow-neo-sm">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FF6B6B]" />
+                <div className="flex items-center gap-1.5 border border-[#2E2E2E] bg-[#0A0A0A] px-2.5 py-0.5 text-[#CCCCCC] text-[10px]">
+                  <Sparkles className="w-3 h-3 text-white" />
                   <span>{project.metrics}</span>
                 </div>
               </div>
@@ -56,28 +56,28 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                 
                 {/* Mockup Image Frame + Direct Code Button (7 Cols) */}
                 <div className={`lg:col-span-7 flex flex-col justify-between space-y-4 ${isReversed ? 'lg:order-2' : ''}`}>
-                  <div className="relative border-4 border-black bg-black shadow-neo-sm overflow-hidden group/img aspect-video">
+                  <div className="relative border border-[#2E2E2E] bg-black overflow-hidden group/img aspect-video">
                     <img
                       src={project.previewImage}
                       alt={project.title}
                       loading="lazy"
-                      className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-center grayscale contrast-125 group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-300"
                     />
                     {/* Corner Sticker Badge */}
-                    <div className="absolute top-3 left-3 bg-[#FF6B6B] text-white border-2 border-black font-black text-xs px-2.5 py-1 shadow-neo-sm transform -rotate-2">
+                    <div className="absolute top-3 left-3 bg-white text-black border border-black font-mono font-bold text-[10px] px-2 py-0.5 tracking-wider">
                       FEATURED
                     </div>
                   </div>
 
-                  {/* Nút Xem Code đặt ngay dưới ảnh để lấp đầy khoảng trống */}
+                  {/* Nút Xem Code đặt ngay dưới ảnh */}
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3.5 border-4 border-black bg-[#FF6B6B] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo-sm neo-btn flex items-center justify-center gap-2 hover:bg-[#ff5252] transition-colors"
+                    className="w-full py-3.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all"
                   >
                     <span>XEM SOURCE CODE GITHUB</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-4 h-4" strokeWidth={1.75} />
                   </a>
                 </div>
 
@@ -85,40 +85,40 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                 <div className={`lg:col-span-5 flex flex-col justify-between ${isReversed ? 'lg:order-1' : ''}`}>
                   <div>
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1.5 mb-4">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2.5 py-1 text-xs font-black border-2 border-black bg-[#C4B5FD]/40 text-black shadow-neo-sm"
+                          className="px-2 py-0.5 text-[10px] font-mono border border-[#2E2E2E] bg-[#161616] text-[#CCCCCC]"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <h3 className="font-heading font-black text-2xl sm:text-3xl text-black tracking-tight uppercase">
+                    <h3 className="font-heading font-black text-2xl text-white tracking-tight uppercase">
                       {project.title}
                     </h3>
-                    <div className="text-xs sm:text-sm font-bold text-black/70 mt-1 uppercase">
+                    <div className="font-serif italic text-xs text-[#888888] mt-1">
                       // {project.subtitle}
                     </div>
 
                     {/* Problem & Solution Blocks */}
-                    <div className="mt-6 space-y-4 text-xs sm:text-sm font-bold">
-                      <div className="p-3.5 border-l-4 border-[#FF6B6B] border-y-2 border-r-2 border-black bg-[#FF6B6B]/10">
-                        <span className="text-[#FF6B6B] font-black block mb-1 uppercase">
+                    <div className="mt-6 space-y-3 font-sans text-xs">
+                      <div className="p-3.5 border-l-2 border-[#404040] bg-[#0E0E0E]">
+                        <span className="text-[#888888] font-mono text-[10px] block mb-1 uppercase tracking-wider">
                           [ BÀI TOÁN KỸ THUẬT &amp; NGHIỆP VỤ ]
                         </span>
-                        <p className="text-black/85 leading-relaxed">
+                        <p className="text-[#A3A3A3] leading-relaxed">
                           {project.problem}
                         </p>
                       </div>
 
-                      <div className="p-3.5 border-l-4 border-[#4ADE80] border-y-2 border-r-2 border-black bg-[#4ADE80]/15">
-                        <span className="text-black font-black block mb-1 uppercase">
+                      <div className="p-3.5 border-l-2 border-white bg-[#141414]">
+                        <span className="text-white font-mono text-[10px] font-bold block mb-1 uppercase tracking-wider">
                           [ GIẢI PHÁP KIẾN TRÚC &amp; BACKEND ]
                         </span>
-                        <p className="text-black/85 leading-relaxed">
+                        <p className="text-[#E5E5E5] leading-relaxed">
                           {project.solution}
                         </p>
                       </div>

@@ -198,20 +198,20 @@ export function saveStoredFullData(data: FullPortfolioData): void {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-4xl my-6 bg-[#FFFDF5] border-4 sm:border-6 border-black shadow-neo-xl flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
+      <div className="relative w-full max-w-4xl my-6 bg-[#0D0D0D] border border-[#333333] text-white flex flex-col max-h-[90vh]">
         
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#FFD93D] border-b-4 border-black shrink-0">
+        <div className="flex items-center justify-between px-6 py-4 bg-[#141414] border-b border-[#262626] shrink-0">
           <div className="flex items-center gap-3">
-            <span className="px-2 py-0.5 bg-black text-white font-black text-xs">ADMIN</span>
-            <h2 className="font-heading font-black text-lg sm:text-2xl text-black uppercase tracking-tight">
+            <span className="px-2 py-0.5 border border-[#404040] bg-black text-white font-mono text-[10px]">ADMIN</span>
+            <h2 className="font-heading font-black text-lg sm:text-xl text-white uppercase tracking-tight">
               TÙY CHỈNH NỘI DUNG PORTFOLIO
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 border-2 border-black bg-white hover:bg-[#FF6B6B] hover:text-white transition-colors"
+            className="p-1.5 border border-[#333333] bg-[#161616] text-[#A3A3A3] hover:text-white hover:border-white transition-colors"
             aria-label="Đóng cửa sổ"
           >
             <X className="w-5 h-5" />
@@ -219,11 +219,11 @@ export function saveStoredFullData(data: FullPortfolioData): void {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex flex-wrap border-b-4 border-black bg-white shrink-0 text-xs sm:text-sm font-black uppercase">
+        <div className="flex flex-wrap border-b border-[#262626] bg-[#0A0A0A] shrink-0 font-mono text-xs uppercase">
           <button
             onClick={() => setActiveTab('personal')}
-            className={`px-4 sm:px-6 py-3 border-r-4 border-black flex items-center gap-2 transition-colors ${
-              activeTab === 'personal' ? 'bg-[#FF6B6B] text-white' : 'hover:bg-[#FFD93D]'
+            className={`px-4 sm:px-6 py-3 border-r border-[#262626] flex items-center gap-2 transition-colors ${
+              activeTab === 'personal' ? 'bg-white text-black font-bold' : 'text-[#888888] hover:text-white hover:bg-[#141414]'
             }`}
           >
             <User className="w-4 h-4" />
@@ -232,18 +232,18 @@ export function saveStoredFullData(data: FullPortfolioData): void {
 
           <button
             onClick={() => setActiveTab('projects')}
-            className={`px-4 sm:px-6 py-3 border-r-4 border-black flex items-center gap-2 transition-colors ${
-              activeTab === 'projects' ? 'bg-[#FF6B6B] text-white' : 'hover:bg-[#FFD93D]'
+            className={`px-4 sm:px-6 py-3 border-r border-[#262626] flex items-center gap-2 transition-colors ${
+              activeTab === 'projects' ? 'bg-white text-black font-bold' : 'text-[#888888] hover:text-white hover:bg-[#141414]'
             }`}
           >
             <Layers className="w-4 h-4" />
-            <span>2. Dự Án Nổi Bật ({formData.projects.length})</span>
+            <span>2. Dự Án ({formData.projects.length})</span>
           </button>
 
           <button
             onClick={() => setActiveTab('skills')}
-            className={`px-4 sm:px-6 py-3 border-r-4 border-black flex items-center gap-2 transition-colors ${
-              activeTab === 'skills' ? 'bg-[#FF6B6B] text-white' : 'hover:bg-[#FFD93D]'
+            className={`px-4 sm:px-6 py-3 border-r border-[#262626] flex items-center gap-2 transition-colors ${
+              activeTab === 'skills' ? 'bg-white text-black font-bold' : 'text-[#888888] hover:text-white hover:bg-[#141414]'
             }`}
           >
             <Award className="w-4 h-4" />
@@ -253,7 +253,7 @@ export function saveStoredFullData(data: FullPortfolioData): void {
           <button
             onClick={() => setActiveTab('timeline')}
             className={`px-4 sm:px-6 py-3 flex items-center gap-2 transition-colors ${
-              activeTab === 'timeline' ? 'bg-[#FF6B6B] text-white' : 'hover:bg-[#FFD93D]'
+              activeTab === 'timeline' ? 'bg-white text-black font-bold' : 'text-[#888888] hover:text-white hover:bg-[#141414]'
             }`}
           >
             <Briefcase className="w-4 h-4" />
@@ -262,7 +262,7 @@ export function saveStoredFullData(data: FullPortfolioData): void {
         </div>
 
         {/* Tab Content Body */}
-        <div className="p-6 sm:p-8 space-y-6 overflow-y-auto flex-1">
+        <div className="p-6 sm:p-8 space-y-6 overflow-y-auto flex-1 bg-[#0D0D0D]">
           
           {/* TAB 1: THÔNG TIN CÁ NHÂN */}
           {activeTab === 'personal' && (
@@ -781,20 +781,20 @@ export function saveStoredFullData(data: FullPortfolioData): void {
 
           {/* Feedback message */}
           {savedSuccess && (
-            <div className="p-3 border-4 border-black bg-[#4ADE80] font-black text-xs text-center uppercase tracking-wider shadow-neo-sm">
+            <div className="p-3 border border-white bg-white text-black font-mono font-bold text-xs text-center uppercase tracking-wider">
               ✓ ĐÃ LƯU TOÀN BỘ DỮ LIỆU THÀNH CÔNG VÀO TRÌNH DUYỆT!
             </div>
           )}
         </div>
 
         {/* Action Controls Footer */}
-        <div className="p-4 sm:p-6 bg-white border-t-4 border-black flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div className="p-4 sm:p-6 bg-[#141414] border-t border-[#262626] flex flex-wrap items-center justify-between gap-3 shrink-0">
           <button
             type="button"
             onClick={handleReset}
-            className="px-4 py-2.5 border-4 border-black bg-white text-black font-black text-xs uppercase hover:bg-gray-100 flex items-center gap-1.5 neo-btn"
+            className="px-4 py-2.5 border border-[#333333] bg-[#0E0E0E] text-[#888888] hover:text-white hover:border-white font-mono text-xs uppercase flex items-center gap-1.5 transition-all"
           >
-            <RotateCcw className="w-4 h-4" />
+            <RotateCcw className="w-3.5 h-3.5" />
             <span>Đặt Lại Mặc Định</span>
           </button>
 
@@ -802,18 +802,18 @@ export function saveStoredFullData(data: FullPortfolioData): void {
             <button
               type="button"
               onClick={handleCopyCode}
-              className="px-4 py-2.5 border-4 border-black bg-[#C4B5FD] text-black font-black text-xs uppercase hover:bg-[#b09dfa] flex items-center gap-1.5 neo-btn"
+              className="px-4 py-2.5 border border-[#383838] bg-[#161616] text-[#D4D4D4] hover:text-white hover:border-white font-mono text-xs uppercase flex items-center gap-1.5 transition-all"
             >
-              {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+              {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copied ? 'ĐÃ COPY MÃ!' : 'COPY MÃ JSON'}</span>
             </button>
 
             <button
               type="button"
               onClick={handleSaveAll}
-              className="px-6 py-2.5 border-4 border-black bg-[#FF6B6B] text-white font-black text-sm uppercase hover:bg-[#ff5252] flex items-center gap-2 neo-btn shadow-neo-sm"
+              className="px-6 py-2.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest hover:bg-transparent hover:text-white flex items-center gap-2 transition-all"
             >
-              <Save className="w-4 h-4" />
+              <Save className="w-3.5 h-3.5" />
               <span>LƯU TẤT CẢ THAY ĐỔI</span>
             </button>
           </div>
