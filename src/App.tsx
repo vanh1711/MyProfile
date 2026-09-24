@@ -11,6 +11,8 @@ import { ProfileEditorModal } from './components/ProfileEditorModal';
 import { getStoredFullData, saveStoredFullData } from './data/portfolioData';
 import type { ToastMessage, FullPortfolioData, PersonalInfo } from './types/portfolio';
 import { Edit3 } from 'lucide-react';
+import { ConstellationField } from './shaders/neuform-isolated/NeuformBatchEffects';
+import './shaders/threeui.css';
 
 export const App: React.FC = () => {
   const [fullData, setFullData] = useState<FullPortfolioData>(getStoredFullData());
@@ -73,6 +75,22 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-[#080808] text-[#FFFFFF] font-sans overflow-x-clip selection:bg-[#FFFFFF] selection:text-[#000000] bg-arch-grid">
+      {/* Dynamic Particle Network Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-45 mix-blend-screen overflow-hidden">
+        <ConstellationField
+          variant="particle-network"
+          mode="dark"
+          speed={1.00}
+          size={1.00}
+          length={1.00}
+          density={1.00}
+          opacity={1.00}
+          hue={0}
+          saturation={1.00}
+          brightness={1.00}
+        />
+      </div>
+
       {/* Sticky Navigation */}
       <Navbar
         profile={fullData.personalInfo}
