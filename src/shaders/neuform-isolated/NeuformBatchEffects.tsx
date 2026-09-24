@@ -118,15 +118,21 @@ const EFFECTS = {
     title: "Particle Network",
     source: particleNetworkSource,
     supportsMode: true,
-    background: (mode) => (mode === "light" ? LIGHT_PAPER : "#020408"),
+    background: (mode) => (mode === "light" ? LIGHT_PAPER : "#05070d"),
     targets: [{ selector: "#particle-canvas", role: "background" }],
     patch(source, { size, length, density, mode }) {
       let next = source
-        .replace("const particleCount = 420;", `const particleCount = ${scaleCount(420, density, 80)};`)
-        .replace("this.length = Math.random() * 3.5 + 2.0;", `this.length = (Math.random() * 3.5 + 2.0) * ${length};`)
-        .replace("const fov = 320;", `const fov = ${Math.round(320 / Math.max(0.4, size))};`);
+        .replace("const particleCount = 200;", `const particleCount = ${scaleCount(200, density, 40)};`)
+        .replace("this.length = Math.random() * 2 + 0.5;", `this.length = (Math.random() * 2 + 0.5) * ${length};`)
+        .replace("this.z -= this.speed;", "this.z -= this.speed * ((window.__SF_CONTROLS&&window.__SF_CONTROLS.speed)||1);")
+        .replace("const fov = 300;", `const fov = ${Math.round(300 / Math.max(0.4, size))};`);
       if (mode === "light") {
-        next = next.replace("ctx.fillStyle = 'rgba(3, 5, 10, 0.34)';", "ctx.fillStyle = 'rgba(238, 241, 246, 0.45)';");
+        next = next
+          .replace("ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';", "ctx.fillStyle = 'rgba(238, 241, 246, 0.55)';")
+          .replace(
+            "const hue = Math.random() > 0.5 ? '200, 220, 255' : '106, 157, 237';",
+            "const hue = Math.random() > 0.5 ? '36, 48, 68' : '37, 99, 235';",
+          );
       }
       return next;
     },

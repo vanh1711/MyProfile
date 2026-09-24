@@ -75,19 +75,19 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-[#080808] text-[#FFFFFF] font-sans overflow-x-clip selection:bg-[#FFFFFF] selection:text-[#000000] bg-arch-grid">
-      {/* Dynamic Hyperspace Spaceship Starfield Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-85 mix-blend-screen overflow-hidden">
+      {/* Dynamic Particle Network Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-50 mix-blend-screen overflow-hidden">
         <ConstellationField
           variant="particle-network"
           mode="dark"
-          speed={1.30}
-          size={1.10}
-          length={1.25}
-          density={1.20}
+          speed={1.00}
+          size={1.00}
+          length={1.00}
+          density={1.00}
           opacity={1.00}
           hue={0}
-          saturation={1.20}
-          brightness={1.15}
+          saturation={1.00}
+          brightness={1.00}
         />
       </div>
 
