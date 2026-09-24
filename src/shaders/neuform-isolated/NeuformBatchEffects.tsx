@@ -122,7 +122,7 @@ const EFFECTS = {
     targets: [{ selector: "#particle-canvas", role: "background" }],
     patch(source, { size, length, density, mode }) {
       let next = source
-        .replace("const particleCount = 200;", `const particleCount = ${scaleCount(200, density, 40)};`)
+        .replace("const particleCount = 550;", `const particleCount = ${scaleCount(550, density, 100)};`)
         .replace("this.length = Math.random() * 2 + 0.5;", `this.length = (Math.random() * 2 + 0.5) * ${length};`)
         .replace("this.z -= this.speed;", "this.z -= this.speed * ((window.__SF_CONTROLS&&window.__SF_CONTROLS.speed)||1);")
         .replace("const fov = 300;", `const fov = ${Math.round(300 / Math.max(0.4, size))};`);

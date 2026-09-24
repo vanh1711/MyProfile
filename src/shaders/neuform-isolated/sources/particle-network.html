@@ -147,8 +147,8 @@
 
         let width, height;
         let particles = [];
-        const particleCount = 200; // Original balanced count
-        const speedMultiplier = 1.1; // Gentle, smooth velocity
+        const particleCount = 550; // Rich dense particle count
+        const speedMultiplier = 0.95; // Smooth, gentle velocity
 
         let originX, originY;
 
@@ -163,7 +163,7 @@
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             ctx.imageSmoothingEnabled = false;
             originX = width / 2;
-            originY = height * 0.55;
+            originY = height * 0.5;
         }
 
         class Particle {
@@ -174,13 +174,13 @@
 
             reset() {
                 const angle = Math.random() * Math.PI * 2;
-                const radius = Math.random() * 600;
+                const radius = Math.random() * (Math.max(width, height) * 0.75 + 100);
                 
                 this.x = Math.cos(angle) * radius;
-                this.y = (Math.sin(angle) * radius) - 100; 
+                this.y = Math.sin(angle) * radius; 
                 
                 this.z = 1000; 
-                this.speed = (Math.random() * 2 + 1) * speedMultiplier;
+                this.speed = (Math.random() * 1.8 + 0.8) * speedMultiplier;
                 
                 // Technical blue and white tones
                 const hue = Math.random() > 0.5 ? '200, 220, 255' : '106, 157, 237';
