@@ -64,13 +64,13 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
             <div className="p-4 border border-[#242424] bg-[#0A0A0A] space-y-3">
               <div className="flex items-center justify-between text-[11px] font-mono text-[#888888] uppercase tracking-wider">
                 <span>[4 TRỤ CỘT HƯỚNG ĐỐI TƯỢNG OOP]:</span>
-                <span className="border border-[#333333] bg-[#141414] text-[#E5E5E5] px-2 py-0.5 text-[10px]">STANDARD</span>
+                <span className="border border-emerald-500/30 bg-emerald-950/20 text-emerald-400 px-2 py-0.5 text-[10px]">STANDARD</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[10px] font-mono tracking-wider">
-                <div className="p-2 border border-[#262626] bg-[#111111] text-white">ENCAPSULATION</div>
-                <div className="p-2 border border-[#262626] bg-[#111111] text-white">INHERITANCE</div>
-                <div className="p-2 border border-[#262626] bg-[#111111] text-white">POLYMORPHISM</div>
-                <div className="p-2 border border-[#262626] bg-[#111111] text-white">ABSTRACTION</div>
+                <div className="p-2 border border-[#262626] bg-[#111111] text-[#E5E5E5] hover:border-cyan-500/40 hover:text-cyan-300 transition-colors">ENCAPSULATION</div>
+                <div className="p-2 border border-[#262626] bg-[#111111] text-[#E5E5E5] hover:border-purple-500/40 hover:text-purple-300 transition-colors">INHERITANCE</div>
+                <div className="p-2 border border-[#262626] bg-[#111111] text-[#E5E5E5] hover:border-emerald-500/40 hover:text-emerald-300 transition-colors">POLYMORPHISM</div>
+                <div className="p-2 border border-[#262626] bg-[#111111] text-[#E5E5E5] hover:border-amber-500/40 hover:text-amber-300 transition-colors">ABSTRACTION</div>
               </div>
             </div>
 
@@ -79,7 +79,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
               {cat1.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-2.5 py-1 text-[11px] font-mono border border-[#2E2E2E] bg-[#141414] text-[#CCCCCC] hover:border-white hover:text-white transition-colors"
+                  className="px-2.5 py-1 text-[11px] font-mono border border-[#2E2E2E] bg-[#141414] text-[#D4D4D4] hover:border-cyan-500/50 hover:text-cyan-300 transition-colors"
                 >
                   ✓ {skill}
                 </span>
@@ -115,13 +115,16 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
               {cat2.description}
             </p>
 
-            {/* Java Code Snippet Box */}
-            <div className="p-4 border border-[#242424] bg-[#080808] text-[#E5E5E5] font-mono text-[11px] leading-relaxed">
-              <div className="text-[#888888]">@RestController</div>
-              <div className="text-[#888888]">@RequestMapping("/api/v1")</div>
-              <div className="text-white">public class OrderController &#123;</div>
-              <div className="pl-3 text-[#A3A3A3]">@PostMapping("/checkout")</div>
-              <div className="pl-3 text-[#CCCCCC]">public ResponseEntity&lt;Response&gt; create() &#123; ... &#125;</div>
+            {/* Java Code Snippet Box with IDE Syntax Highlighting */}
+            <div className="p-4 border border-[#242424] bg-[#080808] font-mono text-[11px] leading-relaxed shadow-inner">
+              <div className="text-[#FF7B72]">@RestController</div>
+              <div className="text-[#FF7B72]">@RequestMapping(<span className="text-[#7EE787]">"/api/v1/orders"</span>)</div>
+              <div><span className="text-[#79C0FF]">public class</span> <span className="text-[#FFA657]">OrderController</span> &#123;</div>
+              <div className="pl-4 text-[#FF7B72]">@PostMapping(<span className="text-[#7EE787]">"/checkout"</span>)</div>
+              <div className="pl-4"><span className="text-[#79C0FF]">public</span> <span className="text-[#FFA657]">ResponseEntity</span>&lt;<span className="text-[#FFA657]">OrderResponse</span>&gt; <span className="text-[#D2A8FF]">createOrder</span>() &#123;</div>
+              <div className="pl-8 text-[#7EE787]">// Clean Architecture &amp; ACID</div>
+              <div className="pl-8 text-[#E5E5E5]"><span className="text-[#79C0FF]">return</span> <span className="text-[#FFA657]">ResponseEntity</span>.<span className="text-[#D2A8FF]">ok</span>(orderService.<span className="text-[#D2A8FF]">execute</span>());</div>
+              <div className="pl-4 text-white">&#125;</div>
               <div className="text-white">&#125;</div>
             </div>
 
@@ -129,7 +132,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
               {cat2.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-2.5 py-1 text-[11px] font-mono border border-[#2E2E2E] bg-[#141414] text-[#CCCCCC] hover:border-white hover:text-white transition-colors"
+                  className="px-2.5 py-1 text-[11px] font-mono border border-[#2E2E2E] bg-[#141414] text-[#D4D4D4] hover:border-emerald-500/50 hover:text-emerald-300 transition-colors"
                 >
                   ✓ {skill}
                 </span>
@@ -166,12 +169,12 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
             </p>
 
             <div className="grid grid-cols-2 gap-3">
-              <div className="p-3.5 border border-[#262626] bg-[#0D0D0D] text-center">
-                <div className="font-mono font-bold text-lg text-white">RDBMS</div>
+              <div className="p-3.5 border border-[#262626] bg-[#0D0D0D] text-center hover:border-cyan-500/30 transition-colors">
+                <div className="font-mono font-bold text-lg text-cyan-400">RDBMS</div>
                 <div className="font-mono text-[10px] text-[#888888] tracking-wider mt-0.5">MYSQL &amp; POSTGRES</div>
               </div>
-              <div className="p-3.5 border border-[#262626] bg-[#0D0D0D] text-center">
-                <div className="font-mono font-bold text-lg text-white">&gt;80%</div>
+              <div className="p-3.5 border border-[#262626] bg-[#0D0D0D] text-center hover:border-emerald-500/30 transition-colors">
+                <div className="font-mono font-bold text-lg text-emerald-400">&gt;80%</div>
                 <div className="font-mono text-[10px] text-[#888888] tracking-wider mt-0.5">JUNIT 5 COVERAGE</div>
               </div>
             </div>
@@ -180,9 +183,9 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
               {cat3.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-2.5 py-1 text-[11px] font-mono border border-[#2E2E2E] bg-[#141414] text-[#CCCCCC] hover:border-white hover:text-white transition-colors flex items-center gap-1.5"
+                  className="px-2.5 py-1 text-[11px] font-mono border border-[#2E2E2E] bg-[#141414] text-[#D4D4D4] hover:border-cyan-500/50 hover:text-cyan-300 transition-colors flex items-center gap-1.5"
                 >
-                  <CheckCircle2 className="w-3 h-3 text-[#A3A3A3]" strokeWidth={1.75} />
+                  <CheckCircle2 className="w-3 h-3 text-emerald-400" strokeWidth={1.75} />
                   {skill}
                 </span>
               ))}

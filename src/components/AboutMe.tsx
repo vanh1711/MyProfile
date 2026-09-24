@@ -105,11 +105,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
             </div>
 
             {/* 1. Full Photo Avatar Box */}
-            <div className="relative border border-[#2E2E2E] bg-[#050505] overflow-hidden aspect-[4/3] group/avatar">
+            <div className="relative border border-[#2E2E2E] hover:border-[#444444] bg-[#050505] overflow-hidden aspect-[4/3] group/avatar transition-colors">
               <img
                 src={currentAvatar}
                 alt={profile.name}
-                className="w-full h-full object-cover object-center grayscale contrast-125 group-hover/avatar:grayscale-0 group-hover/avatar:scale-105 transition-all duration-300"
+                className="w-full h-full object-cover object-center group-hover/avatar:scale-105 transition-all duration-500"
               />
 
               {/* Upload Button Overlay on Hover (Chỉ hiển thị khi là Admin) */}
@@ -149,8 +149,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
               </div>
 
               {/* Status Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#2E2E2E] bg-[#0D0D0D] text-[#CCCCCC] font-mono text-[11px] uppercase mt-1">
-                <span className="w-1.5 h-1.5 bg-[#4ADE80] animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 border border-emerald-500/30 bg-emerald-950/20 text-emerald-300 font-mono text-[11px] uppercase mt-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
                 <span className="truncate max-w-[240px] tracking-wide">{profile.systemStatus}</span>
               </div>
             </div>

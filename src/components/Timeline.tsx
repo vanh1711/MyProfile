@@ -38,8 +38,8 @@ export const Timeline: React.FC<TimelineProps> = ({ timeline = DEFAULT_TIMELINE 
               className="relative"
             >
               {/* Node on the Timeline Line */}
-              <div className="absolute -left-[32px] sm:-left-[48px] top-6 w-8 h-8 border border-[#404040] bg-[#0A0A0A] flex items-center justify-center">
-                <Star className="w-3.5 h-3.5 text-white fill-white" />
+              <div className="absolute -left-[32px] sm:-left-[48px] top-6 w-8 h-8 border border-[#404040] bg-[#0A0A0A] flex items-center justify-center group-hover:border-emerald-500/50">
+                <Star className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
               </div>
 
               {/* Experience Card */}
@@ -47,8 +47,8 @@ export const Timeline: React.FC<TimelineProps> = ({ timeline = DEFAULT_TIMELINE 
                 
                 {/* Period & Location Bar */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#222222]">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-[#333333] bg-[#161616] text-[#E5E5E5] font-mono text-xs uppercase tracking-wider">
-                    <Calendar className="w-3.5 h-3.5 text-[#888888]" />
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-emerald-500/30 bg-emerald-950/20 text-emerald-300 font-mono text-xs uppercase tracking-wider">
+                    <Calendar className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{item.period}</span>
                   </div>
 

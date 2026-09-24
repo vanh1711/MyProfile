@@ -46,8 +46,8 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
           </a>
 
           {/* System Status Pill */}
-          <div className="p-2.5 border border-[#222222] bg-[#0E0E0E] text-[#D4D4D4] font-mono text-[10px] uppercase flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-[#4ADE80] animate-pulse shrink-0" />
+          <div className="p-2.5 border border-emerald-500/30 bg-emerald-950/20 text-emerald-300 font-mono text-[10px] uppercase flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse shrink-0" />
             <span className="truncate tracking-wide">{profile.systemStatus}</span>
           </div>
         </div>

@@ -56,16 +56,17 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                 
                 {/* Mockup Image Frame + Direct Code Button (7 Cols) */}
                 <div className={`lg:col-span-7 flex flex-col justify-between space-y-4 ${isReversed ? 'lg:order-2' : ''}`}>
-                  <div className="relative border border-[#2E2E2E] bg-black overflow-hidden group/img aspect-video">
+                  <div className="relative border border-[#2E2E2E] hover:border-[#444444] bg-black overflow-hidden group/img aspect-video transition-colors">
                     <img
                       src={project.previewImage}
                       alt={project.title}
                       loading="lazy"
-                      className="w-full h-full object-cover object-center grayscale contrast-125 group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-300"
+                      className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-all duration-500"
                     />
                     {/* Corner Sticker Badge */}
-                    <div className="absolute top-3 left-3 bg-white text-black border border-black font-mono font-bold text-[10px] px-2 py-0.5 tracking-wider">
-                      FEATURED
+                    <div className="absolute top-3 left-3 bg-emerald-500/10 text-emerald-400 border border-emerald-500/40 backdrop-blur-md font-mono font-bold text-[10px] px-2.5 py-1 tracking-wider flex items-center gap-1.5 shadow-lg">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>FEATURED // PRODUCTION</span>
                     </div>
                   </div>
 
@@ -74,7 +75,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all"
+                    className="w-full py-3.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all shadow-md"
                   >
                     <span>XEM SOURCE CODE GITHUB</span>
                     <ExternalLink className="w-4 h-4" strokeWidth={1.75} />
@@ -89,7 +90,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 text-[10px] font-mono border border-[#2E2E2E] bg-[#161616] text-[#CCCCCC]"
+                          className="px-2.5 py-1 text-[10px] font-mono border border-[#2E2E2E] bg-[#161616] text-[#D4D4D4] hover:border-cyan-500/50 hover:text-cyan-300 transition-colors"
                         >
                           {tag}
                         </span>
