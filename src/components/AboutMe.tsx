@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   User,
@@ -13,9 +13,11 @@ import {
   Zap,
   Camera,
   Upload,
+  Move,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, FigmaIcon } from './icons/BrandIcons';
 import type { PersonalInfo } from '../types/portfolio';
+import { ImageCropModal } from './ImageCropModal';
 
 interface AboutMeProps {
   profile: PersonalInfo;
@@ -26,6 +28,8 @@ interface AboutMeProps {
 
 export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAdmin = false }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isCropModalOpen, setIsCropModalOpen] = useState(false);
+  const [cropImageSrc, setCropImageSrc] = useState<string>('');
 
   const defaultAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
   const currentAvatar = profile.avatarUrl || defaultAvatar;
@@ -37,19 +41,33 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
       const reader = new FileReader();
       reader.onload = (event) => {
         const base64Url = event.target?.result as string;
-        if (base64Url && onUpdateProfile) {
-          onUpdateProfile({
-            ...profile,
-            avatarUrl: base64Url,
-          });
+        if (base64Url) {
+          // Open crop modal with the newly uploaded image immediately
+          setCropImageSrc(base64Url);
+          setIsCropModalOpen(true);
         }
       };
       reader.readAsDataURL(file);
+      e.target.value = ''; // Reset so the same file can be re-selected if desired
     }
   };
 
   const triggerUpload = () => {
     fileInputRef.current?.click();
+  };
+
+  const handleOpenCurrentPhotoCropper = () => {
+    setCropImageSrc(currentAvatar);
+    setIsCropModalOpen(true);
+  };
+
+  const handleSaveCroppedAvatar = (croppedDataUrl: string) => {
+    if (onUpdateProfile) {
+      onUpdateProfile({
+        ...profile,
+        avatarUrl: croppedDataUrl,
+      });
+    }
   };
 
   return (
@@ -112,29 +130,51 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 className="w-full h-full object-cover object-center group-hover/avatar:scale-105 transition-all duration-500"
               />
 
-              {/* Upload Button Overlay on Hover (Chỉ hiển thị khi là Admin) */}
+              {/* Upload & Crop Buttons Overlay on Hover (Chỉ hiển thị khi là Admin) */}
               {isAdmin && (
                 <>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover/avatar:opacity-100 transition-opacity bg-black/75 p-4 text-center">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover/avatar:opacity-100 transition-opacity bg-black/85 p-4 text-center gap-2">
                     <button
                       type="button"
                       onClick={triggerUpload}
-                      className="px-4 py-2 border border-white bg-white text-black font-mono font-bold text-xs uppercase flex items-center gap-2 hover:bg-transparent hover:text-white transition-all"
+                      className="w-full max-w-[210px] px-3.5 py-2.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all shadow-md"
                     >
                       <Camera className="w-3.5 h-3.5" />
-                      <span>TẢI ẢNH TỪ MÁY</span>
+                      <span>TẢI ẢNH MỚI</span>
                     </button>
-                    <span className="font-mono text-[10px] text-[#A3A3A3] mt-1.5">JPG, PNG, WEBP</span>
+
+                    <button
+                      type="button"
+                      onClick={handleOpenCurrentPhotoCropper}
+                      className="w-full max-w-[210px] px-3.5 py-2.5 border border-[#555555] bg-[#161616] text-white font-mono font-bold text-xs uppercase flex items-center justify-center gap-2 hover:border-white transition-all shadow-md"
+                    >
+                      <Move className="w-3.5 h-3.5" />
+                      <span>CHỈNH VỊ TRÍ ẢNH</span>
+                    </button>
+                    <span className="font-mono text-[9px] text-[#A3A3A3] tracking-wider uppercase">
+                      CHỈNH LỆCH TRÁI, PHẢI, LÊN, XUỐNG
+                    </span>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={triggerUpload}
-                    className="absolute top-3 right-3 p-2 border border-white bg-black text-white hover:bg-white hover:text-black group-hover/avatar:hidden transition-colors"
-                    title="Bấm vào để đổi ảnh chân dung của bạn"
-                  >
-                    <Upload className="w-3.5 h-3.5" />
-                  </button>
+                  {/* Corner Quick Action Buttons */}
+                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 group-hover/avatar:hidden">
+                    <button
+                      type="button"
+                      onClick={handleOpenCurrentPhotoCropper}
+                      className="p-1.5 border border-[#444444] bg-black/80 text-white hover:bg-white hover:text-black transition-colors"
+                      title="Căn chỉnh vị trí ảnh hiện tại (Trái/phải/lên/xuống)"
+                    >
+                      <Move className="w-3.5 h-3.5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={triggerUpload}
+                      className="p-1.5 border border-white bg-black/80 text-white hover:bg-white hover:text-black transition-colors"
+                      title="Tải ảnh mới từ máy"
+                    >
+                      <Upload className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </>
               )}
             </div>
@@ -334,6 +374,15 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
         </motion.div>
 
       </div>
+
+      {/* Interactive Image Position & Crop Modal */}
+      <ImageCropModal
+        isOpen={isCropModalOpen}
+        imageSrc={cropImageSrc}
+        onClose={() => setIsCropModalOpen(false)}
+        onSave={handleSaveCroppedAvatar}
+        initialAspectRatio={4 / 3}
+      />
     </section>
   );
 };

@@ -11,9 +11,12 @@ import {
   Trash2,
   Layers,
   Award,
+  Move,
+  Crop,
 } from 'lucide-react';
 import type { FullPortfolioData, Project, SkillCategory, TimelineItem } from '../types/portfolio';
 import { DEFAULT_FULL_PORTFOLIO_DATA, saveStoredFullData } from '../data/portfolioData';
+import { ImageCropModal } from './ImageCropModal';
 
 interface ProfileEditorModalProps {
   isOpen: boolean;
@@ -35,6 +38,11 @@ export const ProfileEditorModal: React.FC<ProfileEditorModalProps> = ({
   const [copied, setCopied] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
+  // Image Crop State
+  const [isCropModalOpen, setIsCropModalOpen] = useState(false);
+  const [cropImageTarget, setCropImageTarget] = useState<'avatar' | { projectIndex: number }>('avatar');
+  const [cropImageSrc, setCropImageSrc] = useState<string>('');
+
   // Sync formData when fullData changes or modal opens
   React.useEffect(() => {
     setFormData(fullData);
@@ -51,6 +59,61 @@ export const ProfileEditorModal: React.FC<ProfileEditorModalProps> = ({
         [field]: value,
       },
     }));
+  };
+
+  // Image Cropper Handlers
+  const handleOpenAvatarCrop = () => {
+    setCropImageTarget('avatar');
+    setCropImageSrc(formData.personalInfo.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80');
+    setIsCropModalOpen(true);
+  };
+
+  const handleAvatarFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        const base64 = evt.target?.result as string;
+        if (base64) {
+          setCropImageTarget('avatar');
+          setCropImageSrc(base64);
+          setIsCropModalOpen(true);
+        }
+      };
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    }
+  };
+
+  const handleOpenProjectCrop = (idx: number) => {
+    setCropImageTarget({ projectIndex: idx });
+    setCropImageSrc(formData.projects[idx].previewImage || '');
+    setIsCropModalOpen(true);
+  };
+
+  const handleProjectFileChange = (idx: number, e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        const base64 = evt.target?.result as string;
+        if (base64) {
+          setCropImageTarget({ projectIndex: idx });
+          setCropImageSrc(base64);
+          setIsCropModalOpen(true);
+        }
+      };
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    }
+  };
+
+  const handleSaveCropped = (croppedDataUrl: string) => {
+    if (cropImageTarget === 'avatar') {
+      handlePersonalChange('avatarUrl', croppedDataUrl);
+    } else if (typeof cropImageTarget === 'object' && cropImageTarget.projectIndex !== undefined) {
+      handleProjectChange(cropImageTarget.projectIndex, 'previewImage', croppedDataUrl);
+    }
   };
 
   // Projects Handlers
@@ -271,16 +334,28 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                 💡 Thay đổi tên, ảnh đại diện, chức danh và thông điệp của bạn. Dữ liệu sẽ xuất hiện ngay tại Logo, Hero, Giới Thiệu Bản Thân và Footer.
               </div>
 
-              {/* Avatar Upload & URL */}
-              <div className="p-4 border-4 border-black bg-white shadow-neo-sm space-y-3">
-                <label className="block text-xs font-black uppercase">Ảnh đại diện (Avatar):</label>
+              {/* Avatar Upload & Crop */}
+              <div className="p-4 border border-[#2E2E2E] bg-[#141414] space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="block text-xs font-mono font-bold uppercase text-white">Ảnh đại diện (Avatar):</label>
+                  <span className="font-mono text-[10px] text-[#888888]">TỈ LỆ 4:3 CHUẨN</span>
+                </div>
                 <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <div className="w-20 h-20 border-3 border-black bg-black overflow-hidden shrink-0 shadow-neo-sm">
+                  <div className="w-24 h-20 border border-[#3A3A3A] bg-black overflow-hidden shrink-0 relative group">
                     <img
                       src={formData.personalInfo.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'}
                       alt={formData.personalInfo.name}
                       className="w-full h-full object-cover"
                     />
+                    <button
+                      type="button"
+                      onClick={handleOpenAvatarCrop}
+                      className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-[10px] font-mono uppercase transition-opacity"
+                      title="Căn chỉnh vị trí ảnh"
+                    >
+                      <Move className="w-3.5 h-3.5 mr-1" />
+                      Chỉnh
+                    </button>
                   </div>
                   <div className="flex-1 w-full space-y-2">
                     <input
@@ -288,31 +363,26 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                       value={formData.personalInfo.avatarUrl || ''}
                       onChange={(e) => handlePersonalChange('avatarUrl', e.target.value)}
                       placeholder="Dán link ảnh (URL) hoặc tải từ máy tính bên dưới"
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:outline-none"
                     />
-                    <div className="flex items-center gap-2">
-                      <label className="px-3 py-1.5 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase cursor-pointer hover:bg-[#ffe26e] shadow-neo-sm">
-                        📁 Tải ảnh từ máy tính
+                    <div className="flex items-center flex-wrap gap-2">
+                      <label className="px-3 py-1.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase cursor-pointer hover:bg-transparent hover:text-white transition-all flex items-center gap-1.5">
+                        <span>📁 TẢI ẢNH TỪ MÁY</span>
                         <input
                           type="file"
                           accept="image/*"
                           className="hidden"
-                          onChange={(e) => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              const reader = new FileReader();
-                              reader.onload = (evt) => {
-                                const base64 = evt.target?.result as string;
-                                if (base64) {
-                                  handlePersonalChange('avatarUrl', base64);
-                                }
-                              };
-                              reader.readAsDataURL(file);
-                            }
-                          }}
+                          onChange={handleAvatarFileChange}
                         />
                       </label>
-                      <span className="text-[11px] font-bold text-black/60">Tự động lưu vào trình duyệt</span>
+                      <button
+                        type="button"
+                        onClick={handleOpenAvatarCrop}
+                        className="px-3 py-1.5 border border-[#444444] bg-[#1E1E1E] text-white hover:border-white font-mono font-bold text-xs uppercase transition-all flex items-center gap-1.5"
+                      >
+                        <Crop className="w-3.5 h-3.5" />
+                        <span>CĂN CHỈNH LỆCH / CẮT ẢNH</span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -570,14 +640,34 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">Link ảnh Mockup (URL):</label>
-                    <input
-                      type="text"
-                      value={proj.previewImage}
-                      onChange={(e) => handleProjectChange(idx, 'previewImage', e.target.value)}
-                      placeholder="https://images.unsplash.com/..."
-                      className="w-full p-2 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
-                    />
+                    <label className="block text-xs font-black uppercase mb-1">Ảnh Mockup (URL / Tải từ máy):</label>
+                    <div className="flex items-center flex-wrap sm:flex-nowrap gap-2">
+                      <input
+                        type="text"
+                        value={proj.previewImage}
+                        onChange={(e) => handleProjectChange(idx, 'previewImage', e.target.value)}
+                        placeholder="https://images.unsplash.com/..."
+                        className="flex-1 min-w-[200px] p-2 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                      />
+                      <label className="px-3 py-2 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase cursor-pointer hover:bg-[#ffe26e] shadow-neo-sm whitespace-nowrap">
+                        📁 Tải ảnh
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) => handleProjectFileChange(idx, e)}
+                        />
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => handleOpenProjectCrop(idx)}
+                        className="px-3 py-2 border-2 border-black bg-white text-black font-black text-xs uppercase hover:bg-black hover:text-white shadow-neo-sm whitespace-nowrap flex items-center gap-1"
+                        title="Căn chỉnh vị trí / Cắt ảnh"
+                      >
+                        <Crop className="w-3.5 h-3.5" />
+                        <span>Chỉnh vị trí</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -820,6 +910,15 @@ export function saveStoredFullData(data: FullPortfolioData): void {
         </div>
 
       </div>
+
+      {/* Interactive Image Position & Crop Modal */}
+      <ImageCropModal
+        isOpen={isCropModalOpen}
+        imageSrc={cropImageSrc}
+        onClose={() => setIsCropModalOpen(false)}
+        onSave={handleSaveCropped}
+        initialAspectRatio={cropImageTarget === 'avatar' ? 4 / 3 : 16 / 9}
+      />
     </div>
   );
 };
