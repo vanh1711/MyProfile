@@ -14,11 +14,8 @@ export const DEFAULT_PERSONAL_INFO: PersonalInfo = {
   gpa: "3.47 / 4.0",
   ielts: "5.5 Overall (2025 — 2027)",
   avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-  resumeUrl: "#cv",
-  githubUrl: "https://github.com/vanh1711",
-  linkedinUrl: "https://github.com/vanh1711",
-  dribbbleUrl: "https://github.com/vanh1711",
-  figmaUrl: "https://github.com/vanh1711"
+  resumeUrl: "/cv/Doan-Viet-Anh-Java-Backend-Intern-CV.pdf",
+  githubUrl: "https://github.com/vanh1711"
 };
 
 export const DEFAULT_PROJECTS: Project[] = [
@@ -203,16 +200,16 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v6';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v7';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
     const data = localStorage.getItem(STORAGE_KEY_FULL_DATA);
     if (data) {
       const parsed = JSON.parse(data);
-      // Ensure we have the updated CV data and task manager dashboard image
-      const isUpdated = parsed.projects?.[0]?.previewImage?.includes('task-manager-dashboard');
-      if (isUpdated && parsed.personalInfo?.location === "Hoài Đức, Hà Nội") {
+      // Ensure we have the updated CV data and real CV PDF link
+      const hasRealCv = parsed.personalInfo?.resumeUrl?.includes('Doan-Viet-Anh');
+      if (hasRealCv && parsed.personalInfo?.location === "Hoài Đức, Hà Nội") {
         return {
           personalInfo: { ...DEFAULT_PERSONAL_INFO, ...(parsed.personalInfo || {}) },
           projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : DEFAULT_PROJECTS,

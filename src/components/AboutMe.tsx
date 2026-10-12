@@ -19,7 +19,7 @@ import {
   Upload,
   Move,
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, FigmaIcon } from './icons/BrandIcons';
+import { GithubIcon } from './icons/BrandIcons';
 import type { PersonalInfo } from '../types/portfolio';
 import { ImageCropModal } from './ImageCropModal';
 
@@ -275,35 +275,33 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
           {/* Socials & Fast CV Action */}
           <div className="pt-6 border-t border-[#222222] mt-6 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs text-[#888888] uppercase tracking-wider">MẠNG XÃ HỘI:</span>
+              <span className="font-mono text-xs text-[#888888] uppercase tracking-wider">LIÊN KẾT NHANH:</span>
               <div className="flex items-center gap-2">
                 <a
                   href={profile.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 border border-[#2A2A2A] bg-[#141414] hover:border-white text-[#A3A3A3] hover:text-white transition-colors"
-                  title="GitHub"
+                  title="GitHub: vanh1711"
                 >
                   <GithubIcon className="w-4 h-4" />
                 </a>
                 <a
-                  href={profile.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`mailto:${profile.email}`}
                   className="p-2 border border-[#2A2A2A] bg-[#141414] hover:border-white text-[#A3A3A3] hover:text-white transition-colors"
-                  title="LinkedIn"
+                  title={`Email: ${profile.email}`}
                 >
-                  <LinkedinIcon className="w-4 h-4" />
+                  <Mail className="w-4 h-4" />
                 </a>
-                <a
-                  href={profile.figmaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 border border-[#2A2A2A] bg-[#141414] hover:border-white text-[#A3A3A3] hover:text-white transition-colors"
-                  title="Figma"
-                >
-                  <FigmaIcon className="w-4 h-4" />
-                </a>
+                {profile.phone && (
+                  <a
+                    href={`tel:${profile.phone}`}
+                    className="p-2 border border-[#2A2A2A] bg-[#141414] hover:border-white text-[#A3A3A3] hover:text-white transition-colors"
+                    title={`Điện thoại: ${profile.phone}`}
+                  >
+                    <Phone className="w-4 h-4" />
+                  </a>
+                )}
               </div>
             </div>
 
@@ -311,7 +309,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all"
+              download="Doan-Viet-Anh-Java-Backend-Intern-CV.pdf"
+              className="w-full py-3.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all shadow-md"
             >
               <FileText className="w-4 h-4" strokeWidth={1.75} />
               <span>XEM / TẢI CV CHUYÊN NGHIỆP</span>

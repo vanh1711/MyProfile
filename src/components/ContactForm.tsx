@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, User, MessageSquare, AlertCircle, Loader2 } from 'lucide-react';
+import { Send, Mail, User, MessageSquare, AlertCircle, Loader2, Phone } from 'lucide-react';
 import type { ToastMessage } from '../types/portfolio';
 
 interface ContactFormProps {
@@ -36,27 +36,25 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onShowToast }) => {
     setLoading(true);
 
     try {
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE',
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: `Tin nhắn Portfolio từ ${formData.name}`,
-        }),
-      }).catch(() => {
-        return { ok: true, json: async () => ({ success: true }) };
-      });
+      const targetEmail = 'vanh17112005@gmail.com';
+      const subject = encodeURIComponent(`[Tuyển dụng / Hợp tác] Tin nhắn từ ${formData.name}`);
+      const body = encodeURIComponent(
+        `Xin chào Đoàn Việt Anh,\n\n` +
+        `Tôi liên hệ với bạn từ trang Portfolio:\n` +
+        `- Họ và tên người gửi: ${formData.name}\n` +
+        `- Email liên hệ lại: ${formData.email}\n\n` +
+        `- Nội dung trao đổi:\n${formData.message}\n\n` +
+        `Trân trọng!`
+      );
+      const mailtoLink = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+
+      // Mở trình soạn thư với nội dung đã điền sẵn tới vanh17112005@gmail.com
+      window.location.href = mailtoLink;
 
       onShowToast({
         id: Date.now().toString(),
-        title: 'GỬI TIN NHẮN THÀNH CÔNG!',
-        message: 'Cảm ơn bạn đã liên hệ. Tôi sẽ phản hồi lại bạn trong vòng 24 giờ.',
+        title: 'ĐÃ MỞ TRÌNH SOẠN EMAIL!',
+        message: `Đã chuẩn bị sẵn nội dung gửi tới ${targetEmail}. Vui lòng bấm Gửi trên ứng dụng mail của bạn.`,
         type: 'success',
       });
 
@@ -64,8 +62,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onShowToast }) => {
     } catch {
       onShowToast({
         id: Date.now().toString(),
-        title: 'TIN NHẮN ĐÃ ĐƯỢC LƯU CỤC BỘ',
-        message: 'Đã lưu thông tin liên hệ của bạn.',
+        title: 'LIÊN HỆ TRỰC TIẾP',
+        message: 'Vui lòng gửi email trực tiếp tới vanh17112005@gmail.com.',
         type: 'info',
       });
     } finally {
@@ -180,6 +178,31 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onShowToast }) => {
             </button>
           </div>
         </form>
+
+        {/* Direct Contact Alternatives */}
+        <div className="mt-8 pt-6 border-t border-[#222222] grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a
+            href="mailto:vanh17112005@gmail.com"
+            className="p-3 border border-[#2E2E2E] bg-[#141414] hover:border-white font-mono text-xs flex items-center justify-between text-[#CCCCCC] hover:text-white transition-all group"
+          >
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-[#888888] group-hover:text-white" />
+              <span className="font-bold">vanh17112005@gmail.com</span>
+            </div>
+            <span className="text-[10px] text-[#888888]">[GỬI MAIL]</span>
+          </a>
+
+          <a
+            href="tel:0888218258"
+            className="p-3 border border-[#2E2E2E] bg-[#141414] hover:border-white font-mono text-xs flex items-center justify-between text-[#CCCCCC] hover:text-white transition-all group"
+          >
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-[#888888] group-hover:text-white" />
+              <span className="font-bold">0888 218 258</span>
+            </div>
+            <span className="text-[10px] text-[#888888]">[GỌI ĐIỆN]</span>
+          </a>
+        </div>
       </motion.div>
     </section>
   );

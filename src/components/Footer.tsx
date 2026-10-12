@@ -1,6 +1,6 @@
 import React from 'react';
-import { Edit3 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, DribbbleIcon, FigmaIcon } from './icons/BrandIcons';
+import { Edit3, Mail, Phone } from 'lucide-react';
+import { GithubIcon } from './icons/BrandIcons';
 import type { PersonalInfo } from '../types/portfolio';
 
 interface FooterProps {
@@ -35,37 +35,26 @@ export const Footer: React.FC<FooterProps> = ({ profile, onOpenEditor, isAdmin =
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
-              title="GitHub"
+              title="GitHub: vanh1711"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
             <a
-              href={profile.linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${profile.email}`}
               className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
-              title="LinkedIn"
+              title={`Email: ${profile.email}`}
             >
-              <LinkedinIcon className="w-4 h-4" />
+              <Mail className="w-4 h-4" />
             </a>
-            <a
-              href={profile.dribbbleUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
-              title="Dribbble"
-            >
-              <DribbbleIcon className="w-4 h-4" />
-            </a>
-            <a
-              href={profile.figmaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
-              title="Figma"
-            >
-              <FigmaIcon className="w-4 h-4" />
-            </a>
+            {profile.phone && (
+              <a
+                href={`tel:${profile.phone}`}
+                className="p-2.5 border border-[#262626] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white transition-colors"
+                title={`Điện thoại: ${profile.phone}`}
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+            )}
           </div>
         </div>
 

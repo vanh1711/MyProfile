@@ -14,9 +14,9 @@ export interface PersonalInfo {
   avatarUrl?: string;
   resumeUrl: string;
   githubUrl: string;
-  linkedinUrl: string;
-  dribbbleUrl: string;
-  figmaUrl: string;
+  linkedinUrl?: string;
+  dribbbleUrl?: string;
+  figmaUrl?: string;
 }
 
 export interface Project {

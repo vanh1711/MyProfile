@@ -227,7 +227,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v6';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v7';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
@@ -520,43 +520,14 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <div>
-                  <label className="block text-xs font-black mb-1">Link GitHub:</label>
-                  <input
-                    type="text"
-                    value={formData.personalInfo.githubUrl}
-                    onChange={(e) => handlePersonalChange('githubUrl', e.target.value)}
-                    className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-black mb-1">Link LinkedIn:</label>
-                  <input
-                    type="text"
-                    value={formData.personalInfo.linkedinUrl}
-                    onChange={(e) => handlePersonalChange('linkedinUrl', e.target.value)}
-                    className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-black mb-1">Link Dribbble / Behance:</label>
-                  <input
-                    type="text"
-                    value={formData.personalInfo.dribbbleUrl}
-                    onChange={(e) => handlePersonalChange('dribbbleUrl', e.target.value)}
-                    className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-black mb-1">Link Figma Profile:</label>
-                  <input
-                    type="text"
-                    value={formData.personalInfo.figmaUrl}
-                    onChange={(e) => handlePersonalChange('figmaUrl', e.target.value)}
-                    className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
-                  />
-                </div>
+              <div className="pt-2">
+                <label className="block text-xs font-black mb-1">Link GitHub Profile / Repo:</label>
+                <input
+                  type="text"
+                  value={formData.personalInfo.githubUrl}
+                  onChange={(e) => handlePersonalChange('githubUrl', e.target.value)}
+                  className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                />
               </div>
             </div>
           )}

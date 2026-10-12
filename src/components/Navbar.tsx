@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X, FileText, Edit3, ArrowUpRight, User, Layers, Award, Briefcase, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, FigmaIcon } from './icons/BrandIcons';
+import { Menu, X, FileText, Edit3, ArrowUpRight, User, Layers, Award, Briefcase, Mail, Phone } from 'lucide-react';
+import { GithubIcon } from './icons/BrandIcons';
 import type { PersonalInfo } from '../types/portfolio';
 
 interface NavbarProps {
@@ -85,7 +85,8 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
             href={profile.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-3 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all"
+            download="Doan-Viet-Anh-Java-Backend-Intern-CV.pdf"
+            className="w-full py-3 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all shadow-md"
           >
             <FileText className="w-3.5 h-3.5" strokeWidth={1.75} />
             <span>XEM / TẢI CV</span>
@@ -99,28 +100,26 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 p-2.5 border border-[#222222] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white flex items-center justify-center transition-colors"
-              title="GitHub"
+              title="GitHub: vanh1711"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
             <a
-              href={profile.linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${profile.email}`}
               className="flex-1 p-2.5 border border-[#222222] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white flex items-center justify-center transition-colors"
-              title="LinkedIn"
+              title={`Email: ${profile.email}`}
             >
-              <LinkedinIcon className="w-4 h-4" />
+              <Mail className="w-4 h-4" />
             </a>
-            <a
-              href={profile.figmaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 p-2.5 border border-[#222222] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white flex items-center justify-center transition-colors"
-              title="Figma"
-            >
-              <FigmaIcon className="w-4 h-4" />
-            </a>
+            {profile.phone && (
+              <a
+                href={`tel:${profile.phone}`}
+                className="flex-1 p-2.5 border border-[#222222] bg-[#111111] hover:border-white text-[#8E8E8E] hover:text-white flex items-center justify-center transition-colors"
+                title={`Điện thoại: ${profile.phone}`}
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+            )}
           </div>
 
           {/* Nút Admin (Chỉ hiện khi Admin bật) */}
@@ -163,7 +162,8 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase"
+              download="Doan-Viet-Anh-Java-Backend-Intern-CV.pdf"
+              className="px-3 py-1.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase shadow-sm"
             >
               XEM CV
             </a>
