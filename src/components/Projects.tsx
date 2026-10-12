@@ -21,7 +21,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
           DỰ ÁN <span className="font-serif italic font-normal text-[#A3A3A3]">TIÊU BIỂU</span>
         </h2>
         <p className="mt-3 font-normal text-sm sm:text-base text-[#A3A3A3] max-w-2xl">
-          Các dự án Backend thực chiến áp dụng Java 17, Spring Boot, thiết kế RESTful API chuẩn mực và tối ưu cơ sở dữ liệu.
+          Các dự án thực chiến áp dụng Java 17, Spring Boot, Laravel & MySQL, thiết kế kiến trúc chuẩn mực (FSM, Clean Architecture) và tối ưu trải nghiệm người dùng.
         </p>
       </div>
 
