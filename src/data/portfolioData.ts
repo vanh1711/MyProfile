@@ -44,6 +44,7 @@ export const DEFAULT_PROJECTS: Project[] = [
     demoUrl: "https://github.com/vanh1711/Workflow-Manager-System",
     deployUrl: "https://workflow-manager-system.onrender.com",
     previewImage: "/projects/task-manager-dashboard.png",
+    secondaryImage: "/projects/task-manager-kanban.png",
     accentColor: "#38BDF8"
   },
   {
@@ -68,7 +69,8 @@ export const DEFAULT_PROJECTS: Project[] = [
     metrics: "GHN REAL-TIME // MOMO IPN // GEMINI AI SUPPORT",
     demoUrl: "https://github.com/vanh1711/E-Commerce",
     deployUrl: "https://e-commerce-79p4.onrender.com",
-    previewImage: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
+    previewImage: "/projects/phonestore-home.png",
+    secondaryImage: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
     accentColor: "#F43F5E"
   }
 ];
@@ -200,7 +202,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v7';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v8';
 
 export function getStoredFullData(): FullPortfolioData {
   try {

@@ -33,6 +33,7 @@ export interface Project {
   figmaUrl?: string;
   caseStudyUrl?: string;
   previewImage: string;
+  secondaryImage?: string;
   accentColor: string;
 }
 

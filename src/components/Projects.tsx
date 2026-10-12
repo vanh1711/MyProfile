@@ -57,18 +57,38 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                 
                 {/* Mockup Image Frame + Direct Code Button (7 Cols) */}
                 <div className={`lg:col-span-7 flex flex-col justify-between space-y-4 ${isReversed ? 'lg:order-2' : ''}`}>
-                  <div className="relative border border-[#2E2E2E] hover:border-[#444444] bg-black overflow-hidden group/img aspect-video transition-colors">
-                    <img
-                      src={project.previewImage}
-                      alt={project.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-all duration-500"
-                    />
-                    {/* Corner Sticker Badge */}
-                    <div className="absolute top-3 left-3 bg-emerald-500/10 text-emerald-400 border border-emerald-500/40 backdrop-blur-md font-mono font-bold text-[10px] px-2.5 py-1 tracking-wider flex items-center gap-1.5 shadow-lg">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>FEATURED // PRODUCTION</span>
+                  <div className="space-y-4">
+                    {/* Primary Image */}
+                    <div className="relative border border-[#2E2E2E] hover:border-[#444444] bg-black overflow-hidden group/img aspect-video transition-colors">
+                      <img
+                        src={project.previewImage}
+                        alt={project.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-all duration-500"
+                      />
+                      {/* Corner Sticker Badge */}
+                      <div className="absolute top-3 left-3 bg-emerald-500/10 text-emerald-400 border border-emerald-500/40 backdrop-blur-md font-mono font-bold text-[10px] px-2.5 py-1 tracking-wider flex items-center gap-1.5 shadow-lg">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>SCREEN 01 // OVERVIEW</span>
+                      </div>
                     </div>
+
+                    {/* Secondary Image */}
+                    {project.secondaryImage && (
+                      <div className="relative border border-[#2E2E2E] hover:border-[#444444] bg-black overflow-hidden group/img aspect-video transition-colors">
+                        <img
+                          src={project.secondaryImage}
+                          alt={`${project.title} - Preview 2`}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-all duration-500"
+                        />
+                        {/* Corner Sticker Badge */}
+                        <div className="absolute top-3 left-3 bg-cyan-500/10 text-cyan-400 border border-cyan-500/40 backdrop-blur-md font-mono font-bold text-[10px] px-2.5 py-1 tracking-wider flex items-center gap-1.5 shadow-lg">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                          <span>SCREEN 02 // MODULE &amp; DETAILS</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Nút Xem Code & Live Demo đặt ngay dưới ảnh */}
