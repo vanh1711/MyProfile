@@ -71,26 +71,26 @@ export const Timeline: React.FC<TimelineProps> = ({ timeline = DEFAULT_TIMELINE 
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm text-[#D4D4D4] leading-relaxed">
+                <p className="mt-4 text-sm sm:text-base text-[#E5E5E5] leading-relaxed font-normal">
                   {item.description}
                 </p>
 
                 {/* Achievements list */}
-                <div className="mt-4 space-y-2 text-xs sm:text-sm text-[#A3A3A3]">
+                <div className="mt-5 space-y-2.5 text-sm sm:text-[15px] text-[#E5E5E5]">
                   {item.achievements.map((achievement, i) => (
-                    <div key={i} className="flex items-start gap-2.5">
-                      <span className="text-white font-mono text-sm leading-none">■</span>
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-emerald-400 font-mono text-base leading-none mt-1">■</span>
                       <span className="leading-relaxed">{achievement}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Tech Stack Pills */}
-                <div className="mt-6 pt-4 border-t border-[#222222] flex flex-wrap gap-1.5">
+                <div className="mt-6 pt-4 border-t border-[#222222] flex flex-wrap gap-2">
                   {item.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 text-[11px] font-mono border border-[#2E2E2E] bg-[#141414] text-[#CCCCCC]"
+                      className="px-2.5 py-1 text-xs font-mono border border-[#2E2E2E] bg-[#141414] text-[#D4D4D4]"
                     >
                       {tech}
                     </span>

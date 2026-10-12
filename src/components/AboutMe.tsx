@@ -344,11 +344,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
               </span>
             </h3>
 
-            <p className="text-sm sm:text-base text-[#D4D4D4] leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-[#E5E5E5] leading-relaxed font-normal">
               {profile.bio}
             </p>
 
-            <p className="text-sm text-[#A3A3A3] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#D4D4D4] leading-relaxed">
               Với tinh thần cầu thị, chủ động tìm tòi và đam mê sâu sắc với kỹ thuật lập trình hệ thống, tôi đặt mục tiêu trở thành một <strong className="text-white font-bold">Java Software Engineer</strong> có chuyên môn cao. Tôi luôn chú trọng việc viết mã nguồn sạch (Clean Code), áp dụng đúng các quy chuẩn kiến trúc phần mềm và không ngừng nâng cao kỹ năng qua các dự án thực tế.
             </p>
 
@@ -358,8 +358,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 <div className="p-1.5 w-fit border border-[#333333] bg-[#161616] text-white">
                   <Code2 className="w-4 h-4" strokeWidth={1.5} />
                 </div>
-                <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">JAVA CORE &amp; OOP</div>
-                <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
+                <div className="font-mono font-bold text-xs sm:text-sm text-white uppercase tracking-wider">JAVA CORE &amp; OOP</div>
+                <div className="font-sans text-xs sm:text-[13px] text-[#A3A3A3] leading-relaxed">
                   Java (Core, OOP), SQL, Collections, Stream API.
                 </div>
               </div>
@@ -368,8 +368,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 <div className="p-1.5 w-fit border border-[#333333] bg-[#161616] text-white">
                   <Zap className="w-4 h-4" strokeWidth={1.5} />
                 </div>
-                <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">SPRING BOOT 3</div>
-                <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
+                <div className="font-mono font-bold text-xs sm:text-sm text-white uppercase tracking-wider">SPRING BOOT 3</div>
+                <div className="font-sans text-xs sm:text-[13px] text-[#A3A3A3] leading-relaxed">
                   RESTful APIs, Spring Data JPA, Security 6 RBAC.
                 </div>
               </div>

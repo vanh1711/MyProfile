@@ -100,41 +100,41 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                 <div className={`lg:col-span-5 flex flex-col justify-between ${isReversed ? 'lg:order-1' : ''}`}>
                   <div>
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2.5 py-1 text-[10px] font-mono border border-[#2E2E2E] bg-[#161616] text-[#D4D4D4] hover:border-cyan-500/50 hover:text-cyan-300 transition-colors"
+                          className="px-2.5 py-1 text-xs font-mono border border-[#2E2E2E] bg-[#161616] text-[#D4D4D4] hover:border-cyan-500/50 hover:text-cyan-300 transition-colors"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <h3 className="font-sans font-black text-xl sm:text-2xl text-white tracking-tight uppercase leading-snug">
+                    <h3 className="font-sans font-black text-2xl sm:text-3xl text-white tracking-tight uppercase leading-snug">
                       {project.title}
                     </h3>
-                    <div className="font-sans font-medium text-xs sm:text-sm text-[#CCCCCC] mt-1.5 flex items-center gap-1.5">
-                      <span className="text-emerald-400 font-mono font-bold">//</span>
+                    <div className="font-sans font-semibold text-sm sm:text-base text-white/95 mt-2 flex items-start gap-2 leading-relaxed">
+                      <span className="text-emerald-400 font-mono font-bold text-base shrink-0">//</span>
                       <span>{project.subtitle}</span>
                     </div>
 
                     {/* Problem & Solution Blocks */}
-                    <div className="mt-6 space-y-3 font-sans text-xs">
-                      <div className="p-3.5 border-l-2 border-[#404040] bg-[#0E0E0E]">
-                        <span className="text-[#888888] font-mono text-[10px] block mb-1 uppercase tracking-wider">
+                    <div className="mt-6 space-y-4 font-sans">
+                      <div className="p-4 border-l-4 border-amber-500 bg-[#121212] space-y-2">
+                        <span className="text-amber-400 font-mono text-xs sm:text-sm font-bold block uppercase tracking-wider">
                           [ BÀI TOÁN KỸ THUẬT &amp; NGHIỆP VỤ ]
                         </span>
-                        <p className="text-[#A3A3A3] leading-relaxed">
+                        <p className="text-sm sm:text-base text-[#E5E5E5] leading-relaxed font-normal">
                           {project.problem}
                         </p>
                       </div>
 
-                      <div className="p-3.5 border-l-2 border-white bg-[#141414]">
-                        <span className="text-white font-mono text-[10px] font-bold block mb-1 uppercase tracking-wider">
+                      <div className="p-4 border-l-4 border-emerald-400 bg-[#141414] space-y-2">
+                        <span className="text-emerald-400 font-mono text-xs sm:text-sm font-bold block uppercase tracking-wider">
                           [ GIẢI PHÁP KIẾN TRÚC &amp; BACKEND ]
                         </span>
-                        <p className="text-[#E5E5E5] leading-relaxed">
+                        <p className="text-sm sm:text-base text-white leading-relaxed font-normal">
                           {project.solution}
                         </p>
                       </div>

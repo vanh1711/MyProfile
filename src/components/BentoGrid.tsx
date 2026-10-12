@@ -214,26 +214,26 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
               </span>
             </div>
 
-            <h3 className="font-heading font-black text-2xl sm:text-3xl text-white tracking-tight uppercase">
+            <h3 className="font-sans font-black text-2xl sm:text-3xl text-white tracking-tight uppercase">
               MÃ NGUỒN SẠCH &amp; DỄ BẢO TRÌ
             </h3>
             
-            <p className="mt-3 text-sm sm:text-base text-[#D4D4D4] leading-relaxed">
+            <p className="mt-3 text-sm sm:text-base text-[#E5E5E5] leading-relaxed font-normal">
               Tập trung vào kiến trúc phân tầng 3 lớp (Layered Architecture), xử lý Exception tập trung với `@ControllerAdvice`, viết Unit Test bảo vệ logic nghiệp vụ và tuân thủ các quy chuẩn đặt tên biến, cấu trúc package của hệ sinh thái Java.
             </p>
 
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="p-3.5 border border-[#222222] bg-[#0E0E0E]">
-                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">GIẢI QUYẾT VẤN ĐỀ</div>
-                <div className="font-sans text-xs text-[#888888] mt-1">Problem-Solving &amp; Logic</div>
+                <div className="font-mono text-xs sm:text-sm text-white uppercase font-bold tracking-wider">GIẢI QUYẾT VẤN ĐỀ</div>
+                <div className="font-sans text-xs sm:text-[13px] text-[#A3A3A3] mt-1">Problem-Solving &amp; Logic</div>
               </div>
               <div className="p-3.5 border border-[#222222] bg-[#0E0E0E]">
-                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">TỈ MỈ CHUẨN MỰC</div>
-                <div className="font-sans text-xs text-[#888888] mt-1">Attention to Detail</div>
+                <div className="font-mono text-xs sm:text-sm text-white uppercase font-bold tracking-wider">TỈ MỈ CHUẨN MỰC</div>
+                <div className="font-sans text-xs sm:text-[13px] text-[#A3A3A3] mt-1">Attention to Detail</div>
               </div>
               <div className="p-3.5 border border-[#222222] bg-[#0E0E0E]">
-                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">HỌC NHANH &amp; NHÓM</div>
-                <div className="font-sans text-xs text-[#888888] mt-1">Fast Learner &amp; Teamwork</div>
+                <div className="font-mono text-xs sm:text-sm text-white uppercase font-bold tracking-wider">HỌC NHANH &amp; NHÓM</div>
+                <div className="font-sans text-xs sm:text-[13px] text-[#A3A3A3] mt-1">Fast Learner &amp; Teamwork</div>
               </div>
             </div>
           </div>
