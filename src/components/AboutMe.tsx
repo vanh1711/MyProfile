@@ -35,7 +35,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
   const [isCropModalOpen, setIsCropModalOpen] = useState(false);
   const [cropImageSrc, setCropImageSrc] = useState<string>('');
 
-  const defaultAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
+  const defaultAvatar = '/avatar.jpg';
   const currentAvatar = profile.avatarUrl || defaultAvatar;
 
   // Handle local image file upload from user's computer
@@ -131,7 +131,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
               <img
                 src={currentAvatar}
                 alt={profile.name}
-                className="w-full h-full object-cover object-center group-hover/avatar:scale-105 transition-all duration-500"
+                className="w-full h-full object-cover object-[center_18%] group-hover/avatar:scale-105 transition-all duration-500"
               />
 
               {/* Upload & Crop Buttons Overlay on Hover (Chỉ hiển thị khi là Admin) */}

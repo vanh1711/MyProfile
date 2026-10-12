@@ -64,7 +64,7 @@ export const ProfileEditorModal: React.FC<ProfileEditorModalProps> = ({
   // Image Cropper Handlers
   const handleOpenAvatarCrop = () => {
     setCropImageTarget('avatar');
-    setCropImageSrc(formData.personalInfo.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80');
+    setCropImageSrc(formData.personalInfo.avatarUrl || '/avatar.jpg');
     setIsCropModalOpen(true);
   };
 
@@ -343,7 +343,7 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                 <div className="flex flex-col sm:flex-row items-center gap-4">
                   <div className="w-24 h-20 border border-[#3A3A3A] bg-black overflow-hidden shrink-0 relative group">
                     <img
-                      src={formData.personalInfo.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'}
+                      src={formData.personalInfo.avatarUrl || '/avatar.jpg'}
                       alt={formData.personalInfo.name}
                       className="w-full h-full object-cover"
                     />

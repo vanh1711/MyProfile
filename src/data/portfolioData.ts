@@ -13,7 +13,7 @@ export const DEFAULT_PERSONAL_INFO: PersonalInfo = {
   university: "Đại học Tài nguyên và Môi trường Hà Nội",
   gpa: "3.47 / 4.0",
   ielts: "5.5 Overall (2025 — 2027)",
-  avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+  avatarUrl: "/avatar.jpg",
   resumeUrl: "/cv/Doan-Viet-Anh-Java-Backend-Intern-CV.pdf",
   githubUrl: "https://github.com/vanh1711"
 };
@@ -202,7 +202,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v9';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v10';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
@@ -212,8 +212,14 @@ export function getStoredFullData(): FullPortfolioData {
       // Ensure we have the updated CV data and real CV PDF link
       const hasRealCv = parsed.personalInfo?.resumeUrl?.includes('Doan-Viet-Anh');
       if (hasRealCv && parsed.personalInfo?.location === "Hoài Đức, Hà Nội") {
+        const storedAvatar = parsed.personalInfo?.avatarUrl;
+        const validAvatar = storedAvatar && !storedAvatar.includes('unsplash') ? storedAvatar : '/avatar.jpg';
         return {
-          personalInfo: { ...DEFAULT_PERSONAL_INFO, ...(parsed.personalInfo || {}) },
+          personalInfo: {
+            ...DEFAULT_PERSONAL_INFO,
+            ...(parsed.personalInfo || {}),
+            avatarUrl: validAvatar,
+          },
           projects: parsed.projects && parsed.projects.length > 0
             ? parsed.projects.map((proj: Project, idx: number) => ({
                 ...DEFAULT_PROJECTS[idx],
