@@ -111,11 +111,12 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                       ))}
                     </div>
 
-                    <h3 className="font-heading font-black text-2xl text-white tracking-tight uppercase">
+                    <h3 className="font-sans font-black text-xl sm:text-2xl text-white tracking-tight uppercase leading-snug">
                       {project.title}
                     </h3>
-                    <div className="font-serif italic text-xs text-[#888888] mt-1">
-                      // {project.subtitle}
+                    <div className="font-sans font-medium text-xs sm:text-sm text-[#CCCCCC] mt-1.5 flex items-center gap-1.5">
+                      <span className="text-emerald-400 font-mono font-bold">//</span>
+                      <span>{project.subtitle}</span>
                     </div>
 
                     {/* Problem & Solution Blocks */}

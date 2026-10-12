@@ -58,13 +58,17 @@ export const Timeline: React.FC<TimelineProps> = ({ timeline = DEFAULT_TIMELINE 
                   </div>
                 </div>
 
-                {/* Role & Company */}
-                <h3 className="font-heading font-black text-xl sm:text-2xl text-white mt-4 uppercase tracking-tight">
-                  {item.role}
-                </h3>
-                <div className="flex items-center gap-1.5 mt-1 font-serif italic text-xs text-[#A3A3A3] uppercase">
-                  <Briefcase className="w-3.5 h-3.5" />
-                  <span>{item.company}</span>
+                {/* Project / Organization Title & Role */}
+                <div className="mt-4 space-y-2.5">
+                  <h3 className="font-sans font-black text-lg sm:text-2xl text-white uppercase tracking-tight flex items-start gap-2.5 leading-snug">
+                    <Briefcase className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{item.company}</span>
+                  </h3>
+
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 border border-[#333333] bg-[#161616] font-mono text-xs uppercase tracking-wider">
+                    <span className="text-[#888888]">VAI TRÒ:</span>
+                    <span className="text-white font-bold">{item.role}</span>
+                  </div>
                 </div>
 
                 <p className="mt-4 text-sm text-[#D4D4D4] leading-relaxed">
