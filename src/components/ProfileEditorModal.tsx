@@ -329,9 +329,10 @@ export function saveStoredFullData(data: FullPortfolioData): void {
           
           {/* TAB 1: THÔNG TIN CÁ NHÂN */}
           {activeTab === 'personal' && (
-            <div className="space-y-4">
-              <div className="p-3.5 border-3 border-black bg-[#C4B5FD]/30 text-xs font-bold leading-relaxed">
-                💡 Thay đổi tên, ảnh đại diện, chức danh và thông điệp của bạn. Dữ liệu sẽ xuất hiện ngay tại Logo, Hero, Giới Thiệu Bản Thân và Footer.
+            <div className="space-y-5">
+              <div className="p-3.5 border border-cyan-500/30 bg-cyan-950/20 text-cyan-300 font-mono text-xs leading-relaxed flex items-center gap-2">
+                <span>💡</span>
+                <span>Thay đổi tên, ảnh đại diện, chức danh và thông điệp. Dữ liệu sẽ xuất hiện ngay tại Logo, Hero, Giới Thiệu Bản Thân và Footer.</span>
               </div>
 
               {/* Avatar Upload & Crop */}
@@ -389,144 +390,144 @@ export function saveStoredFullData(data: FullPortfolioData): void {
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase mb-1">Họ và Tên của bạn:</label>
+                <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Họ và Tên của bạn:</label>
                 <input
                   type="text"
                   value={formData.personalInfo.name}
                   onChange={(e) => handlePersonalChange('name', e.target.value)}
-                  className="w-full p-3 border-4 border-black bg-white font-bold text-base focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase mb-1">Chức danh chuyên môn (Title):</label>
+                <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Chức danh chuyên môn (Title):</label>
                 <input
                   type="text"
                   value={formData.personalInfo.title}
                   onChange={(e) => handlePersonalChange('title', e.target.value)}
-                  className="w-full p-3 border-4 border-black bg-white font-bold text-base focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase mb-1">Câu định vị ngắn (Tagline):</label>
+                <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Câu định vị ngắn (Tagline):</label>
                 <textarea
                   rows={2}
                   value={formData.personalInfo.tagline}
                   onChange={(e) => handlePersonalChange('tagline', e.target.value)}
-                  className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm resize-none"
+                  className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors resize-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase mb-1">Tiểu sử chi tiết (Bio - Hiển thị trong phần Giới Thiệu):</label>
+                <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Tiểu sử chi tiết (Bio - Hiển thị trong phần Giới Thiệu):</label>
                 <textarea
                   rows={3}
                   value={formData.personalInfo.bio || ''}
                   onChange={(e) => handlePersonalChange('bio', e.target.value)}
-                  className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm resize-none"
+                  className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors resize-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Email liên hệ:</label>
+                  <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Email liên hệ:</label>
                   <input
                     type="email"
                     value={formData.personalInfo.email}
                     onChange={(e) => handlePersonalChange('email', e.target.value)}
-                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                    className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Địa điểm / Nơi ở:</label>
+                  <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Địa điểm / Nơi ở:</label>
                   <input
                     type="text"
                     value={formData.personalInfo.location}
                     onChange={(e) => handlePersonalChange('location', e.target.value)}
-                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                    className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Số điện thoại:</label>
+                  <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Số điện thoại:</label>
                   <input
                     type="text"
                     value={formData.personalInfo.phone || ''}
                     onChange={(e) => handlePersonalChange('phone', e.target.value)}
-                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                    className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Ngày sinh:</label>
+                  <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Ngày sinh:</label>
                   <input
                     type="text"
                     value={formData.personalInfo.birthDate || ''}
                     onChange={(e) => handlePersonalChange('birthDate', e.target.value)}
-                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                    className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Trường Đại học:</label>
+                  <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Trường Đại học:</label>
                   <input
                     type="text"
                     value={formData.personalInfo.university || ''}
                     onChange={(e) => handlePersonalChange('university', e.target.value)}
-                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                    className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Điểm GPA:</label>
+                  <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Điểm GPA:</label>
                   <input
                     type="text"
                     value={formData.personalInfo.gpa || ''}
                     onChange={(e) => handlePersonalChange('gpa', e.target.value)}
-                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                    className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Chứng chỉ IELTS:</label>
+                  <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Chứng chỉ IELTS:</label>
                   <input
                     type="text"
                     value={formData.personalInfo.ielts || ''}
                     onChange={(e) => handlePersonalChange('ielts', e.target.value)}
-                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                    className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase mb-1">Trạng thái làm việc:</label>
+                <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Trạng thái làm việc:</label>
                 <input
                   type="text"
                   value={formData.personalInfo.systemStatus}
                   onChange={(e) => handlePersonalChange('systemStatus', e.target.value)}
-                  className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-black uppercase mb-1">Link xem CV (Google Drive, Notion...):</label>
+                <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Link xem CV (PDF, Google Drive...):</label>
                 <input
                   type="text"
                   value={formData.personalInfo.resumeUrl}
                   onChange={(e) => handlePersonalChange('resumeUrl', e.target.value)}
-                  className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                 />
               </div>
 
-              <div className="pt-2">
-                <label className="block text-xs font-black mb-1">Link GitHub Profile / Repo:</label>
+              <div>
+                <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Link GitHub Profile / Repo:</label>
                 <input
                   type="text"
                   value={formData.personalInfo.githubUrl}
                   onChange={(e) => handlePersonalChange('githubUrl', e.target.value)}
-                  className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                  className="w-full p-3 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -536,13 +537,13 @@ export function saveStoredFullData(data: FullPortfolioData): void {
           {activeTab === 'projects' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <div className="text-xs font-bold text-black/80">
+                <div className="text-xs font-mono text-[#A3A3A3]">
                   Quản lý danh sách các dự án tiêu biểu hiển thị trên trang chính:
                 </div>
                 <button
                   type="button"
                   onClick={handleAddProject}
-                  className="px-3 py-1.5 border-3 border-black bg-[#4ADE80] text-black font-black text-xs uppercase flex items-center gap-1.5 shadow-neo-sm neo-btn hover:bg-[#3ec472]"
+                  className="px-3.5 py-1.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase flex items-center gap-1.5 hover:bg-transparent hover:text-white transition-all shadow-md"
                 >
                   <Plus className="w-4 h-4" />
                   <span>+ Thêm Dự Án Mới</span>
@@ -550,15 +551,15 @@ export function saveStoredFullData(data: FullPortfolioData): void {
               </div>
 
               {formData.projects.map((proj, idx) => (
-                <div key={proj.id} className="border-4 border-black bg-white p-5 shadow-neo-sm space-y-4">
-                  <div className="flex items-center justify-between border-b-3 border-black pb-2">
-                    <span className="font-black text-xs uppercase bg-[#FFD93D] px-2 py-0.5 border border-black">
+                <div key={proj.id} className="border border-[#262626] bg-[#141414] p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-[#262626] pb-3">
+                    <span className="font-mono text-xs uppercase bg-[#222222] text-white px-2.5 py-1 border border-[#3A3A3A]">
                       DỰ ÁN #{idx + 1}
                     </span>
                     <button
                       type="button"
                       onClick={() => handleDeleteProject(idx)}
-                      className="text-[#FF6B6B] hover:text-black font-black text-xs flex items-center gap-1"
+                      className="text-rose-400 hover:text-white border border-rose-500/30 hover:bg-rose-500/20 px-2.5 py-1 font-mono text-xs flex items-center gap-1 transition-all"
                     >
                       <Trash2 className="w-4 h-4" />
                       <span>XÓA</span>
@@ -567,37 +568,37 @@ export function saveStoredFullData(data: FullPortfolioData): void {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Tên Dự Án:</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Tên Dự Án:</label>
                       <input
                         type="text"
                         value={proj.title}
                         onChange={(e) => handleProjectChange(idx, 'title', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Thể loại (Category):</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Thể loại (Category):</label>
                       <input
                         type="text"
                         value={proj.category}
                         onChange={(e) => handleProjectChange(idx, 'category', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">Phụ đề tóm tắt:</label>
+                    <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Phụ đề tóm tắt:</label>
                     <input
                       type="text"
                       value={proj.subtitle}
                       onChange={(e) => handleProjectChange(idx, 'subtitle', e.target.value)}
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs sm:text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">
+                    <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">
                       Các thẻ công nghệ (phân cách bằng dấu phẩy):
                     </label>
                     <input
@@ -610,85 +611,96 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                           e.target.value.split(',').map((t) => t.trim()).filter(Boolean)
                         )
                       }
-                      placeholder="React, Figma, Tailwind, TypeScript"
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                      placeholder="Java 17, Spring Boot, MySQL, RESTful APIs"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1 text-[#FF6B6B]">
-                        Vấn đề UX cần giải quyết:
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-amber-400">
+                        [ Bài toán kỹ thuật &amp; nghiệp vụ ]:
                       </label>
                       <textarea
                         rows={3}
                         value={proj.problem}
                         onChange={(e) => handleProjectChange(idx, 'problem', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none resize-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors resize-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1 text-[#4ADE80]">
-                        Giải pháp thực thi:
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-emerald-400">
+                        [ Giải pháp kiến trúc &amp; Backend ]:
                       </label>
                       <textarea
                         rows={3}
                         value={proj.solution}
                         onChange={(e) => handleProjectChange(idx, 'solution', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none resize-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors resize-none"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Chỉ số nổi bật (Metrics):</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Chỉ số nổi bật (Metrics):</label>
                       <input
                         type="text"
                         value={proj.metrics}
                         onChange={(e) => handleProjectChange(idx, 'metrics', e.target.value)}
-                        className="w-full p-2 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Link Demo Trải Nghiệm:</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Link Demo / GitHub Repo:</label>
                       <input
                         type="text"
                         value={proj.demoUrl}
                         onChange={(e) => handleProjectChange(idx, 'demoUrl', e.target.value)}
-                        className="w-full p-2 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-black uppercase mb-1">Ảnh Mockup (URL / Tải từ máy):</label>
-                    <div className="flex items-center flex-wrap sm:flex-nowrap gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Ảnh 1 // Giao diện chính (Overview):</label>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={proj.previewImage}
+                          onChange={(e) => handleProjectChange(idx, 'previewImage', e.target.value)}
+                          placeholder="/projects/task-manager-dashboard.png"
+                          className="flex-1 p-2 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:outline-none"
+                        />
+                        <label className="px-2.5 py-2 border border-[#444444] bg-[#1E1E1E] text-white font-mono font-bold text-xs uppercase cursor-pointer hover:border-white whitespace-nowrap">
+                          📁 Tải
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => handleProjectFileChange(idx, e)}
+                          />
+                        </label>
+                        <button
+                          type="button"
+                          onClick={() => handleOpenProjectCrop(idx)}
+                          className="px-2.5 py-2 border border-[#444444] bg-[#1E1E1E] text-white hover:border-white font-mono font-bold text-xs uppercase transition-all flex items-center gap-1"
+                          title="Căn chỉnh vị trí / Cắt ảnh"
+                        >
+                          <Crop className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Ảnh 2 // Chi tiết nghiệp vụ (Kanban / Module):</label>
                       <input
                         type="text"
-                        value={proj.previewImage}
-                        onChange={(e) => handleProjectChange(idx, 'previewImage', e.target.value)}
-                        placeholder="https://images.unsplash.com/..."
-                        className="flex-1 min-w-[200px] p-2 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                        value={proj.secondaryImage || ''}
+                        onChange={(e) => handleProjectChange(idx, 'secondaryImage', e.target.value)}
+                        placeholder="/projects/task-manager-kanban.png"
+                        className="w-full p-2 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:outline-none"
                       />
-                      <label className="px-3 py-2 border-2 border-black bg-[#FFD93D] text-black font-black text-xs uppercase cursor-pointer hover:bg-[#ffe26e] shadow-neo-sm whitespace-nowrap">
-                        📁 Tải ảnh
-                        <input
-                          type="file"
-                          accept="image/*"
-                          className="hidden"
-                          onChange={(e) => handleProjectFileChange(idx, e)}
-                        />
-                      </label>
-                      <button
-                        type="button"
-                        onClick={() => handleOpenProjectCrop(idx)}
-                        className="px-3 py-2 border-2 border-black bg-white text-black font-black text-xs uppercase hover:bg-black hover:text-white shadow-neo-sm whitespace-nowrap flex items-center gap-1"
-                        title="Căn chỉnh vị trí / Cắt ảnh"
-                      >
-                        <Crop className="w-3.5 h-3.5" />
-                        <span>Chỉnh vị trí</span>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -699,52 +711,52 @@ export function saveStoredFullData(data: FullPortfolioData): void {
           {/* TAB 3: KỸ NĂNG CHUYÊN MÔN */}
           {activeTab === 'skills' && (
             <div className="space-y-6">
-              <div className="text-xs font-bold text-black/80">
+              <div className="text-xs font-mono text-[#A3A3A3]">
                 Tùy chỉnh 3 nhóm kỹ năng chuyên môn chính trong Bento Grid:
               </div>
 
               {formData.skills.map((cat, idx) => (
-                <div key={cat.id} className="border-4 border-black bg-white p-5 shadow-neo-sm space-y-4">
-                  <div className="flex items-center justify-between border-b-3 border-black pb-2">
-                    <span className="font-black text-xs uppercase bg-[#FFD93D] px-2 py-0.5 border border-black">
+                <div key={cat.id} className="border border-[#262626] bg-[#141414] p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-[#262626] pb-3">
+                    <span className="font-mono text-xs uppercase bg-[#222222] text-white px-2.5 py-1 border border-[#3A3A3A]">
                       NHÓM KỸ NĂNG #{idx + 1}
                     </span>
-                    <span className="text-xs font-bold">{cat.tag}</span>
+                    <span className="text-xs font-mono text-cyan-400">{cat.tag}</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Tên nhóm kỹ năng:</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Tên nhóm kỹ năng:</label>
                       <input
                         type="text"
                         value={cat.title}
                         onChange={(e) => handleSkillChange(idx, 'title', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Tag hiển thị (vd: 01 // DESIGN):</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Tag hiển thị (vd: 01 // LANGUAGES):</label>
                       <input
                         type="text"
                         value={cat.tag}
                         onChange={(e) => handleSkillChange(idx, 'tag', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">Mô tả năng lực nhóm này:</label>
+                    <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Mô tả năng lực nhóm này:</label>
                     <textarea
                       rows={2}
                       value={cat.description}
                       onChange={(e) => handleSkillChange(idx, 'description', e.target.value)}
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none resize-none"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">
+                    <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">
                       Danh sách các kỹ năng cụ thể (phân cách bằng dấu phẩy):
                     </label>
                     <input
@@ -757,7 +769,7 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                           e.target.value.split(',').map((s) => s.trim()).filter(Boolean)
                         )
                       }
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -769,13 +781,13 @@ export function saveStoredFullData(data: FullPortfolioData): void {
           {activeTab === 'timeline' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <div className="text-xs font-bold text-black/80">
+                <div className="text-xs font-mono text-[#A3A3A3]">
                   Quản lý hành trình kinh nghiệm và quá trình làm việc:
                 </div>
                 <button
                   type="button"
                   onClick={handleAddTimeline}
-                  className="px-3 py-1.5 border-3 border-black bg-[#4ADE80] text-black font-black text-xs uppercase flex items-center gap-1.5 shadow-neo-sm neo-btn hover:bg-[#3ec472]"
+                  className="px-3.5 py-1.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase flex items-center gap-1.5 hover:bg-transparent hover:text-white transition-all shadow-md"
                 >
                   <Plus className="w-4 h-4" />
                   <span>+ Thêm Mốc Kinh Nghiệm</span>
@@ -783,15 +795,15 @@ export function saveStoredFullData(data: FullPortfolioData): void {
               </div>
 
               {formData.timeline.map((item, idx) => (
-                <div key={item.id} className="border-4 border-black bg-white p-5 shadow-neo-sm space-y-4">
-                  <div className="flex items-center justify-between border-b-3 border-black pb-2">
-                    <span className="font-black text-xs uppercase bg-[#FFD93D] px-2 py-0.5 border border-black">
+                <div key={item.id} className="border border-[#262626] bg-[#141414] p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-[#262626] pb-3">
+                    <span className="font-mono text-xs uppercase bg-[#222222] text-white px-2.5 py-1 border border-[#3A3A3A]">
                       MỐC #{idx + 1}: {item.period}
                     </span>
                     <button
                       type="button"
                       onClick={() => handleDeleteTimeline(idx)}
-                      className="text-[#FF6B6B] hover:text-black font-black text-xs flex items-center gap-1"
+                      className="text-rose-400 hover:text-white border border-rose-500/30 hover:bg-rose-500/20 px-2.5 py-1 font-mono text-xs flex items-center gap-1 transition-all"
                     >
                       <Trash2 className="w-4 h-4" />
                       <span>XÓA</span>
@@ -800,59 +812,59 @@ export function saveStoredFullData(data: FullPortfolioData): void {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Giai đoạn (Period):</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Giai đoạn (Period):</label>
                       <input
                         type="text"
                         value={item.period}
                         onChange={(e) => handleTimelineChange(idx, 'period', e.target.value)}
-                        placeholder="VD: 2023 — NAY"
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none"
+                        placeholder="VD: 06/2026 — 08/2026"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Vị trí / Chức danh (Role):</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Vị trí / Chức danh (Role):</label>
                       <input
                         type="text"
                         value={item.role}
                         onChange={(e) => handleTimelineChange(idx, 'role', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Công ty / Đơn vị:</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Công ty / Đơn vị:</label>
                       <input
                         type="text"
                         value={item.company}
                         onChange={(e) => handleTimelineChange(idx, 'company', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs sm:text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black uppercase mb-1">Địa điểm:</label>
+                      <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Địa điểm:</label>
                       <input
                         type="text"
                         value={item.location}
                         onChange={(e) => handleTimelineChange(idx, 'location', e.target.value)}
-                        className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                        className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs sm:text-sm focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">Mô tả tóm tắt vai trò:</label>
+                    <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">Mô tả tóm tắt vai trò:</label>
                     <textarea
                       rows={2}
                       value={item.description}
                       onChange={(e) => handleTimelineChange(idx, 'description', e.target.value)}
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none resize-none"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">
+                    <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">
                       Các kết quả / thành tựu (mỗi dòng một ý):
                     </label>
                     <textarea
@@ -865,12 +877,12 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                           e.target.value.split('\n').filter((line) => line.trim().length > 0)
                         )
                       }
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none resize-none"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-sans text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black uppercase mb-1">
+                    <label className="block text-xs font-mono font-bold uppercase mb-1.5 text-[#CCCCCC]">
                       Công nghệ áp dụng (phân cách bằng dấu phẩy):
                     </label>
                     <input
@@ -883,7 +895,7 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                           e.target.value.split(',').map((t) => t.trim()).filter(Boolean)
                         )
                       }
-                      className="w-full p-2.5 border-3 border-black bg-white font-bold text-xs focus:bg-[#FFD93D] focus:outline-none"
+                      className="w-full p-2.5 border border-[#333333] bg-[#0A0A0A] text-white font-mono text-xs focus:border-white focus:bg-[#121212] focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
