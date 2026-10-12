@@ -202,7 +202,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v8';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v9';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
@@ -214,7 +214,14 @@ export function getStoredFullData(): FullPortfolioData {
       if (hasRealCv && parsed.personalInfo?.location === "Hoài Đức, Hà Nội") {
         return {
           personalInfo: { ...DEFAULT_PERSONAL_INFO, ...(parsed.personalInfo || {}) },
-          projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : DEFAULT_PROJECTS,
+          projects: parsed.projects && parsed.projects.length > 0
+            ? parsed.projects.map((proj: Project, idx: number) => ({
+                ...DEFAULT_PROJECTS[idx],
+                ...proj,
+                previewImage: DEFAULT_PROJECTS[idx]?.previewImage || proj.previewImage,
+                secondaryImage: DEFAULT_PROJECTS[idx]?.secondaryImage || proj.secondaryImage,
+              }))
+            : DEFAULT_PROJECTS,
           skills: parsed.skills && parsed.skills.length > 0 ? parsed.skills : DEFAULT_SKILL_CATEGORIES,
           timeline: parsed.timeline && parsed.timeline.length > 0 ? parsed.timeline : DEFAULT_TIMELINE,
         };
