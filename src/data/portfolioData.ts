@@ -46,7 +46,7 @@ export const DEFAULT_PROJECTS: Project[] = [
     metrics: "65 TEST CASES // 100% PASS RATE // ZERO LOST UPDATE",
     demoUrl: "https://github.com/vanh1711/Workflow-Manager-System",
     deployUrl: "https://workflow-manager-system.onrender.com",
-    previewImage: "https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80",
+    previewImage: "/projects/task-manager-dashboard.png",
     accentColor: "#38BDF8"
   },
   {
@@ -203,15 +203,16 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v5';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v6';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
     const data = localStorage.getItem(STORAGE_KEY_FULL_DATA);
     if (data) {
       const parsed = JSON.parse(data);
-      // Ensure we have the updated CV data and location
-      if (parsed.personalInfo?.location === "Hoài Đức, Hà Nội" && parsed.timeline?.length >= 3) {
+      // Ensure we have the updated CV data and task manager dashboard image
+      const isUpdated = parsed.projects?.[0]?.previewImage?.includes('task-manager-dashboard');
+      if (isUpdated && parsed.personalInfo?.location === "Hoài Đức, Hà Nội") {
         return {
           personalInfo: { ...DEFAULT_PERSONAL_INFO, ...(parsed.personalInfo || {}) },
           projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : DEFAULT_PROJECTS,

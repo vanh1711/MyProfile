@@ -227,7 +227,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v5';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v6';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
