@@ -88,7 +88,7 @@ export const Footer: React.FC<FooterProps> = ({ profile, onOpenEditor, isAdmin =
 
             <div className="flex items-center gap-1 text-[#666666]">
               <span>CURATED FOR</span>
-              <span className="text-[#A3A3A3] font-bold">JAVA BACKEND ENGINEERING</span>
+              <span className="text-[#A3A3A3] font-bold">{profile.title}</span>
             </div>
           </div>
         </div>

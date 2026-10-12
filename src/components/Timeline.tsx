@@ -18,10 +18,10 @@ export const Timeline: React.FC<TimelineProps> = ({ timeline = DEFAULT_TIMELINE 
           // 04 ARCHIVE: EXPERIENCE &amp; MILESTONES
         </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight uppercase">
-          KINH NGHIỆM <span className="font-serif italic font-normal text-[#A3A3A3]">THỰC CHIẾN</span>
+          KINH NGHIỆM <span className="font-serif italic font-normal text-[#A3A3A3]">&amp; HỌC VẤN</span>
         </h2>
         <p className="mt-3 font-normal text-sm sm:text-base text-[#A3A3A3] max-w-2xl">
-          Quá trình học tập, nghiên cứu chuyên sâu và xây dựng các hệ thống dịch vụ số Java Backend.
+          Quá trình đào tạo chuyên ngành Kỹ thuật Phần mềm và phát triển các hệ thống Backend, E-Commerce thực chiến.
         </p>
       </div>
 

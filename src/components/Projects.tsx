@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Sparkles } from 'lucide-react';
+import { GithubIcon } from './icons/BrandIcons';
 import type { Project } from '../types/portfolio';
 import { DEFAULT_PROJECTS } from '../data/portfolioData';
 
@@ -70,16 +71,29 @@ export const Projects: React.FC<ProjectsProps> = ({ projects = DEFAULT_PROJECTS 
                     </div>
                   </div>
 
-                  {/* Nút Xem Code đặt ngay dưới ảnh */}
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3.5 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all shadow-md"
-                  >
-                    <span>XEM SOURCE CODE GITHUB</span>
-                    <ExternalLink className="w-4 h-4" strokeWidth={1.75} />
-                  </a>
+                  {/* Nút Xem Code & Live Demo đặt ngay dưới ảnh */}
+                  <div className="flex flex-col sm:flex-row gap-2.5">
+                    {project.deployUrl && (
+                      <a
+                        href={project.deployUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-3 px-3 border border-white bg-white text-black font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-transparent hover:text-white transition-all shadow-md"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" strokeWidth={1.75} />
+                        <span>TRẢI NGHIỆM DEMO LIVE</span>
+                      </a>
+                    )}
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 py-3 px-3 border border-[#404040] bg-[#141414] text-white font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:border-white hover:bg-white hover:text-black transition-all shadow-md ${!project.deployUrl ? 'w-full py-3.5 bg-white text-black hover:bg-transparent hover:text-white border-white' : ''}`}
+                    >
+                      <GithubIcon className="w-3.5 h-3.5" />
+                      <span>SOURCE CODE GITHUB</span>
+                    </a>
+                  </div>
                 </div>
 
                 {/* Case Study Details (5 Cols) */}

@@ -170,12 +170,12 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
 
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3.5 border border-[#262626] bg-[#0D0D0D] text-center hover:border-cyan-500/30 transition-colors">
-                <div className="font-mono font-bold text-lg text-cyan-400">RDBMS</div>
-                <div className="font-mono text-[10px] text-[#888888] tracking-wider mt-0.5">MYSQL &amp; POSTGRES</div>
+                <div className="font-mono font-bold text-lg text-cyan-400">MYSQL</div>
+                <div className="font-mono text-[10px] text-[#888888] tracking-wider mt-0.5">RELATIONAL DATABASE</div>
               </div>
               <div className="p-3.5 border border-[#262626] bg-[#0D0D0D] text-center hover:border-emerald-500/30 transition-colors">
-                <div className="font-mono font-bold text-lg text-emerald-400">&gt;80%</div>
-                <div className="font-mono text-[10px] text-[#888888] tracking-wider mt-0.5">JUNIT 5 COVERAGE</div>
+                <div className="font-mono font-bold text-lg text-emerald-400">100% PASS</div>
+                <div className="font-mono text-[10px] text-[#888888] tracking-wider mt-0.5">65 JUNIT 5 &amp; MOCKITO</div>
               </div>
             </div>
 
@@ -224,16 +224,16 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ skills = DEFAULT_SKILL_CAT
 
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="p-3.5 border border-[#222222] bg-[#0E0E0E]">
-                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">BẢO MẬT</div>
-                <div className="font-sans text-xs text-[#888888] mt-1">JWT &amp; Spring Security</div>
+                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">GIẢI QUYẾT VẤN ĐỀ</div>
+                <div className="font-sans text-xs text-[#888888] mt-1">Problem-Solving &amp; Logic</div>
               </div>
               <div className="p-3.5 border border-[#222222] bg-[#0E0E0E]">
-                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">HIỆU NĂNG</div>
-                <div className="font-sans text-xs text-[#888888] mt-1">Index SQL &amp; Redis Cache</div>
+                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">TỈ MỈ CHUẨN MỰC</div>
+                <div className="font-sans text-xs text-[#888888] mt-1">Attention to Detail</div>
               </div>
               <div className="p-3.5 border border-[#222222] bg-[#0E0E0E]">
-                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">TÍNH TOÀN VẸN</div>
-                <div className="font-sans text-xs text-[#888888] mt-1">ACID Transactions</div>
+                <div className="font-mono text-xs text-white uppercase font-bold tracking-wider">HỌC NHANH &amp; NHÓM</div>
+                <div className="font-sans text-xs text-[#888888] mt-1">Fast Learner &amp; Teamwork</div>
               </div>
             </div>
           </div>

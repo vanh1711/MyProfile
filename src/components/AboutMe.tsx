@@ -6,6 +6,10 @@ import {
   FileText,
   Mail,
   MapPin,
+  Phone,
+  Calendar,
+  GraduationCap,
+  Award,
   CheckCircle2,
   Code2,
   Target,
@@ -196,26 +200,74 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
             </div>
 
             {/* 3. Info Metrics Table */}
-            <div className="space-y-2 font-mono text-xs">
-              <div className="flex items-center justify-between p-3 border border-[#202020] bg-[#0D0D0D]">
+            <div className="space-y-1.5 font-mono text-xs">
+              <div className="flex items-center justify-between p-2.5 border border-[#202020] bg-[#0D0D0D]">
                 <span className="text-[#888888] flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
                   Khu vực:
                 </span>
-                <span className="text-[#E5E5E5] font-bold text-right truncate max-w-[180px]">
-                  {profile.location}
+                <span className="text-[#E5E5E5] font-bold text-right truncate max-w-[190px]">
+                  {profile.location || 'Hoài Đức, Hà Nội'}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-3 border border-[#202020] bg-[#0D0D0D]">
+              {profile.phone && (
+                <div className="flex items-center justify-between p-2.5 border border-[#202020] bg-[#0D0D0D]">
+                  <span className="text-[#888888] flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+                    Điện thoại:
+                  </span>
+                  <a href={`tel:${profile.phone}`} className="text-[#E5E5E5] font-bold text-right hover:text-white transition-colors">
+                    {profile.phone}
+                  </a>
+                </div>
+              )}
+
+              {profile.birthDate && (
+                <div className="flex items-center justify-between p-2.5 border border-[#202020] bg-[#0D0D0D]">
+                  <span className="text-[#888888] flex items-center gap-2">
+                    <Calendar className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+                    Ngày sinh:
+                  </span>
+                  <span className="text-[#E5E5E5] font-bold text-right">
+                    {profile.birthDate}
+                  </span>
+                </div>
+              )}
+
+              <div className="flex items-center justify-between p-2.5 border border-[#202020] bg-[#0D0D0D]">
                 <span className="text-[#888888] flex items-center gap-2">
                   <Mail className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
                   Email:
                 </span>
-                <span className="text-[#E5E5E5] font-bold text-right truncate max-w-[180px]">
+                <a href={`mailto:${profile.email}`} className="text-[#E5E5E5] font-bold text-right truncate max-w-[185px] hover:text-white transition-colors">
                   {profile.email}
-                </span>
+                </a>
               </div>
+
+              {profile.university && (
+                <div className="flex items-center justify-between p-2.5 border border-[#202020] bg-[#0D0D0D]">
+                  <span className="text-[#888888] flex items-center gap-2">
+                    <GraduationCap className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+                    Học vấn:
+                  </span>
+                  <span className="text-[#E5E5E5] font-bold text-right truncate max-w-[185px]" title={profile.university}>
+                    ĐH TN&amp;MT Hà Nội (GPA {profile.gpa || '3.47'})
+                  </span>
+                </div>
+              )}
+
+              {profile.ielts && (
+                <div className="flex items-center justify-between p-2.5 border border-[#202020] bg-[#0D0D0D]">
+                  <span className="text-[#888888] flex items-center gap-2">
+                    <Award className="w-3.5 h-3.5 text-white" strokeWidth={1.5} />
+                    Chứng chỉ:
+                  </span>
+                  <span className="text-emerald-400 font-bold text-right">
+                    IELTS {profile.ielts}
+                  </span>
+                </div>
+              )}
             </div>
 
           </div>
@@ -309,7 +361,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 </div>
                 <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">JAVA CORE &amp; OOP</div>
                 <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
-                  Java 17, Collections, Concurrency, Stream API.
+                  Java (Core, OOP), SQL, Collections, Stream API.
                 </div>
               </div>
 
@@ -319,7 +371,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 </div>
                 <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">SPRING BOOT 3</div>
                 <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
-                  RESTful APIs, Spring Data JPA, JWT Security.
+                  RESTful APIs, Spring Data JPA, Security 6 RBAC.
                 </div>
               </div>
 
@@ -327,16 +379,16 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 <div className="p-1.5 w-fit border border-[#333333] bg-[#161616] text-white">
                   <Target className="w-4 h-4" strokeWidth={1.5} />
                 </div>
-                <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">DATABASE &amp; TEST</div>
+                <div className="font-mono font-bold text-xs text-white uppercase tracking-wider">TOOLS &amp; TESTING</div>
                 <div className="font-sans text-[11px] text-[#888888] leading-relaxed">
-                  MySQL, PostgreSQL, Docker, JUnit 5 &amp; Mockito.
+                  MySQL, Git, Postman, Maven, JUnit 5 &amp; Mockito.
                 </div>
               </div>
             </div>
 
           </div>
 
-          {/* Value Commitments Bar */}
+          {/* Value Commitments Bar - Soft Skills from CV */}
           <div className="border border-[#242424] bg-[#111111] mono-card p-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
             
             <div className="flex items-center gap-3">
@@ -344,8 +396,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 <Code2 className="w-4 h-4" strokeWidth={1.5} />
               </div>
               <div>
-                <div className="font-heading font-black text-base text-white">OOP &amp; SOLID</div>
-                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">CLEAN CODE</div>
+                <div className="font-heading font-black text-base text-white">PROBLEM-SOLVING</div>
+                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">GIẢI QUYẾT VẤN ĐỀ</div>
               </div>
             </div>
 
@@ -354,8 +406,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
                 <CheckCircle2 className="w-4 h-4" strokeWidth={1.5} />
               </div>
               <div>
-                <div className="font-heading font-black text-base text-white">RESTful API</div>
-                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">BEST PRACTICES</div>
+                <div className="font-heading font-black text-base text-white">ATTENTION DETAIL</div>
+                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">TỈ MỈ &amp; CHUẨN MỰC</div>
               </div>
             </div>
 
@@ -365,7 +417,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, onUpdateProfile, isAd
               </div>
               <div>
                 <div className="font-heading font-black text-base text-white">FAST LEARNER</div>
-                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">READY FOR INTERN</div>
+                <div className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">TIẾP THU &amp; LÀM VIỆC NHÓM</div>
               </div>
             </div>
 

@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
     { label: 'GIỚI THIỆU', href: '#about', tag: '01', icon: User },
     { label: 'DỰ ÁN', href: '#projects', tag: '02', icon: Layers },
     { label: 'KỸ NĂNG', href: '#skills', tag: '03', icon: Award },
-    { label: 'KINH NGHIỆM', href: '#timeline', tag: '04', icon: Briefcase },
+    { label: 'KINH NGHIỆM & HỌC VẤN', href: '#timeline', tag: '04', icon: Briefcase },
     { label: 'LIÊN HỆ', href: '#contact', tag: '05', icon: Mail },
   ];
 
@@ -39,9 +39,9 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenEditor, isAdmin =
               </span>
               <span className="w-2 h-2 bg-white rounded-none" />
             </div>
-            <div className="text-[10px] font-mono uppercase text-[#8E8E8E] tracking-widest mt-1.5 flex items-center gap-1.5">
+            <div className="text-[10px] font-mono uppercase text-[#8E8E8E] tracking-widest mt-1.5 flex items-center gap-1.5 truncate">
               <span>//</span>
-              <span>JAVA BACKEND ENGINEER</span>
+              <span className="truncate">{profile.title}</span>
             </div>
           </a>
 

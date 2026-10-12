@@ -227,7 +227,7 @@ export const DEFAULT_FULL_PORTFOLIO_DATA: FullPortfolioData = {
   timeline: DEFAULT_TIMELINE,
 };
 
-const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v2';
+const STORAGE_KEY_FULL_DATA = 'neo_portfolio_full_data_v5';
 
 export function getStoredFullData(): FullPortfolioData {
   try {
@@ -439,11 +439,62 @@ export function saveStoredFullData(data: FullPortfolioData): void {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-black uppercase mb-1">Địa điểm làm việc:</label>
+                  <label className="block text-xs font-black uppercase mb-1">Địa điểm / Nơi ở:</label>
                   <input
                     type="text"
                     value={formData.personalInfo.location}
                     onChange={(e) => handlePersonalChange('location', e.target.value)}
+                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-black uppercase mb-1">Số điện thoại:</label>
+                  <input
+                    type="text"
+                    value={formData.personalInfo.phone || ''}
+                    onChange={(e) => handlePersonalChange('phone', e.target.value)}
+                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-black uppercase mb-1">Ngày sinh:</label>
+                  <input
+                    type="text"
+                    value={formData.personalInfo.birthDate || ''}
+                    onChange={(e) => handlePersonalChange('birthDate', e.target.value)}
+                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-xs font-black uppercase mb-1">Trường Đại học:</label>
+                  <input
+                    type="text"
+                    value={formData.personalInfo.university || ''}
+                    onChange={(e) => handlePersonalChange('university', e.target.value)}
+                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-black uppercase mb-1">Điểm GPA:</label>
+                  <input
+                    type="text"
+                    value={formData.personalInfo.gpa || ''}
+                    onChange={(e) => handlePersonalChange('gpa', e.target.value)}
+                    className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-black uppercase mb-1">Chứng chỉ IELTS:</label>
+                  <input
+                    type="text"
+                    value={formData.personalInfo.ielts || ''}
+                    onChange={(e) => handlePersonalChange('ielts', e.target.value)}
                     className="w-full p-3 border-4 border-black bg-white font-bold text-sm focus:bg-[#FFD93D] focus:outline-none shadow-neo-sm"
                   />
                 </div>
